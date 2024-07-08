@@ -1,0 +1,41 @@
+@keyframes screencredits1 {
+  from {background-color: #000000;}
+  to {background-color: #ffffff;}
+}
+
+.textcredits1 {
+	color: #ffffff;
+	font-size: 3vw;
+	position: absolute;
+	z-index: 1;
+	width: 100vw;
+	text-align: center;
+	margin-top: 48vh;
+	animation:	textcreditsanim1 3s 0.5s normal forwards;
+}
+
+.textcredits1::before {
+	content: "Thanks for playing!";
+}
+
+@keyframes textcreditsanim1 {
+  0% {color: #ffffff;}
+  40% {color: #000000;}
+  60% {color: #000000;}
+  100% {color: #ffffff;}
+}
+
+.textcredits2 {
+	color: #ffffff;
+	font-size: 3vw;
+	position: absolute;
+	z-index: 1;
+	width: 100vw;
+	text-align: center;
+	margin-top: 48vh;
+	animation:	textcreditsanim1 3s 0.5s normal forwards;
+}
+
+.textcredits2::before {
+	content: "By Andrew Bowman";
+}
