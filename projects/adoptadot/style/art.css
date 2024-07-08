@@ -1,0 +1,235 @@
+.screen {
+	display: flex;
+	height: 100vh;
+    max-height: 100vh;
+	max-width: 100vw;
+    overflow: auto;
+}
+
+.dot {
+	height: 2vw;
+	width: 2vw;
+	background-color: #ffffff;
+	border-radius: 50%;
+	margin: auto;
+	animation: 	dotintro1 3s, 
+				dotintro2 1s 1s 2 alternate,
+				dotintro3 1.4s 3s 2 alternate,
+				dotintro4 1s 6s 1 normal forwards,
+				dotintro5 1s 7s normal forwards,
+				dotintro6 1s 9s normal forwards,
+				dotintro7 0.5s 10.7s 6 alternate,
+				dotintro8 0.5s 14.5s 2 alternate,
+				dotintro9 2s 17s normal forwards,
+				dotintro10 1s 18s normal forwards,
+				dotintro11 1s 19s normal forwards,
+				dotintro12 1s 20s 5 normal forwards,
+				dotintro13 1s 25s normal forwards,
+				dotintro14 1s 26.5s normal forwards;
+}
+
+.text1 {
+	color: #ffffff;
+	font-size: 0px;
+	position: absolute;
+	z-index: 1;
+	margin-top: 40vh;
+	margin-left: 60vw;
+	animation: 	text1intro1 0s 9s normal forwards,
+				text1intro2 1s 10.5s normal forwards,
+				text1intro3 1s 12.5s normal forwards,
+				text1intro4 0s 13.5s normal forwards;
+}
+
+.text1::before {
+	content: 'Hi!';
+}
+
+.text2 {
+	color: #000000;
+	font-size: 2vw;
+	position: absolute;
+	z-index: 1;
+	margin-top: 40vh;
+	margin-left: 60vw;
+	animation: text2intro2 1s 15.5s normal forwards;
+}
+
+.text2::before {
+	content: '';
+	animation: 	text2intro1 1.5s 14s normal forwards;
+}
+
+.text3 {
+	color: #ffffff;
+	font-size: 0px;
+	position: absolute;
+	z-index: 1;
+	width: 100vw;
+	text-align: center;
+	margin-top: 23vh;
+	animation: 	text3intro1 0s 15.5s normal forwards, 
+				text3intro2 1.5s 17s normal forwards,
+				text3intro3 1.5s 18s normal forwards,
+				text3intro4 0s 20s normal forwards;
+}
+
+.text3::before {
+	content: 'I want to be your best friend!';
+}
+
+.text4 {
+	color: #ffffff;
+	font-size: 0px;
+	position: absolute;
+	z-index: 1;
+	width: 100vw;
+	text-align: center;
+	margin-top: 45vh;
+	animation: 	text3intro1 0s 19s normal forwards, 
+				text3intro2 1.5s 19.5s normal forwards,
+				text3intro4 0s 26s normal forwards;
+}
+
+.text4::before {
+	content: 'Will you adopt me? <3';
+}
+
+@keyframes dotintro1 {
+  from {margin-left: -2.5vw;}
+  to {margin-left: 49vw;}
+}
+
+@keyframes dotintro2 {
+  from {margin-top: 49vh;}
+  to {margin-top: 20vh;}
+}
+
+@keyframes dotintro3 {
+  from {margin: auto; width: 2vw; height: 2vw;}
+  to {margin: auto; width: 7vw; height: 7vw;}
+}
+
+@keyframes dotintro4 {
+  from {margin: auto; width: 2vw; height: 2vw;}
+  to {margin: auto; width: 4vw; height: 4vw;}
+}
+
+@keyframes dotintro5 {
+  from {background-color: #ffffff;}
+  to {background-color: #000000;}
+}
+
+@keyframes screenintro1 {
+  from {background-color: #000000;}
+  to {background-color: #ffffff;}
+}
+
+@keyframes dotintro6 {
+  from {margin: auto; width: 4vw; height: 4vw;}
+  to {margin: auto; width: 15vw; height: 15vw;}
+}
+
+@keyframes text1intro1 {
+  from {font-size: 0px;}
+  to {font-size: 2vw;}
+}
+
+@keyframes text1intro2 {
+  from {color: #ffffff;}
+  to {color: #000000;}
+}
+
+@keyframes dotintro7 {
+  from {margin: auto; width: 15vw; height: 15vw;}
+  to {margin: auto; width: 14vw; height: 14vw;}
+}
+
+@keyframes text1intro3 {
+  from {color: #000000;}
+  to {color: #ffffff;}
+}
+
+@keyframes text1intro4 {
+  from {font-size: 2vw;}
+  to {font-size: 0px;}
+}
+
+@keyframes text2intro1 {
+    0% {content: '';}
+    11% {content: 'I';}
+    44% {content: 'I am';}
+    88% {content: 'I am Dot';}
+    100% {content: 'I am Dot.';}
+}
+
+@keyframes dotintro8 {
+  from {margin-left: 42vw;}
+  to {margin-left: 37vw;}
+}
+
+@keyframes text2intro2 {
+  0% {margin-top: 40vh; color: #000000; font-size: 2vw;}
+  85% {color: #ffffff; font-size: 2vw;}
+  99% {margin-top: 60vh; color: #ffffff; font-size: 2vw;}
+  100% {margin-top: 60vh; font-size: 0px;}
+}
+
+@keyframes text3intro1 {
+  from {font-size: 0px;}
+  to {font-size: 2vw;}
+}
+
+@keyframes text3intro2 {
+  from {color: #ffffff;}
+  to {color: #000000;}
+}
+
+@keyframes text3intro3 {
+  from {color: #000000;}
+  to {color: #ffffff;}
+}
+
+@keyframes text3intro4 {
+  from {font-size: 2vw;}
+  to {font-size: 0px;}
+}
+
+@keyframes dotintro9 {
+  0% {background-color: #000000;}
+  50% {background-color: #cc00cc;}
+  100% {background-color: #000000;}
+}
+
+@keyframes dotintro10 {
+  from {margin: auto; width: 15vw; height: 15vw;}
+  to {margin: auto; width: 2vw; height: 2vw;}
+}
+
+@keyframes dotintro11 {
+  from {margin-top: 49vh;}
+  to {margin-top: 56vh;}
+}
+
+@keyframes dotintro12 {
+  0% {margin-left: 49vw;}
+  25% {margin-left: 47vw;}
+  75% {margin-left: 51vw;}
+  100% {margin-left: 49vw;}
+}
+
+@keyframes dotintro13 {
+  from {margin: auto; margin-top: 56vh; width: 2vw; height: 2vw;}
+  to {margin: auto; margin-top: 0vh; width: 100vh; height: 100vh;}
+}
+
+@keyframes dotintro14 {
+  0% {width: 0vw; height: 0vw;}
+  50% {margin: auto; margin-top: 49vh;}
+  100% {margin: auto; margin-top: 32vh; width: 15vw; height: 15vw;}
+}
+
+@keyframes screenintro2 {
+  from {background-color: #ffffff;}
+  to {background-color: #000000;}
+}

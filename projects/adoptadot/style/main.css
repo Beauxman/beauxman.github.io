@@ -1,0 +1,8 @@
+body {
+    font-family: Sora, Verdana, Tahoma, sans-serif;
+	color: #ffffff;
+	background-color: #000000;
+    max-height: 100vh;
+	max-width: 100vw;
+    overflow: auto;
+}

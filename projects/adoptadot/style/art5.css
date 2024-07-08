@@ -1,0 +1,111 @@
+.dotoutro, .dotoutro2, .dotoutro3, .dotoutro4 {
+	position: absolute;
+	z-index: 1;
+	width: 4vw;
+	height: 4vw;
+	border-radius: 50%;
+}
+
+.dotoutro {
+	margin-left: 48vw;
+	margin-top: 48vh;
+	background-color: #000000;
+	animation: 	dotoutro2anim1 2s 1s normal forwards,
+				dotsoutro2anim0 1.5s infinite alternate,
+				dotsoutro2anim3 0.8s 38s normal forwards, 
+				dotsoutro2anim4 3s 39s normal forwards;
+}
+
+.dotoutro2 {
+	background-image: linear-gradient(330deg, #006bb3, #1affff); 
+	margin-top: 38vh;
+	margin-left: 40vw;
+	animation: 	dotsoutro2anim1 2s normal forwards,
+				dotsoutro2anim0 2s infinite alternate;
+}
+
+.dotoutro3 {
+	background-image: linear-gradient(30deg, #00cc7a, #00ffcc); 
+	margin-top: 34vh;
+	margin-left: 48vw;
+	animation: 	dotsoutro2anim1 2s normal forwards,
+				dotsoutro2anim0 2s infinite alternate;
+}
+
+.dotoutro4 {
+	background-image: linear-gradient(70deg, #e60073, #cc33ff);
+	margin-top: 38vh;
+	margin-left: 56vw;
+	animation: 	dotsoutro2anim1 2s normal forwards,
+				dotsoutro2anim0 2s infinite alternate;
+}
+
+@keyframes dotsoutro2anim0{
+	from {transform: scale(1);}
+	to {transform: scale(1.2);}
+}
+
+@keyframes dotoutro2anim1 {
+	from {background-color: #000000;}
+	to {background-color: #ffffff;}
+}
+
+@keyframes dotsoutro2anim1 {
+	from {margin-top: -5vh;}
+}
+
+@keyframes dotsoutro2anim2 {
+	from {transform: translate(0vw, 0vh)}
+	to {transform: translate(0vw, -20vh)}
+}
+
+.textoutro1 {
+	color: #000000;
+	font-size: 6vw;
+	position: absolute;
+	z-index: 1;
+	margin-left: 68vw;
+	margin-top: 15vh;
+	animation: textoutro1anim1 1s 25s normal forwards;
+}
+
+.textoutro1::before {
+	content: "Hooray!";
+}
+
+@keyframes textoutro1anim1 {
+	from {color: #000000;}
+	to {color: #ffffff;}
+}
+
+@keyframes screenoutro1 {
+  0% {background-color: #000000;}
+  50% {background-color: #00cc00;}
+  100% {background-color: #000000;}
+}
+
+.textoutro2 {
+	color: #000000;
+	font-size: 5vw;
+	position: absolute;
+	z-index: 1;
+	width: 100vw;
+	text-align: center;
+	margin-top: 30vh;
+	animation:	textencanim1 1s 0s normal forwards, 
+				textencanim2 1s 2s normal forwards;	
+}
+
+.textoutro2::before {
+	content: "...";
+}
+
+@keyframes dotsoutro2anim3 {
+	from {margin-left: 48vw; width: 4vw; height: 4vw;}
+	to {margin-left: 49vw; width: 2vw; height: 2vw;}
+}
+
+@keyframes dotsoutro2anim4 {
+	from {transform: translate(0vw, 0vh)}
+	to {transform: translate(-55vw, 0vh)}
+}

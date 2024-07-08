@@ -1,0 +1,296 @@
+.dotenc, .dotenc2 {
+	position: absolute;
+	z-index: 1;
+	width: 4vw;
+	height: 4vw;
+	border-radius: 50%;
+}
+
+.dotenc {
+	margin-top: 60vh;
+	background-color: #000000;
+	margin-left: 37vw;
+	animation: 	dotencanim1 1s 1s normal forwards, 
+				dotencanim2 5s 3s normal forwards,
+				dotencanim3 1s 8s 56 alternate,
+				dotencanim4 2s 64s normal forwards;
+}
+
+.dotenc2 {
+	z-index: 2;
+	margin-top: 80vh;
+	margin-left: 48vw;
+	background-color: #ffffff;
+}
+
+@keyframes dotencanim1 {
+	from {background-color: #000000; transform: scale(0.8);}
+	to {background-color: #ffffff; transform: scale(1);}
+}
+
+@keyframes dotencanim2 {
+	0% {transform: translate(0vw)}
+	10% {transform: translate(2vw)}
+	20% {transform: translate(-2vw)}
+	40% {transform: translate(20vw)}
+	60% {transform: translate(-20vw)}
+	100% {transform: translate(11vw)}
+}
+
+@keyframes dotencanim3 {
+	from {transform: scale(1); margin-left: 48vw;}
+	to {transform: scale(1.2); margin-left: 48vw;}
+}
+
+@keyframes dotencanim4 {
+	from {transform: translate(0vw, 0vh); margin-left: 48vw}
+	to {transform: translate(0vw, 20vh); margin-left: 48vw}
+}
+
+
+.textenc1 {
+	color: #000000;
+	font-size: 2vw;
+	position: absolute;
+	z-index: 1;
+	width: 100vw;
+	text-align: center;
+	margin-top: 45vh;
+	animation:	textencanim1 1s 9s normal forwards, 
+				textencanim2 1s 10s normal forwards;	
+}
+
+.textenc1::before {
+	content: 'Where did everyone go?';
+}
+
+@keyframes textencanim1 {
+	from {color: #000000}
+	to {color: #ffffff}
+}
+
+@keyframes textencanim2 {
+	from {color: #ffffff}
+	to {color: #000000}
+}
+
+.textenc2 {
+	color: #000000;
+	font-size: 2vw;
+	position: absolute;
+	z-index: 1;
+	width: 100vw;
+	text-align: center;
+	margin-top: 45vh;
+	animation:	textencanim1 1s 7s normal forwards, 
+				textencanim2 1s 8s normal forwards;	
+}
+
+.textenc2::before {
+	content: "Gone? This can't be!";
+}
+
+.textenc3 {
+	color: #000000;
+	font-size: 2vw;
+	position: absolute;
+	z-index: 1;
+	width: 100vw;
+	text-align: center;
+	margin-top: 45vh;
+	animation:	textencanim1 1s 7s normal forwards, 
+				textencanim2 1s 9s normal forwards;	
+}
+
+.textenc3::before {
+	content: "Enough of these tricks. Show yourself!";
+}
+
+.textenc4 {
+	color: #000000;
+	font-size: 2vw;
+	position: absolute;
+	z-index: 1;
+	width: 100vw;
+	text-align: center;
+	margin-top: 45vh;
+	animation:	textencanim1 2s 6s normal forwards, 
+				textencanim2 1s 7s normal forwards;	
+}
+
+.textenc4::before {
+	content: "An evil square... I should have known.";
+}
+
+.squareenc1, .squareenc2, .squareenc3, .squareenc4 {
+	position: absolute;
+	z-index: 2;
+	width: 4vw;
+	height: 4vw;
+	border-radius: 5%;
+	margin-top: 30vh;
+	background-color: #ff0000;
+	margin-left: 48vw;
+}
+
+.squareenc1 {
+	animation: 	square1encanim1 2s normal forwards,
+				square1encanim2 0.8s 2s 22 alternate,
+				square1encanim3 2s 22s reverse;
+}
+
+.squareenc2, .squareenc3, .squareenc4 {
+	animation: 	square1encanim2 0.8s infinite alternate,
+				square2encanim1 10s 6s infinite forwards;
+}
+
+.squareenc2 {
+	margin-top: 25vh;
+}
+
+.squareenc3 {
+	margin-top: 10vh;
+}
+
+.squareenc4 {
+	margin-top: 40vh;
+}
+
+@keyframes square1encanim1 {
+	from {transform: translate(0vw, -35vh)}
+	to {transform: translate(0vw, 0vh)}
+}
+
+@keyframes square1encanim2{
+	from {transform: scale(1);}
+	to {transform: scale(1.2);}
+}
+
+@keyframes square1encanim3 {
+	from {transform: translate(0vw, -35vh)}
+	to {transform: translate(0vw, 0vh)}
+}
+
+@keyframes square2encanim1 {
+	0% {transform: translate(0vw, 0vh) scale(1.2);}
+	18% {transform: translate(0vw, -3vh) scale(1);}
+	36% {transform: translate(-3vw, -3vh) scale(1.2);}
+	54% {transform: translate(3vw, 3vh) scale(1);}
+	72% {transform: translate(-3vw, 3vh) scale(1.2);}
+	90% {transform: translate(0vw, 0vh) scale(1);}
+	100% {transform: translate(0vw, 0vh) scale(1.2);}
+}
+
+@keyframes screenencanim1 {
+	from {background-color: #000000;}
+	to {background-color: #ff0000;}
+}
+
+.bullet {
+	position: absolute;
+	z-index: 1;
+	width: 1vw;
+	height: 1vw;
+	border-radius: 50%;
+	background-color: #ffffff;
+}
+
+.enemyBullet {
+	position: absolute;
+	z-index: 1;
+	width: 1vw;
+	height: 1vw;
+	border-radius: 5%;
+	background-color: #ff0000;
+}
+
+
+.textenc5 {
+	color: #000000;
+	font-size: 2vw;
+	position: absolute;
+	z-index: 1;
+	margin-left: 60vw;
+	margin-top: 75vh;
+	animation:	textencanim1 1s 4s normal forwards, 
+				textencanim2 1s 7s normal forwards;	
+}
+
+.textenc5::before {
+	content: "This is scary... but I think I know just what to do.";
+}
+
+.squareencboss {
+	position: absolute;
+	z-index: 2;
+	width: 8vw;
+	height: 8vw;
+	border-radius: 5%;
+	margin-top: 20vh;
+	background-color: #ff0000;
+	margin-left: 46vw;
+	animation: bossencanim1 15s infinite forwards;
+}
+
+@keyframes bossencanim1 {
+	0% {transform: translate(0vw, 0vh) scale(1.2);}
+	5% {transform: translate(0vw, -15vh) scale(1);}
+	10% {transform: translate(-25vw, -15vh) scale(1.2) rotate(90deg);}
+	15% {transform: translate(25vw, 15vh) scale(1);}
+	20% {transform: translate(-25vw, 15vh) scale(1.2) rotate(-90deg);}
+	25% {transform: translate(0vw, 0vh) scale(1);}
+	26% {transform: rotate(360deg);}
+	38% {transform: rotate(-1080deg);}
+	45% {transform: rotate(90deg);}
+	50% {transform: scale(1.2);}
+	55% {transform: translate(25vw, 0vh) scale(1);}
+	60% {transform: translate(0vw, 0vh) scale(1.2) rotate(90deg);}
+	65% {transform: translate(-25vw, 0vh) scale(1);}
+	70% {transform: translate(0vw, 0vh) scale(1.2) rotate(90deg);}
+	75% {transform: translate(25vw, 15vh) scale(1);}
+	80% {transform: translate(0vw, 0vh) scale(1.2) rotate(-90deg);}
+	85% {transform: translate(-15vw, 25vh) scale(1);}
+	90% {transform: translate(0vw, 0vh) scale(1.2) rotate(90deg);}
+	95% {transform: translate(15vw, -15vh) scale(1);}
+	100% {transform: translate(0vw, 0vh) scale(1.2);}
+}
+
+@keyframes bossencanim2 {
+	from {transform: scale(1);}
+	to {transform: scale(1.5);}
+}
+
+.healthbarboss {
+	position: absolute;
+	z-index: 3;
+	width: 90vw;
+	height: 1vw;
+	margin-top: 5vh;
+	margin-left: 5vw;
+	border-radius: 1%;
+	background-color: #990000;
+	background-image: linear-gradient(to top right, #660000, #e60000);
+}
+
+@keyframes screenbossanim1 {
+	0% {background-color: #000000;}
+	50% {background-color: #ff0000;}
+	100% {background-color: #000000;}
+}
+
+@keyframes screenbossanim2 {
+	0% {background-color: #000000;}
+	10% {background-color: #4d0000;}
+	20% {background-color: #000000;}
+}
+
+@keyframes screenbossanim3 {
+	0% {background-color: #000000;}
+	50% {background-color: #ff0000;}
+	100% {background-color: #000000;}
+}
+
+@keyframes dotenc2anim1 {
+	from {background-color: #ffffff;}
+	to {background-color: #000000;}
+}
