@@ -1,6 +1,7 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.168.0/build/three.module.js';
 import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.168.0/examples/jsm/loaders/GLTFLoader.js';
 import { RoomEnvironment } from 'https://cdn.jsdelivr.net/npm/three@0.168.0/examples/jsm/environments/RoomEnvironment.js';
+import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.168.0/examples/jsm/controls/OrbitControls.js';
 
 // Renderer
 
@@ -19,6 +20,22 @@ const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.inner
 camera.position.set( 10, 8, -3 );
 camera.lookAt( 0, 2, -1 );
 
+// Window
+    
+function scaleWindow() {
+	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.updateProjectionMatrix();
+	renderer.setSize(window.innerWidth, window.innerHeight);
+}
+
+window.onresize = scaleWindow;
+scaleWindow();
+
+// controls/OrbitControls
+
+const controls = new OrbitControls( camera, renderer.domElement );
+controls.autoRotate = true;
+
 // Environment
 
 const environment = new RoomEnvironment();
@@ -34,7 +51,7 @@ canvas.appendChild( renderer.domElement );
 
 // Fog
 
-scene.fog = new THREE.Fog( 0x99ccff, .1, 45 );
+scene.fog = new THREE.Fog( 0x99ccff, .01, 45 );
 
 // Lighting
 
@@ -79,7 +96,6 @@ loader.load( 'models/scene.glb', function ( gltf ) {
 		} else if ( child.isMesh ) {
 			child.castShadow = true;
 		}
-		console.log(child.name);
 	} );
 	
 	scene.add( gltf.scene );
