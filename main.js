@@ -108,7 +108,8 @@ scene.add( spotlight );
 
 // Key input
 
-var speed = 0.1;
+var speed = 0;
+var accel = 0.01;
 
 var train1, train2, train3, train4;
 
@@ -116,15 +117,9 @@ document.addEventListener("keydown", onDocumentKeyDown, false);
 function onDocumentKeyDown(event) {
     var keyCode = event.which;
     if (keyCode == 37) {
-        train1.position.z += speed;
-		train2.position.z += speed;
-		train3.position.z += speed;
-		train4.position.z += speed;
+		speed += accel;
 	} else if (keyCode == 39) {
-        train1.position.z -= speed;
-		train2.position.z -= speed;
-		train3.position.z -= speed;
-		train4.position.z -= speed;
+		speed -= accel;
 	}
 }
 
@@ -134,6 +129,16 @@ var model1;
 
 function animate() {
 	stats.update();
+
+	if (Math.abs(speed) > 0.005) { speed += Math.sign(speed) * -0.001; }
+	else { speed = 0; }
+	
+	if (train1.position.z > 6 || train1.position.z < -25) { speed *= -1; }
+
+	train1.position.z += speed;
+	train2.position.z += speed;
+	train3.position.z += speed;
+	train4.position.z += speed;
 	
 	renderer.render(scene, camera);
 	renderer2.render(scene2, camera);
