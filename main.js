@@ -2,17 +2,67 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.168.0/build/three.m
 import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.168.0/examples/jsm/loaders/GLTFLoader.js';
 import { RoomEnvironment } from 'https://cdn.jsdelivr.net/npm/three@0.168.0/examples/jsm/environments/RoomEnvironment.js';
 import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.168.0/examples/jsm/controls/OrbitControls.js';
+import { CSS3DRenderer, CSS3DObject } from 'https://cdn.jsdelivr.net/npm/three@0.168.0/examples/jsm/renderers/CSS3DRenderer.js';
+import Stats from 'https://cdn.jsdelivr.net/npm/three@0.168.0/examples/jsm/libs/stats.module.js';
+
+const canvas = document.getElementById("canvas");
+
+// Stats
+
+const stats = new Stats()
+stats.showPanel(0)
+document.body.appendChild(stats.dom)
 
 // Renderer
 
 const renderer = new THREE.WebGLRenderer( { antialias: true } );
 renderer.setPixelRatio( window.devicePixelRatio );
-renderer.setSize($("#canvas").width(), $("#canvas").height());
-renderer.gammaOutput = true;
-renderer.gammaFactor = 2.2;
+renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-document.body.appendChild( renderer.domElement );
+renderer.domElement.style="z-index: -1; position: absolute;";
+canvas.appendChild( renderer.domElement );
+
+const renderer2 = new CSS3DRenderer( { alpha: true } );
+renderer2.setSize(window.innerWidth, window.innerHeight);
+canvas.appendChild(renderer2.domElement);
+
+// Scene
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color( 0x66d9ff );
+
+const scene2 = new THREE.Scene();
+scene2.scale.set(0.01, 0.01, 0.01);
+
+// CSS3D
+var content = '<div>' +
+  'Computer Programmer<br>' +
+  'Web Developer<br>' +
+  '<textarea>Type freely inside here!</textarea>' +
+  //'<embed type="text/html" src="https://r1bb1t.com"  width="600" height="400">' +
+'</div>';
+
+function createCSS3DObject(content) {
+  var wrapper = document.createElement('div');
+  wrapper.innerHTML = content;
+  var div = wrapper.firstChild;
+
+  div.style.width = '1000px';
+  div.style.height = '1000px';
+  div.style.color = "#ffffff";
+  div.style.fontSize = "60px";
+
+  var object = new CSS3DObject(div);
+  return object;
+}
+
+const CSSObject1 = createCSS3DObject(content);
+CSSObject1.lookAt(0, 1, 0);
+CSSObject1.position.set(5.5, 0, 0);
+CSSObject1.position.set(CSSObject1.position.x * 100, CSSObject1.position.y * 100, CSSObject1.position.z * 100);
+CSSObject1.rotateZ(1.5708);
+scene2.add(CSSObject1);
 
 // Camera
 
@@ -26,28 +76,16 @@ function scaleWindow() {
 	camera.aspect = window.innerWidth / window.innerHeight;
 	camera.updateProjectionMatrix();
 	renderer.setSize(window.innerWidth, window.innerHeight);
+	renderer2.setSize(window.innerWidth, window.innerHeight);
 }
 
 window.onresize = scaleWindow;
 scaleWindow();
 
-// controls/OrbitControls
+// Controls
 
-const controls = new OrbitControls( camera, renderer.domElement );
+const controls = new OrbitControls( camera, renderer2.domElement );
 controls.autoRotate = true;
-
-// Environment
-
-const environment = new RoomEnvironment();
-const pmremGenerator = new THREE.PMREMGenerator( renderer );
-
-// Scene
-
-const scene = new THREE.Scene();
-scene.background = new THREE.Color( 0x66d9ff );
-//scene.environment = pmremGenerator.fromScene( environment ).texture;
-const canvas = document.getElementById("canvas");
-canvas.appendChild( renderer.domElement );
 
 // Fog
 
@@ -66,17 +104,39 @@ spotlight.shadow.mapSize.height = 10000; // Might affect FPS
 spotlight.shadow.camera.far = 4000;
 spotlight.shadow.camera.near = 2;
 spotlight.shadow.camera.fov = 30;
-//spotlight.shadow.radius = 2000;
-//spotlight.shadow.blurSamples = 2;
 scene.add( spotlight );
+
+// Key input
+
+var speed = 0.1;
+
+var train1, train2, train3, train4;
+
+document.addEventListener("keydown", onDocumentKeyDown, false);
+function onDocumentKeyDown(event) {
+    var keyCode = event.which;
+    if (keyCode == 37) {
+        train1.position.z += speed;
+		train2.position.z += speed;
+		train3.position.z += speed;
+		train4.position.z += speed;
+	} else if (keyCode == 39) {
+        train1.position.z -= speed;
+		train2.position.z -= speed;
+		train3.position.z -= speed;
+		train4.position.z -= speed;
+	}
+}
 
 // Animation Loop
 
 var model1;
 
 function animate() {
-    
-	renderer.render( scene, camera );
+	stats.update();
+	
+	renderer.render(scene, camera);
+	renderer2.render(scene2, camera);
 }
 
 // Model Loader
@@ -98,6 +158,16 @@ loader.load( 'models/scene.glb', function ( gltf ) {
 			child.receiveShadow = true;
 		} else if ( child.isMesh ) {
 			child.castShadow = true;
+		}
+		
+		if (child.name === "Train1") {
+			train1 = child;
+		} else if (child.name === "Train2") {
+			train2 = child;
+		} else if (child.name === "Train3") {
+			train3 = child;
+		} else if (child.name === "Train4") {
+			train4 = child;
 		}
 	} );
 	
