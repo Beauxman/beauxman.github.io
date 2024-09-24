@@ -93,6 +93,9 @@ loader.load( 'models/scene.glb', function ( gltf ) {
 			child.receiveShadow = true;
 		} else if (child.name === "Titles") {
 			child.castShadow = false;
+		} else if (child.name === "Mountain1" || child.name === "Mountain2") {
+			child.castShadow = false;
+			child.receiveShadow = true;
 		} else if ( child.isMesh ) {
 			child.castShadow = true;
 		}
