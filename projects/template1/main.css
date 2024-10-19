@@ -1,0 +1,107 @@
+body {
+    font-family: Sora, Verdana, Tahoma, sans-serif;
+	color: #ffffff;
+	background-color: #000c1a;
+	position: relative;
+}
+
+footer {
+	width: 100%;
+	text-shadow: none;
+	color: #ffffff;
+	font-size: 12px;
+	padding: 0px;
+	padding-left: 5%;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 2.5rem;
+}
+
+.container-global {
+	padding-bottom: 2.5rem;
+}
+
+.front-panel {
+	min-height: 45rem;
+	height: fix-content;
+	max-height: 80rem;
+	margin-top: 15%;
+	background: rgba(170, 170, 170, .3);
+	border-style: solid;
+	border-width: 1px !important;
+	border-color: #ffffff;
+	overflow: hidden;
+}
+
+.front-panel > button {
+	margin-top: 2.5vw;
+	background: rgba(255, 255, 255, .5);
+	color: #ffffff;
+	text-shadow: 0px 0px 2px #000000;
+	border-style: solid;
+	border-width: 1px !important;
+	border-color: #ffffff;
+}
+
+.nav > li > a {
+	color: #000c1a !important;
+}
+
+.nav > li > a:hover {
+	color: #0044cc !important;
+}
+
+.backdrop {
+	background-image: url('images/globe_backdrop.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	height: 80rem;
+	margin-bottom: 2%;
+}
+
+.backdrop2 {
+	background-color: #ffccb3;
+	min-height: 35rem;
+	padding-top: 5vh;
+	margin-bottom: 5vh;
+}
+
+.display-box {
+	height: 45rem;
+	background: rgba(120, 120, 120, 0.25);
+	padding: 1.5vw;
+	overflow: hidden;
+}
+
+.display-box-small {
+	height: 40vh;
+	background: rgba(120, 120, 120, 0.25);
+}
+
+.name, .email {
+	color: #000c1a;
+}
+
+.input {
+	width: 80%;
+	font-size: 18px;
+}
+
+.box-transparent {
+    background: rgba(120, 120, 120, 0.15);
+}
+
+.box-rounded {
+    border-style: solid;
+    border-width: 0px;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.title {
+    padding: 10px;
+    font-size: 72px;
+    padding-left: 2%;
+}
