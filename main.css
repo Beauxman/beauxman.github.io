@@ -2,8 +2,8 @@ body {
 	font-family: Sora, Arial;
 	font-size: 24px;
 	color: #000000;
-	-background-color: #ffffff;
-	background-image: linear-gradient(to bottom right, #99ffff, #00ffcc);
+	-background-image: linear-gradient(to bottom right, #99ffff, #00ffcc);
+	-cursor: none;
 }
 
 #canvas {

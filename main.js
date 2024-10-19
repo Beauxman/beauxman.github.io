@@ -15,7 +15,7 @@ document.body.appendChild(stats.dom)
 
 // Renderer
 
-const renderer = new THREE.WebGLRenderer( { antialias: true } );
+const renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
 renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.shadowMap.enabled = true;
@@ -23,13 +23,13 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.domElement.style="z-index: -1; position: absolute;";
 canvas.appendChild( renderer.domElement );
 
-const renderer2 = new CSS3DRenderer( { alpha: true } );
+const renderer2 = new CSS3DRenderer();
 renderer2.setSize(window.innerWidth, window.innerHeight);
 canvas.appendChild(renderer2.domElement);
 
 // Scene
 
-const scene = new THREE.Scene();
+const scene = new THREE.Scene( { alpha: true } );
 scene.background = new THREE.Color( 0x66d9ff );
 
 const scene2 = new THREE.Scene();
@@ -38,9 +38,9 @@ scene2.scale.set(0.01, 0.01, 0.01);
 // CSS3D
 var content = '<div>' +
   'Computer Programmer<br>' +
-  'Web Developer<br>' +
+  'Web Developer<br><br>' +
   '<textarea>Type freely inside here!</textarea>' +
-  //'<embed type="text/html" src="https://r1bb1t.com"  width="600" height="400">' +
+  //'<embed type="text/html" src="test/index.html"  width="2600" height="4400">' +
 '</div>';
 
 function createCSS3DObject(content) {
@@ -48,10 +48,7 @@ function createCSS3DObject(content) {
   wrapper.innerHTML = content;
   var div = wrapper.firstChild;
 
-  div.style.width = '1000px';
-  div.style.height = '1000px';
-  div.style.color = "#ffffff";
-  div.style.fontSize = "60px";
+  div.style = "width: 1000px; height: 1000px; color: #ffffff; font-size: 60px; text-shadow: 5px 4px 7px #000000; "
 
   var object = new CSS3DObject(div);
   return object;
@@ -59,7 +56,7 @@ function createCSS3DObject(content) {
 
 const CSSObject1 = createCSS3DObject(content);
 CSSObject1.lookAt(0, 1, 0);
-CSSObject1.position.set(5.5, 0, 0);
+CSSObject1.position.set(5.7, 0, 0);
 CSSObject1.position.set(CSSObject1.position.x * 100, CSSObject1.position.y * 100, CSSObject1.position.z * 100);
 CSSObject1.rotateZ(1.5708);
 scene2.add(CSSObject1);
@@ -85,7 +82,6 @@ scaleWindow();
 // Controls
 
 const controls = new OrbitControls( camera, renderer2.domElement );
-controls.autoRotate = true;
 
 // Fog
 
@@ -140,6 +136,9 @@ function animate() {
 	train3.position.z += speed;
 	train4.position.z += speed;
 	
+	//camera.lookAt(train1.position);
+	//camera.position.set( train1.position.x + 12, train1.position.y + 10, train1.position.z - 4);
+	
 	renderer.render(scene, camera);
 	renderer2.render(scene2, camera);
 }
@@ -158,7 +157,7 @@ loader.load( 'models/scene.glb', function ( gltf ) {
 			child.receiveShadow = true;
 		} else if (child.name === "Titles") {
 			child.castShadow = false;
-		} else if (child.name === "Mountain1" || child.name === "Mountain2") {
+		} else if (child.name.includes("Mountain")) {
 			child.castShadow = false;
 			child.receiveShadow = true;
 		} else if ( child.isMesh ) {
@@ -175,6 +174,7 @@ loader.load( 'models/scene.glb', function ( gltf ) {
 			train4 = child;
 		}
 	} );
+	
 	
 	scene.add( gltf.scene );
 	model1.encoding = THREE.sRGBEncoding;
