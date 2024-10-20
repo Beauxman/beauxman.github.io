@@ -36,30 +36,48 @@ const scene2 = new THREE.Scene();
 scene2.scale.set(0.01, 0.01, 0.01);
 
 // CSS3D
-var content = '<div>' +
-  'Computer Programmer<br>' +
-  'Web Developer<br><br>' +
-  '<textarea>Type freely inside here!</textarea>' +
-  //'<embed type="text/html" src="test/index.html"  width="2600" height="4400">' +
-'</div>';
 
-function createCSS3DObject(content) {
-  var wrapper = document.createElement('div');
-  wrapper.innerHTML = content;
-  var div = wrapper.firstChild;
+function createCSS3DObject(content, style, x, y, z) {
+	let div = document.createElement('div');
+	div.innerHTML = content;
+	div.style = style;
 
-  div.style = "width: 1000px; height: 1000px; color: #ffffff; font-size: 60px; text-shadow: 5px 4px 7px #000000; "
-
-  var object = new CSS3DObject(div);
-  return object;
+	let object = new CSS3DObject(div);
+	object.lookAt(0, 1, 0);
+	object.position.set(x, y, z);
+	object.position.set(object.position.x * 100, object.position.y * 100, object.position.z * 100);
+	object.rotateZ(1.5708);
+	
+	return object;
 }
 
-const CSSObject1 = createCSS3DObject(content);
-CSSObject1.lookAt(0, 1, 0);
-CSSObject1.position.set(5.7, 0, 0);
-CSSObject1.position.set(CSSObject1.position.x * 100, CSSObject1.position.y * 100, CSSObject1.position.z * 100);
-CSSObject1.rotateZ(1.5708);
+let object1Content = '<div>' +
+    'Computer Programmer<br>' +
+    'Web Developer<br><br>' +
+    //'<textarea>Type freely inside here!</textarea>' +
+    //'<embed type="text/html" src="test/index.html"  width="800" height="800">' +
+    '</div>';
+
+const CSSObject1 = createCSS3DObject(object1Content, "width: 1200px; height: 1000px; color: #ffffff; font-size: 84px; text-shadow: 2px 2px 3px #000000;", 6.7, 0, -1);
+
+let object2Content = `<div style="background-color: #ffb380; background-color:rgba(255, 179, 128, 0.75); border-radius: 30px; padding: 30px;">
+	<img src="images/titans.png"></img><br>
+    <span style="color: #003066; text-shadow: 2px 2px 3px #ffffff;">California State University, Fullerton</span><br>
+    <span style="font-family: Pacifico; color: #ff6600; text-shadow: 2px 2px 3px #ffffff;">Computer Science, B.S.</span><br><br>
+    </div>`;
+
+const CSSObject2 = createCSS3DObject(object2Content, "color: #ffffff; font-size: 28px; text-shadow: 2px 2px 3px #000000;", 7, 0, -38);
+
+let object3Content = '<div>' +
+	'<span>About me</span>' +
+    '</div>';
+
+const CSSObject3 = createCSS3DObject(object3Content, "color: #ffffff; font-family: Pacifico; font-size: 108px; text-shadow: 1px 1px 7px #555555;", 1, 0, -38);
+
+
 scene2.add(CSSObject1);
+scene2.add(CSSObject2);
+scene2.add(CSSObject3);
 
 // Camera
 

@@ -2,10 +2,22 @@ body {
 	font-family: Sora, Arial;
 	font-size: 24px;
 	color: #000000;
+	background-color: #222222;
 	-background-image: linear-gradient(to bottom right, #99ffff, #00ffcc);
 	-cursor: none;
 }
 
 #canvas {
-	-margin-top: 40px;
+	color: #00000;
+	position: absolute;
+}
+
+.overlay {
+	position: absolute;
+	z-index: 1;
+	width: 20%;
+	height: 100%;
+	opacity: 0.6;
+	background-color: #222222;
+	-background-image: linear-gradient(to bottom right, #99ffff, #ffffff);
 }
