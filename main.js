@@ -69,10 +69,10 @@ let object2Content = `<div style="background-color: #ffb380; background-color:rg
 const CSSObject2 = createCSS3DObject(object2Content, "color: #ffffff; font-size: 28px; text-shadow: 2px 2px 3px #000000;", 7, 0, -38);
 
 let object3Content = '<div>' +
-	'<span>About me</span>' +
+	'<span>About</span>' +
     '</div>';
 
-const CSSObject3 = createCSS3DObject(object3Content, "color: #ffffff; font-family: Pacifico; font-size: 108px; text-shadow: 1px 1px 7px #555555;", 1, 0, -38);
+const CSSObject3 = createCSS3DObject(object3Content, "color: #ffffff; font-size: 108px; text-shadow: 2px 2px 3px #000000;", 0.5, 0, -43.6);
 
 
 scene2.add(CSSObject1);

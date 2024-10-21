@@ -10,14 +10,37 @@ body {
 #canvas {
 	color: #00000;
 	position: absolute;
+	-filter: sepia(40%);
+	-filter: saturate(180%);
+	-filter: drop-shadow(16px 16px 20px green) invert(100%) grayscale(100%);
+	-filter: hue-rotate(160deg);
+	-filter: grayscale(100%);
 }
 
-.overlay {
+#overlay {
 	position: absolute;
 	z-index: 1;
-	width: 20%;
+	display: flex;
+	flex-direction: column;
+	color: #ffffff;
+	text-shadow: 2px 2px 3px #222222;
+	width: 15%;
 	height: 100%;
-	opacity: 0.6;
+	opacity: 0.97;
 	background-color: #222222;
-	-background-image: linear-gradient(to bottom right, #99ffff, #ffffff);
+	font-size: 2.5vw;
+	text-align: center;
+	padding-top: 10vh;
+}
+
+#overlay > div {
+	width: 100%;
+	line-height: 9vh;
+	margin-top: 3vh;
+	margin-bottom: 3vh;
+}
+
+#overlay > div:hover {
+	background-color: #ffffff;
+	cursor: pointer;
 }
