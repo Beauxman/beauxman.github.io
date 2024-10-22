@@ -120,12 +120,63 @@ spotlight.shadow.camera.near = 2;
 spotlight.shadow.camera.fov = 30;
 scene.add( spotlight );
 
+const spotlight2 = new THREE.SpotLight( 0xffffff, 40000.0 );
+spotlight2.position.set(0, 80, -160 );
+spotlight2.castShadow = false;
+scene.add( spotlight2 );
+
+// Sort functions
+
+function partition(arr, low, high) {
+    let pivot = arr[high].position.z;
+    let i = low - 1;
+    for (let j = low; j <= high - 1; j++) {
+        if (arr[j].position.z < pivot) {
+            i++;
+            swap(arr, i, j);
+        }
+    }
+    swap(arr, i + 1, high);
+    return i + 1;
+}
+
+function swap(arr, i, j) {
+    let temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+}
+
+function quickSort(arr, low, high) {
+    if (low < high) {
+        let pi = partition(arr, low, high);
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+
+// Pathing
+
+var tracks = [];
+
+function findStartTrack(train) {
+	var curTrack;
+	for (let i = 0; i < tracks.length - 1; i++) {
+		if (tracks[i].position.z >= train.position.z && tracks[i + 1].position.z < train.position.z) {
+			curTrack = i + 1;
+			break;
+		}
+	}
+	return curTrack;
+}
+
 // Key input
 
 var speed = 0;
 var accel = 0.01;
+var maxSpeed = 0.05;
 
 var train1, train2, train3, train4;
+var trains = [];
 
 document.addEventListener("keydown", onDocumentKeyDown, false);
 function onDocumentKeyDown(event) {
@@ -137,25 +188,77 @@ function onDocumentKeyDown(event) {
 	}
 }
 
+document.getElementById("canvas").addEventListener("click", function() {
+	speed = -0.03;
+	trains[0].speed = speed;
+	trains[1].speed = speed;
+	trains[2].speed = speed;
+	trains[3].speed = speed;
+	startMoving = true;
+});
 // Animation Loop
 
-var model1;
+let model1;
+let roundPre = 10;
+let startMoving = false;
 
 function animate() {
 	stats.update();
-
-	if (Math.abs(speed) > 0.005) { speed += Math.sign(speed) * -0.001; }
-	else { speed = 0; }
 	
-	if (train1.position.z > 6 || train1.position.z < -25) { speed *= -1; }
+	for (let i = 0; i < 4; i++) {
+		if (Math.round(trains[i].position.z * roundPre) == Math.round(tracks[trains[i].nextTrack].position.z * roundPre)) {// &&
+			//Math.round(trains[i].position.x * roundPre) == Math.round(tracks[trains[i].nextTrack].position.x * roundPre)) {
+			if (speed <= 0) { 
+				trains[i].nextTrack++;
+				trains[i].trackReset = true;
+			} else { 
+				trains[i].nextTrack--; 
+				trains[i].trackReset = true;
+			}
+		}
 
-	train1.position.z += speed;
-	train2.position.z += speed;
-	train3.position.z += speed;
-	train4.position.z += speed;
+		if (trains[i].trackReset) {
+			trains[i].xMulti = tracks[trains[i].nextTrack].position.x - trains[i].position.x
+			trains[i].zMulti = tracks[trains[i].nextTrack].position.z - trains[i].position.z;
+			trains[i].trackReset = false;
+		}
+		
+		if (startMoving && i > 0) {
+			let buffer = 1.4;
+			if (i == 2) { buffer = 1.8; }
+			if (i == 3) { buffer = 2; }
+			
+			if (Math.abs(trains[i - 1].position.z - trains[i].position.z) < buffer) {
+				trains[i].speed = 0;
+				setTimeout(() => {
+					startMoving = false;
+					trains[i].speed = speed;
+				}, 1000);
+			} else if (startMoving) {
+				trains[i].speed = speed;
+			}
+		}
+		
+		trains[i].position.z += trains[i].zMulti * Math.abs(trains[i].speed);
+		trains[i].position.x += trains[i].xMulti * Math.abs(trains[i].speed);
+		
+		trains[i].lookAt(tracks[trains[i].nextTrack].position.x, trains[i].position.y, tracks[trains[i].nextTrack].position.z);
+		trains[i].rotation.y += Math.PI;
+		
+		//
+		
+		if (trains[0].position.z <= -46.3) {
+			trains[i].speed = 0;
+		}
+		console.log(speed);
+		
+	}
 	
-	//camera.lookAt(train1.position);
-	//camera.position.set( train1.position.x + 12, train1.position.y + 10, train1.position.z - 4);
+	
+	camera.lookAt(train1.position);
+	camera.position.set( train1.position.x + 12, train1.position.y + 10, train1.position.z - 4);
+	
+	//spotlight2.position.set(train1.position.x, train1.position.y + 80, train1.position.z);
 	
 	renderer.render(scene, camera);
 	renderer2.render(scene2, camera);
@@ -191,8 +294,27 @@ loader.load( 'models/scene.glb', function ( gltf ) {
 		} else if (child.name === "Train4") {
 			train4 = child;
 		}
+		
+		if (child.name.includes("Track")) {
+			tracks.push(child);
+		}
 	} );
 	
+	quickSort(tracks, 0, tracks.length - 1);
+	tracks = tracks.reverse();
+	//console.log(tracks);
+	
+	train1.nextTrack = findStartTrack(train1);
+	train2.nextTrack = findStartTrack(train2);
+	train3.nextTrack = findStartTrack(train3);
+	train4.nextTrack = findStartTrack(train4);
+	
+	trains = [train1, train2, train3, train4];
+	
+	for (let i = 0; i < trains.length; i++) {
+		trains[i].trackReset = true, trains[i].xMulti = 0, trains[i].zMulti = 0;
+		trains[i].speed = 0;
+	}
 	
 	scene.add( gltf.scene );
 	model1.encoding = THREE.sRGBEncoding;

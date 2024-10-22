@@ -3,6 +3,7 @@ body {
 	font-size: 24px;
 	color: #000000;
 	background-color: #222222;
+	overflow: hidden;
 	-background-image: linear-gradient(to bottom right, #99ffff, #00ffcc);
 	-cursor: none;
 }
@@ -17,7 +18,19 @@ body {
 	-filter: grayscale(100%);
 }
 
-#overlay {
+#filter {
+    position:absolute;
+    height: 100vh;
+    -webkit-mask: radial-gradient(65vw, #0000 10%, #000);
+            mask: radial-gradient(65vw, #0000 10%, #000);
+    width: 110%;
+	margin-left: -10%;
+    backdrop-filter: blur(30px);
+    -background:rgba(0, 0, 0, 0.3);
+    pointer-events: none; 
+}
+
+#overlayleft {
 	position: absolute;
 	z-index: 1;
 	display: flex;
@@ -33,14 +46,33 @@ body {
 	padding-top: 10vh;
 }
 
-#overlay > div {
+#overlayleft > div {
 	width: 100%;
 	line-height: 9vh;
 	margin-top: 3vh;
 	margin-bottom: 3vh;
 }
 
-#overlay > div:hover {
+#overlayleft > div:hover {
 	background-color: #ffffff;
 	cursor: pointer;
+}
+
+#overlayright {
+	position: absolute;
+	z-index: 1;
+	color: #ffffff;
+	font-size: 0.75vw;
+	background-color: #222222;
+	text-shadow: 2px 2px 3px #222222;
+	width: 1.5%;
+	height: 100%;
+	opacity: 0.95;
+	margin-left: 98.5%;
+	padding-top: 90vh;
+}
+
+#overlayright > div {
+	transform: rotate(-90deg);
+	white-space: nowrap;
 }
