@@ -19,7 +19,7 @@ body {
 }
 
 #filter {
-    position:absolute;
+    position: absolute;
     height: 100vh;
     -webkit-mask: radial-gradient(65vw, #0000 10%, #000);
             mask: radial-gradient(65vw, #0000 10%, #000);

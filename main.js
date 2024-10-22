@@ -15,7 +15,7 @@ document.body.appendChild(stats.dom)
 
 // Renderer
 
-const renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
+const renderer = new THREE.WebGLRenderer( { antialias: true } );
 renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.shadowMap.enabled = true;
@@ -29,7 +29,7 @@ canvas.appendChild(renderer2.domElement);
 
 // Scene
 
-const scene = new THREE.Scene( { alpha: true } );
+const scene = new THREE.Scene();
 scene.background = new THREE.Color( 0x66d9ff );
 
 const scene2 = new THREE.Scene();
@@ -51,6 +51,11 @@ function createCSS3DObject(content, style, x, y, z) {
 	return object;
 }
 
+let object0Content = '<div id="start">Start</div>';
+let object0Style = 'width: 350px; height: 175px; padding-top: 25px; text-align: center; color: #ffffff; font-size: 60px; text-shadow: 2px 2px 3px #000000; border-style: solid; border-color: #ffffff; border-width: 10px';
+
+const CSSObject0 = createCSS3DObject(object0Content, object0Style, 4.2, 0, -6.4);
+
 let object1Content = '<div>' +
     'Computer Programmer<br>' +
     'Web Developer<br><br>' +
@@ -60,7 +65,7 @@ let object1Content = '<div>' +
 
 const CSSObject1 = createCSS3DObject(object1Content, "width: 1200px; height: 1000px; color: #ffffff; font-size: 84px; text-shadow: 2px 2px 3px #000000;", 6.7, 0, -1);
 
-let object2Content = `<div style="background-color: #ffb380; background-color:rgba(255, 179, 128, 0.75); border-radius: 30px; padding: 30px;">
+let object2Content = `<div style="background-color: #ffb380; background-color:rgba(255, 179, 128, 1); border-radius: 30px; padding: 30px;">
 	<img src="images/titans.png"></img><br>
     <span style="color: #003066; text-shadow: 2px 2px 3px #ffffff;">California State University, Fullerton</span><br>
     <span style="font-family: Pacifico; color: #ff6600; text-shadow: 2px 2px 3px #ffffff;">Computer Science, B.S.</span><br><br>
@@ -74,7 +79,7 @@ let object3Content = '<div>' +
 
 const CSSObject3 = createCSS3DObject(object3Content, "color: #ffffff; font-size: 108px; text-shadow: 2px 2px 3px #000000;", 0.5, 0, -43.6);
 
-
+scene2.add(CSSObject0);
 scene2.add(CSSObject1);
 scene2.add(CSSObject2);
 scene2.add(CSSObject3);
@@ -178,29 +183,37 @@ var maxSpeed = 0.05;
 var train1, train2, train3, train4;
 var trains = [];
 
-document.addEventListener("keydown", onDocumentKeyDown, false);
-function onDocumentKeyDown(event) {
-    var keyCode = event.which;
-    if (keyCode == 37) {
-		speed += accel;
-	} else if (keyCode == 39) {
-		speed -= accel;
-	}
-}
-
-document.getElementById("canvas").addEventListener("click", function() {
+function startRoute() {
 	speed = -0.03;
 	trains[0].speed = speed;
 	trains[1].speed = speed;
 	trains[2].speed = speed;
 	trains[3].speed = speed;
 	startMoving = true;
+	moving = true;
+}
+
+document.addEventListener("keydown", onDocumentKeyDown, false);
+function onDocumentKeyDown(event) {
+    var keyCode = event.which;
+    if (keyCode == 37) {
+		//speed += accel;
+	} else if (keyCode == 39) {
+		//speed -= accel;
+		if (!moving) { startRoute(); }
+	}
+}
+
+document.getElementById("canvas").addEventListener("click", function() {
+	if (!moving) { startRoute(); }
 });
+
 // Animation Loop
 
 let model1;
 let roundPre = 10;
 let startMoving = false;
+let moving = false;
 
 function animate() {
 	stats.update();
@@ -225,8 +238,8 @@ function animate() {
 		
 		if (startMoving && i > 0) {
 			let buffer = 1.4;
-			if (i == 2) { buffer = 1.8; }
-			if (i == 3) { buffer = 2; }
+			if (i == 2) { buffer = 1.85; }
+			if (i == 3) { buffer = 1.95; }
 			
 			if (Math.abs(trains[i - 1].position.z - trains[i].position.z) < buffer) {
 				trains[i].speed = 0;
@@ -247,16 +260,23 @@ function animate() {
 		
 		//
 		
-		if (trains[0].position.z <= -46.3) {
+		//if (trains[0].position.z <= -46.3) { trains[i].speed = 0; }
+		
+		if (trains[0].position.z <= -105) {
 			trains[i].speed = 0;
 		}
-		console.log(speed);
+		
 		
 	}
 	
+	//camera.lookAt(train1.position);
+	//camera.position.set( 12, 11, train1.position.z - 4);
 	
 	camera.lookAt(train1.position);
 	camera.position.set( train1.position.x + 12, train1.position.y + 10, train1.position.z - 4);
+	
+	//camera.lookAt(0, 1, train1.position.z)
+	//camera.position.set( 12, 11, train1.position.z - 4);
 	
 	//spotlight2.position.set(train1.position.x, train1.position.y + 80, train1.position.z);
 	
@@ -274,7 +294,7 @@ loader.load( 'models/scene.glb', function ( gltf ) {
 	// Set shadow casts
 
 	model1.traverse( function( child ) {
-		if (child.name === "Plane") {
+		if (child.name.includes("Plane") || child.name.includes("Biome")) {
 			child.receiveShadow = true;
 		} else if (child.name === "Titles") {
 			child.castShadow = false;
