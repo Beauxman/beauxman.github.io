@@ -20,7 +20,7 @@ renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-renderer.domElement.style="z-index: -1; position: absolute;";
+renderer.domElement.style = "z-index: -1; position: absolute;";
 canvas.appendChild( renderer.domElement );
 
 const renderer2 = new CSS3DRenderer();
@@ -86,9 +86,9 @@ scene2.add(CSSObject3);
 
 // Camera
 
-const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 500 );
-camera.position.set( 10, 8, -3 );
-camera.lookAt( 0, 2, -1 );
+const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 500);
+camera.position.set(10, 8, -3);
+camera.lookAt(0, 2, -1);
 
 // Window
     
@@ -104,31 +104,35 @@ scaleWindow();
 
 // Controls
 
-const controls = new OrbitControls( camera, renderer2.domElement );
+const controls = new OrbitControls(camera, renderer2.domElement);
 
 // Fog
 
-scene.fog = new THREE.Fog( 0x99ccff, .01, 45 );
+scene.fog = new THREE.Fog(0x99ccff, .01, 45);
 
 // Lighting
 
-const light = new THREE.AmbientLight( 0x404040, 5.0 );
-scene.add( light );
+const light = new THREE.AmbientLight(0x404040, 5.0);
+scene.add(light);
 
-const spotlight = new THREE.SpotLight( 0xffffff, 40000.0 );
-spotlight.position.set(0, 80, 0 );
-spotlight.castShadow = true;
-spotlight.shadow.mapSize.width = 10000; // Might affect FPS
-spotlight.shadow.mapSize.height = 10000; // Might affect FPS
-spotlight.shadow.camera.far = 4000;
-spotlight.shadow.camera.near = 2;
-spotlight.shadow.camera.fov = 30;
-scene.add( spotlight );
+const spotlight = new THREE.SpotLight(0xffffff, 40000.0);
+spotlight.position.set(0, 80, 0);
+spotlight.shadow.mapSize.width = 10000; // Affects FPS
+spotlight.shadow.mapSize.height = 10000; // Affects FPS
+scene.add(spotlight);
 
-const spotlight2 = new THREE.SpotLight( 0xffffff, 40000.0 );
-spotlight2.position.set(0, 80, -160 );
-spotlight2.castShadow = false;
-scene.add( spotlight2 );
+const spotlight2 = new THREE.SpotLight(0xffffff, 20000.0);
+spotlight2.position.set(0, 80, -100);
+scene.add(spotlight2);
+
+const spotlight3 = new THREE.SpotLight(0xffffff, 3000.0);
+spotlight3.position.set(0, 25, -150);
+scene.add(spotlight3);
+
+
+const spotlight4 = new THREE.SpotLight(0xffffff, 6000.0);
+spotlight4.position.set(0, 50, -200);
+scene.add(spotlight4);
 
 // Sort functions
 
@@ -177,97 +181,91 @@ function findStartTrack(train) {
 // Key input
 
 var speed = 0;
-var accel = 0.01;
-var maxSpeed = 0.05;
+const accel = 0.001;
+const maxSpeed = -0.06;
 
 var train1, train2, train3, train4;
 var trains = [];
 
 function startRoute() {
-	speed = -0.03;
-	trains[0].speed = speed;
-	trains[1].speed = speed;
-	trains[2].speed = speed;
-	trains[3].speed = speed;
-	startMoving = true;
-	moving = true;
+	if (!moving) { 
+		if (dir) { speed = -0.001; }
+		else { speed = 0.001; }
+	}
+	moving = !moving;
+}
+
+function checkDirections() {
+	if (speed == 0) {
+		dir = !dir;
+		if (!dir) {
+			for (let i = 0; i < 4; i++) { trains[i].nextTrack--; }
+		} else {
+			for (let i = 0; i < 4; i++) { trains[i].nextTrack++; }
+		}
+		startRoute();
+	} else {
+		setTimeout(() => {
+			checkDirections();
+		}, 100)
+	}
+}
+
+function switchDirections() {
+	moving = false;
+	checkDirections();
 }
 
 document.addEventListener("keydown", onDocumentKeyDown, false);
 function onDocumentKeyDown(event) {
     var keyCode = event.which;
-    if (keyCode == 37) {
-		//speed += accel;
-	} else if (keyCode == 39) {
-		//speed -= accel;
-		if (!moving) { startRoute(); }
+	if (keyCode == 39) {
+		switchDirections();
+	} else if (keyCode == 37) {
+		startRoute();
 	}
 }
 
 document.getElementById("canvas").addEventListener("click", function() {
-	if (!moving) { startRoute(); }
+	startRoute();
 });
 
 // Animation Loop
 
-let model1;
-let roundPre = 10;
-let startMoving = false;
+let sceneObject;
 let moving = false;
+let dir = true;
 
 function animate() {
 	stats.update();
 	
+	if (moving && Math.abs(speed) < Math.abs(maxSpeed)) { speed += accel * Math.sign(speed)};
+	if (!moving && Math.abs(speed) > 0) { speed -= accel * Math.sign(speed)};
+	
 	for (let i = 0; i < 4; i++) {
-		if (Math.round(trains[i].position.z * roundPre) == Math.round(tracks[trains[i].nextTrack].position.z * roundPre)) {// &&
-			//Math.round(trains[i].position.x * roundPre) == Math.round(tracks[trains[i].nextTrack].position.x * roundPre)) {
-			if (speed <= 0) { 
-				trains[i].nextTrack++;
-				trains[i].trackReset = true;
-			} else { 
-				trains[i].nextTrack--; 
-				trains[i].trackReset = true;
-			}
-		}
-
-		if (trains[i].trackReset) {
-			trains[i].xMulti = tracks[trains[i].nextTrack].position.x - trains[i].position.x
-			trains[i].zMulti = tracks[trains[i].nextTrack].position.z - trains[i].position.z;
-			trains[i].trackReset = false;
-		}
+		var direction = new THREE.Vector3();
+		trains[i].getWorldDirection(direction);
 		
-		if (startMoving && i > 0) {
-			let buffer = 1.4;
-			if (i == 2) { buffer = 1.85; }
-			if (i == 3) { buffer = 1.95; }
+		if (dir) {
+			if (trains[i].position.z <= tracks[trains[i].nextTrack].position.z + Math.abs(speed * 2)) { trains[i].nextTrack++; }
 			
-			if (Math.abs(trains[i - 1].position.z - trains[i].position.z) < buffer) {
-				trains[i].speed = 0;
-				setTimeout(() => {
-					startMoving = false;
-					trains[i].speed = speed;
-				}, 1000);
-			} else if (startMoving) {
-				trains[i].speed = speed;
-			}
+			trains[i].position.add(direction.multiplyScalar(speed));
+			
+			trains[i].lookAt(tracks[trains[i].nextTrack].position.x, trains[i].position.y, tracks[trains[i].nextTrack].position.z);
+			trains[i].rotation.y += Math.PI;
+		} else {
+			if (trains[i].position.z >= tracks[trains[i].nextTrack].position.z - Math.abs(speed * 2)) { trains[i].nextTrack--; }
+			
+			direction.x *= -1, direction.z *= -1;
+			trains[i].position.add(direction.multiplyScalar(-speed));
+			
+			trains[i].lookAt(tracks[trains[i].nextTrack].position.x, trains[i].position.y, tracks[trains[i].nextTrack].position.z);
+			trains[i].rotation.y;
 		}
-		
-		trains[i].position.z += trains[i].zMulti * Math.abs(trains[i].speed);
-		trains[i].position.x += trains[i].xMulti * Math.abs(trains[i].speed);
-		
-		trains[i].lookAt(tracks[trains[i].nextTrack].position.x, trains[i].position.y, tracks[trains[i].nextTrack].position.z);
-		trains[i].rotation.y += Math.PI;
-		
-		//
-		
-		//if (trains[0].position.z <= -46.3) { trains[i].speed = 0; }
-		
-		if (trains[0].position.z <= -105) {
-			trains[i].speed = 0;
-		}
-		
-		
 	}
+	
+	if (trains[0].position.z >= -2.8978211879730225 && dir == false) { switchDirections(); }
+	if (trains[0].position.z <= -165 && dir == true) { switchDirections(); }
 	
 	//camera.lookAt(train1.position);
 	//camera.position.set( 12, 11, train1.position.z - 4);
@@ -278,8 +276,6 @@ function animate() {
 	//camera.lookAt(0, 1, train1.position.z)
 	//camera.position.set( 12, 11, train1.position.z - 4);
 	
-	//spotlight2.position.set(train1.position.x, train1.position.y + 80, train1.position.z);
-	
 	renderer.render(scene, camera);
 	renderer2.render(scene2, camera);
 }
@@ -289,18 +285,23 @@ function animate() {
 const loader = new GLTFLoader();
 
 loader.load( 'models/scene.glb', function ( gltf ) {
-    model1 = gltf.scene;
+    sceneObject = gltf.scene;
 	
 	// Set shadow casts
 
-	model1.traverse( function( child ) {
+	sceneObject.traverse( function( child ) {
 		if (child.name.includes("Plane") || child.name.includes("Biome")) {
 			child.receiveShadow = true;
 		} else if (child.name === "Titles") {
 			child.castShadow = false;
+		} else if (child.name.includes("Track")) {
+			child.castShadow = false;
 		} else if (child.name.includes("Mountain")) {
 			child.castShadow = false;
 			child.receiveShadow = true;
+		} else if (child.name.includes("Cliff")) {
+			child.castShadow = true;
+			child.receiveShadow = false;
 		} else if ( child.isMesh ) {
 			child.castShadow = true;
 		}
@@ -322,7 +323,6 @@ loader.load( 'models/scene.glb', function ( gltf ) {
 	
 	quickSort(tracks, 0, tracks.length - 1);
 	tracks = tracks.reverse();
-	//console.log(tracks);
 	
 	train1.nextTrack = findStartTrack(train1);
 	train2.nextTrack = findStartTrack(train2);
@@ -331,13 +331,12 @@ loader.load( 'models/scene.glb', function ( gltf ) {
 	
 	trains = [train1, train2, train3, train4];
 	
-	for (let i = 0; i < trains.length; i++) {
-		trains[i].trackReset = true, trains[i].xMulti = 0, trains[i].zMulti = 0;
-		trains[i].speed = 0;
-	}
+	if (tracks.length > 120) { spotlight3.target = tracks[120]; }
+	
+	if (window.innerWidth >= 768) { spotlight.castShadow = true; }
 	
 	scene.add( gltf.scene );
-	model1.encoding = THREE.sRGBEncoding;
+	sceneObject.encoding = THREE.sRGBEncoding;
 
     renderer.setAnimationLoop( animate );
 }, undefined, function ( error ) {
