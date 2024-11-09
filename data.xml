@@ -19,43 +19,60 @@
 		</style>
     </entry>
     <entry>
+		<x>4.1</x>
+		<y>0</y>
+		<z>-2.7</z>
+		<content>
+			<div style="height: 14px; width: 60px; background-color: #ffffff; box-shadow: 2px 2px 3px #000000; animation: dotanim 0.5s 0s infinite alternate;">
+			</div>
+		</content>
+		<style>
+			width: 200px;
+			height: 200px
+			color: #ffffff;
+			font-size: 84px;
+			text-shadow: 2px 2px 3px #000000;
+		</style>
+    </entry>
+    <entry>
 		<x>4.2</x>
 		<y>0</y>
 		<z>-6.4</z>
 		<content>
-			<div id="start">Start</div>
+			<div class="start" syle="height: 175px; width: 350px; border-style: solid;">
+				<div style="animation: startanim 2s 0s infinite;">Start</div>
+			</div>
 		</content>
 		<style>
 			width: 350px; 
-			height: 175px; 
+			height: 175px;
+			border-style: solid; 
+			border-color: #ffffff; 
+			border-width: 10px;
 			padding-top: 25px; 
 			text-align: center; 
 			color: #ffffff; 
 			font-size: 60px; 
 			text-shadow: 2px 2px 3px #000000; 
-			border-style: solid; 
-			border-color: #ffffff; 
-			border-width: 10px;
 		</style>
-		</entry>
-   <entry>
-		<x>6.5</x>
+	</entry>
+    <entry>
+		<x>7</x>
 		<y>0</y>
-		<z>-46.5</z>
+		<z>-31</z>
 		<content>
-			<article style="background-color: #ffb380; background-color: #ffbb99; border-radius: 30px; padding: 30px; width: 400px; height: 600px;">
-				<img src="images/titans.png" draggable="false"></img><br />
-				<span style="color: #003066; text-shadow: 2px 2px 3px #ffffff;">California State University, Fullerton</span><br /><br />
-				<span style="font-size: 32px; font-family: Pacifico; color: #ffffff; text-shadow: 2px 2px 3px #e64d00;">Bachelor of Science:<br /> Computer Science</span><br /><br />
-			</article>
+			<div style="width: 1000px;">
+				<span>'Click' to stop &amp; start.</span><br />
+				<span>'Double click' to reverse.</span>
+			</div>
 		</content>
 		<style>
 			color: #ffffff; 
-			font-size: 28px; 
-			text-shadow: 2px 2px 3px #000000;
+			font-size: 36px;
+			text-shadow: 1px 1px 3px #006646;
 		</style>
 	</entry>
-   <entry>
+    <entry>
 		<x>0.2</x>
 		<y>0</y>
 		<z>-42</z>
@@ -75,16 +92,39 @@
 		<y>0</y>
 		<z>-39.8</z>
 		<content>
-			<article style="width: 800px; height: 600px; background-color: #66ffcc; border-radius: 30px; padding: 30px;">
+			<article style="width: 800px; height: 600px; background-color: rgb(102, 255, 204, 0.2); border-radius: 30px; padding: 30px; box-shadow: 0px 0px 2px #006646;">
 				<h1 style="font-size: 64px;">Hello! I'm Andrew,</h1>
 				<br />
-				<p>a <span style="color: #ff66ff;">creative</span> web developer passionate about crafting <span style="color: #66ccff;">engaging</span> and <span style="color: #00ffcc;">user-friendly</span> digital experiences. I love blending <span style="color: #ff4d94">technical skill</span> with creativity to bring <span style="color: #ffff99">ideas</span> to life. My <span style="color: #b3b3b3">toolkit</span> includes a variety of programming languages, frameworks, and tools that help me <span style="color: #99ff66">design</span> and <span style="color: #99ff66">develop</span> innovative <span style="color: #9999ff">solutions</span> to everday problems.</p>
+				<div style="display: flex;">
+					<div style="width: 400px;">a <span style="color: #ff66ff;">creative</span> web developer passionate about crafting <span style="color: #66ccff;">engaging</span> and <span style="color: #00ffcc;">user-friendly</span> digital experiences. I love blending <span style="color: #ff4d94">technical skill</span> with creativity to bring <span style="color: #ffff99">ideas</span> to life. <!--My <span style="color: #b3b3b3">toolkit</span> includes a variety of programming languages, frameworks, and tools that help me <span style="color: #99ff66">design</span> and <span style="color: #99ff66">develop</span> innovative <span style="color: #9999ff">solutions</span> to everday problems.--></div>
+					<div>
+						<img src="images/andrew.jpg" style="width: 200px; height: 200px; margin-left: 60px; opacity: 90%; border-radius: 50%; box-shadow: 0px 0px 2px #006646;" draggable="false"></img><br />
+						<p style="margin-left: 30px;">from<br />Huntington Beach, CA.</p>
+					</div>
+				</div>
 			</article>
 		</content>
 		<style>
 			color: #ffffff; 
 			font-size: 28px; 
 			text-shadow: 2px 2px 1px #006646;
+		</style>
+	</entry>
+    <entry>
+		<x>6.5</x>
+		<y>0</y>
+		<z>-46.5</z>
+		<content>
+			<article style="background-color: #ffb380; background-color: #ffbb99; border-radius: 30px; padding: 30px; width: 400px; height: 600px; box-shadow: 0px 0px 2px #006646;">
+				<img src="images/titans.png" draggable="false"></img><br />
+				<span style="color: #003066; text-shadow: 2px 2px 3px #ffffff;">California State University, Fullerton</span><br /><br />
+				<span style="font-size: 32px; font-family: Pacifico; color: #ffffff; text-shadow: 2px 2px 3px #e64d00;">Bachelor of Science:<br /> Computer Science</span><br /><br />
+			</article>
+		</content>
+		<style>
+			color: #ffffff; 
+			font-size: 28px; 
+			text-shadow: 2px 2px 3px #000000;
 		</style>
 	</entry>
     <entry>
@@ -121,16 +161,16 @@
 		</style>
 	</entry>
     <entry>
-		<x>-0.2</x>
+		<x>-1.5</x>
 		<y>-4.8</y>
-		<z>-78.5</z>
+		<z>-77.5</z>
 		<content>
 		<div style="transform: scale(0.8); width: 1000px;">
-			<img src="images/git.png" style="width: 140px;" draggable="false"></img>
-			<img src="images/c++.png" style="width: 140px; margin-left: 40px;" draggable="false"></img>
-			<img src="images/java.png" style="width: 140px; margin-left: 40px;" draggable="false"></img>
+			<!--<img src="images/git.png" style="width: 140px;" draggable="false"></img>
+			<img src="images/c++.png" style="width: 140px; margin-left: 40px;" draggable="false"></img>-->
+			<!--<img src="images/java.png" style="width: 140px; margin-left: 40px;" draggable="false"></img>-->
 			<br />
-			<img src="images/csharp.png" style="width: 180px; margin-left: 260px; margin-top: 10px;" draggable="false"></img>
+			<!--<img src="images/csharp.png" style="width: 180px; margin-left: 260px; margin-top: 10px;" draggable="false"></img>-->
 		</div>
 		</content>
 		<style>
@@ -139,7 +179,7 @@
     <entry>
 		<x>4.4</x>
 		<y>0</y>
-		<z>-128</z>
+		<z>-127.5</z>
 		<content>
 			<div style="width: 1000px;">
 				<span>Links</span>
@@ -154,10 +194,27 @@
     <entry>
 		<x>6.2</x>
 		<y>0</y>
-		<z>-128.5</z>
+		<z>-128</z>
 		<content>
 			<div style="width: 1000px;">
 				<span><a href="andrewasus@gmail.com">Email</a> | <a href="https://github.com/Beauxman">Github</a> | <a href="https://www.linkedin.com/in/andrew-bowman-45a4b7288/">LinkedIn</a></span>
+			</div>
+		</content>
+		<style>
+			color: #cccccc; 
+			font-size: 60px; 
+			text-shadow: 2px 2px 3px #000000;
+		</style>
+	</entry>
+    <entry>
+		<x>7.5</x>
+		<y>0</y>
+		<z>-128.2</z>
+		<content>
+			<div style="width: 1000px;">
+			<img src="images/gmail.png" style="width: 140px; border-radius: 10px;" draggable="false"></img>
+				<img src="images/github.png" style="width: 140px; border-radius: 10px; margin-left: 90px;" draggable="false"></img>
+				<img src="images/linkedin.png" style="width: 140px; border-radius: 10px; margin-left: 130px;" draggable="false"></img>
 			</div>
 		</content>
 		<style>
@@ -186,7 +243,7 @@
 		<y>0</y>
 		<z>-158</z>
 		<content>
-			<div style="display: flex; flex-direction: row; background-color: #99ffeb; border-radius: 30px; padding: 30px;">
+			<div style="display: flex; flex-direction: row; background-color: #99ffeb; border-radius: 30px; padding: 30px; box-shadow: 0px 0px 2px #006646;">
 				<div style="width: 450px; height: 400px; margin-top: 50px;">
 					<img src="images/r1bb1t.jpg" style="width: 140px; margin-right: 30px; margin-bottom: 30px; background-color: #ccfff5; border-radius: 50%;" draggable="false"></img><span>R1bb1t</span><br />
 					<p style="font-size: 28px;">An innovative social media platform designed for fast, real-time communication, and community interaction.</p>

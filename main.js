@@ -11,7 +11,7 @@ const canvas = document.getElementById("canvas");
 
 const stats = new Stats()
 stats.showPanel(0)
-//document.body.appendChild(stats.dom)
+document.body.appendChild(stats.dom)
 
 // Renderer
 
@@ -67,7 +67,7 @@ fetch("data.xml")
   
 // Camera
 
-const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 500);
+const camera = new THREE.PerspectiveCamera(36, window.innerWidth / window.innerHeight, 1, 300);
 camera.position.set(10, 8, -3);
 camera.lookAt(0, 2, -1);
 
@@ -166,7 +166,7 @@ const accel = 0.001;
 const maxSpeed = -0.06;
 
 const startBounds = -4;
-const endBounds = -160;
+const endBounds = -157;
 
 var trains = [];
 
@@ -199,9 +199,9 @@ document.addEventListener('click', function (evt) {
 	if (evt.detail === 1) {
 		startRoute();
 	} else if (evt.detail === 2) {
-		//startRoute();
+		switchDirections();
 	} else if (evt.detail === 3) { 
-		switchDirections(); 
+		//switchDirections(); 
 	}
 });
 
@@ -246,8 +246,9 @@ function animate() {
 	//camera.position.set( 12, 11, trains[0].position.z - 4);
 	
 	if (followCam == 1) {
-		camera.lookAt(trains[0].position);
-		camera.position.set( trains[0].position.x + 12, trains[0].position.y + 10, trains[0].position.z - 4);
+		camera.lookAt(trains[1].position);
+		//camera.position.set( trains[0].position.x + 12, trains[0].position.y + 10, trains[0].position.z - 4);
+		camera.position.set( trains[0].position.x + 16, trains[0].position.y + 14, trains[0].position.z + 2);
 	}
 	
 	//camera.lookAt(0, 1, trains[0].position.z)
