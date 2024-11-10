@@ -99,8 +99,8 @@ scene.add(light);
 
 const spotlight = new THREE.SpotLight(0xffffff, 40000.0);
 spotlight.position.set(0, 80, 0);
-spotlight.shadow.mapSize.width = 10000;
-spotlight.shadow.mapSize.height = 10000;
+spotlight.shadow.mapSize.width = 2000;
+spotlight.shadow.mapSize.height = 2000;
 scene.add(spotlight);
 
 const spotlight2 = new THREE.SpotLight(0xffffff, 20000.0);
