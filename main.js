@@ -30,7 +30,7 @@ canvas.appendChild(renderer2.domElement);
 // Scene
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color( 0x66d9ff );
+scene.background = new THREE.Color( 0x000000 );
 
 const scene2 = new THREE.Scene();
 scene2.scale.set(0.01, 0.01, 0.01);
@@ -75,6 +75,7 @@ camera.lookAt(0, 2, -1);
     
 function scaleWindow() {
 	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.fov = ((window.innerHeight / window.innerWidth) * 30) + 25;
 	camera.updateProjectionMatrix();
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	renderer2.setSize(window.innerWidth, window.innerHeight);
@@ -90,28 +91,28 @@ if (followCam == 0) { const controls = new OrbitControls(camera, renderer2.domEl
 
 // Fog
 
-scene.fog = new THREE.Fog(0x99ccff, .01, 45);
+scene.fog = new THREE.Fog(0x000000, .01, 55);
 
 // Lighting
 
 const light = new THREE.AmbientLight(0x404040, 5.0);
 scene.add(light);
 
-const spotlight = new THREE.SpotLight(0xffffff, 40000.0);
+const spotlight = new THREE.SpotLight(0xffffff, 60000.0);
 spotlight.position.set(0, 80, 0);
 spotlight.shadow.mapSize.width = 2000;
 spotlight.shadow.mapSize.height = 2000;
 scene.add(spotlight);
 
-const spotlight2 = new THREE.SpotLight(0xffffff, 20000.0);
+const spotlight2 = new THREE.SpotLight(0xffffff, 60000.0);
 spotlight2.position.set(0, 80, -100);
 scene.add(spotlight2);
 
-const spotlight3 = new THREE.SpotLight(0xffffff, 3000.0);
+const spotlight3 = new THREE.SpotLight(0xffffff, 5500.0);
 spotlight3.position.set(0, 25, -150);
 scene.add(spotlight3);
 
-const spotlight4 = new THREE.SpotLight(0xffffff, 6000.0);
+const spotlight4 = new THREE.SpotLight(0xffffff, 40000.0);
 spotlight4.position.set(0, 50, -200);
 scene.add(spotlight4);
 
@@ -165,7 +166,7 @@ var speed = 0;
 const accel = 0.001;
 const maxSpeed = -0.06;
 
-const startBounds = -4;
+const startBounds = -1;
 const endBounds = -157;
 
 var trains = [];
@@ -242,17 +243,10 @@ function animate() {
 	if (trains[0].position.z >= startBounds && dir == false) { switchDirections(); }
 	if (trains[0].position.z <= endBounds && dir == true) { switchDirections(); }
 	
-	//camera.lookAt(trains[0].position);
-	//camera.position.set( 12, 11, trains[0].position.z - 4);
-	
 	if (followCam == 1) {
-		camera.lookAt(trains[1].position);
-		//camera.position.set( trains[0].position.x + 12, trains[0].position.y + 10, trains[0].position.z - 4);
-		camera.position.set( trains[0].position.x + 16, trains[0].position.y + 14, trains[0].position.z + 2);
+		camera.lookAt(trains[0].position);
+		camera.position.set( trains[0].position.x + 16, trains[0].position.y + 14, trains[0].position.z + 0);
 	}
-	
-	//camera.lookAt(0, 1, trains[0].position.z)
-	//camera.position.set( 12 + trains[0].position.x / 1.2, 11 - trains[0].position.z / 20, trains[0].position.z - 4);
 	
 	renderer.render(scene, camera);
 	renderer2.render(scene2, camera);
@@ -274,7 +268,7 @@ loader.load( 'scene.glb', function ( gltf ) {
 		} else if (child.name.includes("Mountain")) {
 			child.castShadow = false;
 			child.receiveShadow = true;
-		} else if (child.name.includes("Cliff")) {
+		} else if (child.name.includes("Cliff") || child.name.includes("Road")) {
 			child.castShadow = true;
 			child.receiveShadow = false;
 		} else if ( child.isMesh ) {
@@ -284,6 +278,8 @@ loader.load( 'scene.glb', function ( gltf ) {
 		if (child.name.includes("Train")) { trains.push(child); }
 		
 		if (child.name.includes("Track")) { tracks.push(child); }
+		
+		if (child.name === "Spotlight3") { spotlight3.target = child; }
 	});
 	
 	quickSort(tracks, 0, tracks.length - 1);
@@ -293,7 +289,6 @@ loader.load( 'scene.glb', function ( gltf ) {
 		trains[i].nextTrack = findStartTrack(trains[i]);
 	}
 	
-	if (tracks.length > 120) { spotlight3.target = tracks[120]; }
 	if (window.innerWidth >= 768) { spotlight.castShadow = true; }
 	
 	scene.add( gltf.scene );

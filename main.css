@@ -4,16 +4,18 @@ body {
 	color: #ffffff;
 	background-color: #222222;
 	overflow: hidden;
+	margin: 0px;
 	-cursor: none;
 }
 
 a {
-	color: #2d5986;
-	text-shadow: 2px 2px 3px #0c1a27;
+	color: #0080ff;
+	text-shadow: 2px 2px 5px #0073e6;
+	text-decoration: none;
 }
 
 a:hover {
-	color: #538cc6;
+	color: #4da6ff;
 }
 
 #canvas {

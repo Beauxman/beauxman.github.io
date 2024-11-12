@@ -57,22 +57,6 @@
 		</style>
 	</entry>
     <entry>
-		<x>7</x>
-		<y>0</y>
-		<z>-31</z>
-		<content>
-			<div style="width: 1000px;">
-				<span>'Click' to stop &amp; start.</span><br />
-				<span>'Double click' to reverse.</span>
-			</div>
-		</content>
-		<style>
-			color: #ffffff; 
-			font-size: 36px;
-			text-shadow: 1px 1px 3px #006646;
-		</style>
-	</entry>
-    <entry>
 		<x>0.2</x>
 		<y>0</y>
 		<z>-42</z>
@@ -82,9 +66,8 @@
 			</div>
 		</content>
 		<style>
-			color: #ffffff; 
+			color: #000000; 
 			font-size: 144px;
-			text-shadow: 2px 2px 3px #006646;
 		</style>
 	</entry>
    <entry>
@@ -92,22 +75,21 @@
 		<y>0</y>
 		<z>-39.8</z>
 		<content>
-			<article style="width: 800px; height: 600px; background-color: rgb(102, 255, 204, 0.2); border-radius: 30px; padding: 30px; box-shadow: 0px 0px 2px #006646;">
+			<article style="width: 800px; height: 600px; padding: 30px; box-shadow: 0px 0px 5px #000000; border-radius: 30px;">
 				<h1 style="font-size: 64px;">Hello! I'm Andrew,</h1>
 				<br />
 				<div style="display: flex;">
-					<div style="width: 400px;">a <span style="color: #ff66ff;">creative</span> web developer passionate about crafting <span style="color: #66ccff;">engaging</span> and <span style="color: #00ffcc;">user-friendly</span> digital experiences. I love blending <span style="color: #ff4d94">technical skill</span> with creativity to bring <span style="color: #ffff99">ideas</span> to life. <!--My <span style="color: #b3b3b3">toolkit</span> includes a variety of programming languages, frameworks, and tools that help me <span style="color: #99ff66">design</span> and <span style="color: #99ff66">develop</span> innovative <span style="color: #9999ff">solutions</span> to everday problems.--></div>
+					<div style="width: 400px;">a <span style="color: #004AE7;">creative</span> web developer passionate about crafting <span style="color: #ff5500;">engaging</span> and <span style="color: #00E76E;">user-friendly</span> digital experiences. I love blending <span style="color: #FF0027">technical skill</span> with creativity to bring <span style="color: #ffff00;">ideas</span> to life.</div>
 					<div>
-						<img src="images/andrew.jpg" style="width: 200px; height: 200px; margin-left: 60px; opacity: 90%; border-radius: 50%; box-shadow: 0px 0px 2px #006646;" draggable="false"></img><br />
+						<img src="images/andrew.jpg" style="width: 200px; height: 200px; margin-left: 60px; opacity: 90%; border-radius: 50%; box-shadow: 0px 0px 2px #000000;" draggable="false"></img><br />
 						<p style="margin-left: 30px;">from<br />Huntington Beach, CA.</p>
 					</div>
 				</div>
 			</article>
 		</content>
 		<style>
-			color: #ffffff; 
+			color: #000000; 
 			font-size: 28px; 
-			text-shadow: 2px 2px 1px #006646;
 		</style>
 	</entry>
     <entry>
@@ -115,7 +97,7 @@
 		<y>0</y>
 		<z>-46.5</z>
 		<content>
-			<article style="background-color: #ffb380; background-color: #ffbb99; border-radius: 30px; padding: 30px; width: 400px; height: 600px; box-shadow: 0px 0px 2px #006646;">
+			<article style="background-color: #ffb380; background-color: #ff5500; border-radius: 30px; padding: 30px; width: 400px; height: 600px; box-shadow: 0px 0px 2px #222222;">
 				<img src="images/titans.png" draggable="false"></img><br />
 				<span style="color: #003066; text-shadow: 2px 2px 3px #ffffff;">California State University, Fullerton</span><br /><br />
 				<span style="font-size: 32px; font-family: Pacifico; color: #ffffff; text-shadow: 2px 2px 3px #e64d00;">Bachelor of Science:<br /> Computer Science</span><br /><br />
@@ -130,50 +112,35 @@
     <entry>
 		<x>0.8</x>
 		<y>-4.8</y>
-		<z>-75</z>
+		<z>-79</z>
 		<content>
 			<div style="width: 1000px;">
-				<span>My Skills</span>
+				<span>Links</span>
 			</div>
 		</content>
 		<style>
-			color: #ffffff; 
+			color: #000000; 
 			font-size: 144px; 
-			text-shadow: 2px 2px 3px #006646;
+			text-shadow: 0px 0px 5px #000066;
 		</style>
 	</entry>
     <entry>
 		<x>3.5</x>
 		<y>-4.8</y>
-		<z>-77.2</z>
+		<z>-76.2</z>
 		<content>
-			<div style="transform: scale(0.8); width: 1000px;">
-				<img src="images/html5.png" style="width: 140px; border-radius: 10px;" draggable="false"></img>
-				<img src="images/js.png" style="width: 140px; border-radius: 10px;" draggable="false"></img>
-				<img src="images/react.svg" style="width: 140px; border-radius: 10px;" draggable="false"></img>
-				<img src="images/angular.svg" style="width: 140px; border-radius: 10px;" draggable="false"></img>
-				<br />
-				<img src="images/nodejs.png" style="width: 260px; margin-left: 90px; margin-top: 40px;" draggable="false"></img>
-				<img src="images/mysql.png" style="width: 140px; margin-left: 30px; margin-top: 40px;" draggable="false"></img>
+			<div style="width: 850px; background-color: #002199; border-radius: 30px; padding: 50px; box-shadow: 0px 0px 10px #000066; transform: scale(0.9);">
+				<div style="margin-bottom: 20px;">
+					<span><a href="mailto:andrewasus@gmail.com">Email</a> | <a href="https://github.com/Beauxman">Github</a> | <a href="https://www.linkedin.com/in/andrew-bowman-45a4b7288/">LinkedIn</a></span>
+				</div>
+				<img src="images/gmail.png" style="width: 140px; border-radius: 10px; margin-left: 20px;" draggable="false"></img>
+				<img src="images/github.png" style="width: 140px; border-radius: 10px; margin-left: 90px;" draggable="false"></img>
+				<img src="images/linkedin.png" style="width: 140px; border-radius: 10px; margin-left: 130px;" draggable="false"></img>
 			</div>
 		</content>
 		<style>
-		</style>
-	</entry>
-    <entry>
-		<x>-1.5</x>
-		<y>-4.8</y>
-		<z>-77.5</z>
-		<content>
-		<div style="transform: scale(0.8); width: 1000px;">
-			<!--<img src="images/git.png" style="width: 140px;" draggable="false"></img>
-			<img src="images/c++.png" style="width: 140px; margin-left: 40px;" draggable="false"></img>-->
-			<!--<img src="images/java.png" style="width: 140px; margin-left: 40px;" draggable="false"></img>-->
-			<br />
-			<!--<img src="images/csharp.png" style="width: 180px; margin-left: 260px; margin-top: 10px;" draggable="false"></img>-->
-		</div>
-		</content>
-		<style>
+			color: #000000; 
+			font-size: 60px; 
 		</style>
 	</entry>
     <entry>
@@ -182,7 +149,7 @@
 		<z>-127.5</z>
 		<content>
 			<div style="width: 1000px;">
-				<span>Links</span>
+				<span>Technology</span>
 			</div>
 		</content>
 		<style>
@@ -192,35 +159,26 @@
 		</style>
 	</entry>
     <entry>
-		<x>6.2</x>
+		<x>7.5</x>
 		<y>0</y>
 		<z>-128</z>
 		<content>
-			<div style="width: 1000px;">
-				<span><a href="andrewasus@gmail.com">Email</a> | <a href="https://github.com/Beauxman">Github</a> | <a href="https://www.linkedin.com/in/andrew-bowman-45a4b7288/">LinkedIn</a></span>
-			</div>
+				<div style="transform: scale(0.8); width: 1200px; opacity: 0.8;">
+					<article style="background-color: #ffffff; border-radius: 30px; padding: 50px; width: 850px; box-shadow: 0px 0px 2px #222222;">
+						<img src="images/html5.png" style="width: 140px; border-radius: 10px;" draggable="false"></img>
+						<img src="images/js.png" style="width: 140px; border-radius: 10px;" draggable="false"></img>
+						<img src="images/react.svg" style="width: 140px; border-radius: 10px;" draggable="false"></img>
+						<img src="images/angular.svg" style="width: 140px; border-radius: 10px;" draggable="false"></img>
+						<img src="images/git.png" style="width: 140px;" draggable="false"></img>
+						<br />
+						<img src="images/nodejs.png" style="width: 260px; margin-top: 40px;" draggable="false"></img>
+						<img src="images/mysql.png" style="width: 140px; margin-top: 40px;" draggable="false"></img>
+						<img src="images/java.png" style="width: 120px; margin-top: 40px; margin-left: 20px;" draggable="false"></img>
+						<img src="images/c++.png" style="width: 140px; margin-top: 40px; margin-left: 20px;" draggable="false"></img>
+					</article>
+				</div>
 		</content>
 		<style>
-			color: #cccccc; 
-			font-size: 60px; 
-			text-shadow: 2px 2px 3px #000000;
-		</style>
-	</entry>
-    <entry>
-		<x>7.5</x>
-		<y>0</y>
-		<z>-128.2</z>
-		<content>
-			<div style="width: 1000px;">
-			<img src="images/gmail.png" style="width: 140px; border-radius: 10px;" draggable="false"></img>
-				<img src="images/github.png" style="width: 140px; border-radius: 10px; margin-left: 90px;" draggable="false"></img>
-				<img src="images/linkedin.png" style="width: 140px; border-radius: 10px; margin-left: 130px;" draggable="false"></img>
-			</div>
-		</content>
-		<style>
-			color: #cccccc; 
-			font-size: 60px; 
-			text-shadow: 2px 2px 3px #000000;
 		</style>
 	</entry>
     <entry>
@@ -233,9 +191,8 @@
 			</div>
 		</content>
 		<style>
-			color: #ffffff; 
-			font-size: 144px; 
-			text-shadow: 2px 2px 3px #006646;
+			color: #000000; 
+			font-size: 144px;
 		</style>
 	</entry>
     <entry>
@@ -243,25 +200,24 @@
 		<y>0</y>
 		<z>-158</z>
 		<content>
-			<div style="display: flex; flex-direction: row; background-color: #99ffeb; border-radius: 30px; padding: 30px; box-shadow: 0px 0px 2px #006646;">
+			<div style="display: flex; flex-direction: row; background-color: #262626; border-radius: 30px; padding: 30px; box-shadow: 0px 0px 5px #000000;">
 				<div style="width: 450px; height: 400px; margin-top: 50px;">
-					<img src="images/r1bb1t.jpg" style="width: 140px; margin-right: 30px; margin-bottom: 30px; background-color: #ccfff5; border-radius: 50%;" draggable="false"></img><span>R1bb1t</span><br />
+					<img src="images/r1bb1t.jpg" style="width: 140px; margin-right: 30px; margin-bottom: 30px; background-color: #ccfff5; border-radius: 50%;" draggable="false"></img><span style="font-size: 72px;">R1bb1t</span><br />
 					<p style="font-size: 28px;">An innovative social media platform designed for fast, real-time communication, and community interaction.</p>
-					<a style="color: #00ffcc; font-size: 36px; text-decoration: none; text-align: center;" href="https://r1bb1t.com">R1bb1t.com</a>
+					Visit: <a style="color: #80ffbd; font-size: 36px; text-align: center;" href="https://r1bb1t.com">R1bb1t.com</a>
 				</div>
 				<div style="margin-left: 60px;">
-					<img src="images/r1bb1t1.png" style="height: 250px; box-shadow: 2px 2px 3px #00e69d;" draggable="false"></img><br />
-					<img src="images/r1bb1t3.png" style="height: 250px; margin-top: 30px; box-shadow: 2px 2px 3px #00e69d;" draggable="false"></img>
+					<img src="images/r1bb1t1.png" style="height: 250px; box-shadow: 0px 0px 4px #00e69d;" draggable="false"></img><br />
+					<img src="images/r1bb1t3.png" style="height: 250px; margin-top: 30px; box-shadow: 0px 0px 4px #00e69d;" draggable="false"></img>
 				</div>
 				<div style="margin-left: 60px;">
-					<img src="images/r1bb1t2.png" style="height: 530px; box-shadow: 2px 2px 1px #00e69d;" draggable="false"></img><br />
+					<img src="images/r1bb1t2.png" style="height: 530px; box-shadow: 0px 0px 2px #00e69d;" draggable="false"></img><br />
 				</div>
 			</div>
 		</content>
 		<style>
 			color: #ffffff;
-			font-size: 72px;
-			text-shadow: 2px 2px 1px #006646;
+			font-size: 36px;
 		</style>
 	</entry>
 </pages> 
