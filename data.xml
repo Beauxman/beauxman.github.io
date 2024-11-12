@@ -146,10 +146,10 @@
     <entry>
 		<x>4.4</x>
 		<y>0</y>
-		<z>-127.5</z>
+		<z>-129.5</z>
 		<content>
 			<div style="width: 1000px;">
-				<span>Technology</span>
+				<span>Skills</span>
 			</div>
 		</content>
 		<style>
