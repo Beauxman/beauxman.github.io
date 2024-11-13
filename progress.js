@@ -96,11 +96,11 @@ document.getElementById("progress").innerHTML = `
 	<div id="loading-background">
 		<div id="loading-bar">
 			<div id="loading-text"></div>
-			<img id="loading-1" src="images/x.png">
-			<img id="loading-2" src="images/o.png">
-			<img id="loading-3" src="images/b.png">
-			<img id="loading-4" src="images/s.png">
-			<img id="loading-5" src="images/t.png">
+			<img id="loading-1" src="images/x.webp">
+			<img id="loading-2" src="images/o.webp">
+			<img id="loading-3" src="images/b.webp">
+			<img id="loading-4" src="images/s.webp">
+			<img id="loading-5" src="images/t.webp">
 		</div>
 	</div>
 `;
