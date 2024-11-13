@@ -27,6 +27,21 @@ a:hover {
 	-filter: grayscale(100%);
 }
 
+#cover {
+	position: absolute;
+	z-index: 1;
+	padding: 15px;
+}
+
+#cover > img {
+	width: 50px;
+	opacity: 40%;
+}
+
+#cover-1 {
+	opacity: 100% !important;
+}
+
 #filter2 {
     position: absolute;
     height: 100vh;

@@ -98,8 +98,8 @@ scene.fog = new THREE.Fog(0x000000, .01, 55);
 const light = new THREE.AmbientLight(0x404040, 5.0);
 scene.add(light);
 
-const spotlight = new THREE.SpotLight(0xffffff, 60000.0);
-spotlight.position.set(0, 80, 0);
+const spotlight = new THREE.SpotLight(0xffffff, 70000.0);
+spotlight.position.set(40, 80, 10);
 spotlight.shadow.mapSize.width = 2000;
 spotlight.shadow.mapSize.height = 2000;
 scene.add(spotlight);

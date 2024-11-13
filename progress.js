@@ -80,16 +80,7 @@ document.getElementById("progress").innerHTML = `
 			z-index: 1;
 			width: 100vw;
 			height: 100vh;
-			background-color: #222222;
-		}
-
-		#loading-background{
-			position: absolute;
-			z-index: 1;
-			width: 100vw;
-			height: 100vh;
-			margin-left: 0vw;
-			background-color: #222222;
+			background-color: #1a1a1a;
 		}
 
 	</style>
