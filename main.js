@@ -254,7 +254,11 @@ function animate() {
 
 // Model Loader
 
-const loader = new GLTFLoader();
+const manager = new THREE.LoadingManager();
+
+export { manager };
+
+const loader = new GLTFLoader( manager );
 
 loader.load( 'scene.glb', function ( gltf ) {
     sceneObject = gltf.scene;
