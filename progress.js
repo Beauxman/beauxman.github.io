@@ -20,7 +20,7 @@ document.getElementById("progress").innerHTML = `
 		}
 
 		#loading-bar > img {
-			width: 80px;
+			width: 5vw;
 		}
 
 		#loading-text {
