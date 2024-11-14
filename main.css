@@ -20,6 +20,16 @@ a:hover {
 #canvas {
 	color: #00000;
 	position: absolute;
+}
+
+#filter2 {
+    height: 100vh;
+    -webkit-mask: radial-gradient(60vw, #0000 10%, #000);
+            mask: radial-gradient(60vw, #0000 10%, #000);
+    width: 100%;
+    backdrop-filter: blur(30px);
+    -background:rgba(0, 0, 0, 0.3);
+    pointer-events: none; 
 	-filter: sepia(40%);
 	-filter: saturate(180%);
 	-filter: drop-shadow(16px 16px 20px green) invert(100%);
@@ -27,32 +37,6 @@ a:hover {
 	-filter: grayscale(100%);
 }
 
-#cover {
-	position: absolute;
-	z-index: 1;
-	padding: 15px;
-}
-
-#cover > img {
-	width: 50px;
-	opacity: 40%;
-}
-
-#cover-1 {
-	opacity: 100% !important;
-}
-
-#filter2 {
-    position: absolute;
-    height: 100vh;
-    -webkit-mask: radial-gradient(65vw, #0000 10%, #000);
-            mask: radial-gradient(65vw, #0000 10%, #000);
-    width: 110%;
-	margin-left: -10%;
-    backdrop-filter: blur(30px);
-    -background:rgba(0, 0, 0, 0.3);
-    pointer-events: none; 
-}
 
 @keyframes dotanim {
   0% {opacity: 100%;}

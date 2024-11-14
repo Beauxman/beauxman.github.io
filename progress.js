@@ -12,7 +12,9 @@ document.getElementById("progress").innerHTML = `
 			width: 100vw;
 			height: 100vh;
 			margin: auto;
-			margin-top: 45vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			text-align: center;
 			font-family: Verdana;
 			font-weight: bold;
@@ -21,6 +23,7 @@ document.getElementById("progress").innerHTML = `
 
 		#loading-bar > img {
 			width: 5vw;
+			height: 5vw;
 		}
 
 		#loading-text {

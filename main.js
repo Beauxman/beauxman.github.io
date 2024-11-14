@@ -165,7 +165,6 @@ function findStartTrack(train) {
 var speed = 0;
 const accel = 0.001;
 const maxSpeed = -0.06;
-//const maxSpeed = -1;
 
 const startBounds = -1;
 const endBounds = -304;
@@ -202,8 +201,6 @@ document.addEventListener('click', function (evt) {
 		startRoute();
 	} else if (evt.detail === 2) {
 		switchDirections();
-	} else if (evt.detail === 3) { 
-		//switchDirections(); 
 	}
 });
 
