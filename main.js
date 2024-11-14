@@ -112,8 +112,8 @@ const spotlight3 = new THREE.SpotLight(0xffffff, 5500.0);
 spotlight3.position.set(0, 25, -150);
 scene.add(spotlight3);
 
-const spotlight4 = new THREE.SpotLight(0xffffff, 40000.0);
-spotlight4.position.set(0, 50, -200);
+const spotlight4 = new THREE.SpotLight(0xffffff, 400000.0);
+spotlight4.position.set(150, 80, -300);
 scene.add(spotlight4);
 
 // Sort functions
@@ -165,9 +165,10 @@ function findStartTrack(train) {
 var speed = 0;
 const accel = 0.001;
 const maxSpeed = -0.06;
+//const maxSpeed = -1;
 
 const startBounds = -1;
-const endBounds = -157;
+const endBounds = -304;
 
 var trains = [];
 
@@ -283,7 +284,10 @@ loader.load( 'scene.glb', function ( gltf ) {
 		
 		if (child.name.includes("Track")) { tracks.push(child); }
 		
-		if (child.name === "Spotlight3") { spotlight3.target = child; }
+		if (child.name === "Spotlight3") { 
+			spotlight3.target = child; 
+			spotlight4.target = child; 
+		}
 	});
 	
 	quickSort(tracks, 0, tracks.length - 1);

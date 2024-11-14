@@ -22,7 +22,7 @@ a:hover {
 	position: absolute;
 	-filter: sepia(40%);
 	-filter: saturate(180%);
-	-filter: drop-shadow(16px 16px 20px green) invert(100%) grayscale(100%);
+	-filter: drop-shadow(16px 16px 20px green) invert(100%);
 	-filter: hue-rotate(160deg);
 	-filter: grayscale(100%);
 }
