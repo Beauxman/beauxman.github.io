@@ -68,8 +68,8 @@ fetch("data.xml")
 // Camera
 
 const camera = new THREE.PerspectiveCamera(36, window.innerWidth / window.innerHeight, 1, 300);
-camera.position.set(10, 8, -3);
-camera.lookAt(0, 2, -1);
+camera.position.set(14, 16, 0);
+camera.lookAt(0, 0, 0);
 
 // Window
     
@@ -163,18 +163,18 @@ function findStartTrack(train) {
 // Key input
 
 var speed = 0;
-const accel = 0.001;
-const maxSpeed = -0.06;
+const accel = 0.008;
+let maxSpeed = -0.12;
 
 const startBounds = -1;
-const endBounds = -304;
+const endBounds = -305;
 
 var trains = [];
 
 function startRoute() {
 	if (!moving) { 
-		if (dir) { speed = -0.001; }
-		else { speed = 0.001; }
+		if (dir) { speed = -accel; }
+		else { speed = accel; }
 	}
 	moving = !moving;
 }
@@ -196,23 +196,42 @@ function switchDirections() {
 	}
 }
 
-document.addEventListener('click', function (evt) {
-	if (evt.detail === 1) {
-		startRoute();
-	} else if (evt.detail === 2) {
+const scrollProgress = document.getElementById("scroll-progress");
+let currentScroll;
+
+window.scrollTo(0, 0);
+
+function checkScrollBounds() {
+	let scrollTo = ((endBounds - startBounds) * (currentScroll / 100));
+	if (dir && trains[0].position.z > scrollTo || !dir && trains[0].position.z < scrollTo) {
+		setTimeout(() => {
+			checkScrollBounds();
+		}, 100)
+	} else {
+		moving = false;
+	}
+}
+
+window.addEventListener("scroll", (event) => {
+	let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+	let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+	let scrollPercent = (scrollTop / scrollHeight) * 100;
+	let carPercent = (trains[0].position.z / (endBounds - startBounds)) * 100;
+	
+	if (dir && scrollPercent < carPercent
+		|| !dir && scrollPercent > carPercent) { 
+		speed = 0;
 		switchDirections();
 	}
+	
+	currentScroll = scrollPercent;
+	
+	if (!moving) { startRoute(); }
+
+	checkScrollBounds();
 });
 
-// Animation Loop
-
-let sceneObject;
-let moving = false;
-let dir = true;
-
-function animate() {
-	stats.update();
-	
+function updateObjects() {
 	if (moving && Math.abs(speed) < Math.abs(maxSpeed)) { speed += accel * Math.sign(speed)};
 	if (!moving && Math.abs(speed) > 0) { speed -= accel * Math.sign(speed)};
 	
@@ -245,9 +264,29 @@ function animate() {
 		camera.lookAt(trains[0].position);
 		camera.position.set( trains[0].position.x + 16, trains[0].position.y + 14, trains[0].position.z + 0);
 	}
+}
+
+// Animation Loop
+
+let sceneObject;
+let moving = false;
+let dir = true;
+let lastTime = 0;
+const targetFrameRate = 65;
+
+function animate() {
+	const currentTime = performance.now();
+	const deltaTime = currentTime - lastTime;
 	
-	renderer.render(scene, camera);
-	renderer2.render(scene2, camera);
+	if (deltaTime >= 1000 / targetFrameRate) {
+		stats.update();
+		updateObjects();
+		scrollProgress.style.marginTop = 2 + (trains[0].position.z / (endBounds - startBounds)) * 77 + "vh";
+		renderer.render(scene, camera);
+		renderer2.render(scene2, camera);
+		lastTime = currentTime;
+	}
+  requestAnimationFrame(animate);
 }
 
 // Model Loader
@@ -299,7 +338,7 @@ loader.load( 'scene.glb', function ( gltf ) {
 	scene.add( gltf.scene );
 	sceneObject.encoding = THREE.sRGBEncoding;
 	
-    renderer.setAnimationLoop( animate );
+	animate();
 }, undefined, function ( error ) {
 	console.error( error );
 } );

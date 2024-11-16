@@ -1,8 +1,8 @@
 import { manager } from './main.js'
 
-let div = document.createElement("div");
-div.id = "progress";
-document.body.appendChild(div);
+let divProg = document.createElement("div");
+divProg.id = "progress";
+document.body.appendChild(divProg);
 
 document.getElementById("progress").innerHTML = `
 	<style>
@@ -90,11 +90,11 @@ document.getElementById("progress").innerHTML = `
 	<div id="loading-background">
 		<div id="loading-bar">
 			<div id="loading-text"></div>
-			<img id="loading-1" src="images/x.webp">
-			<img id="loading-2" src="images/o.webp">
-			<img id="loading-3" src="images/b.webp">
-			<img id="loading-4" src="images/s.webp">
-			<img id="loading-5" src="images/t.webp">
+			<img id="loading-1" src="images/x.webp" draggable="false">
+			<img id="loading-2" src="images/o.webp" draggable="false">
+			<img id="loading-3" src="images/b.webp" draggable="false">
+			<img id="loading-4" src="images/s.webp" draggable="false">
+			<img id="loading-5" src="images/t.webp" draggable="false">
 		</div>
 	</div>
 `;
