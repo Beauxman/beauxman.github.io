@@ -196,7 +196,7 @@ function switchDirections() {
 	}
 }
 
-const scrollProgress = document.getElementById("scroll-progress");
+const scrollProgress = document.getElementById("scroll");
 let currentScroll;
 
 window.scrollTo(0, 0);
@@ -220,8 +220,10 @@ window.addEventListener("scroll", (event) => {
 	
 	if (dir && scrollPercent < carPercent
 		|| !dir && scrollPercent > carPercent) { 
+		let tSpeed = speed;
 		speed = 0;
 		switchDirections();
+		if (tSpeed != 0) { speed = -tSpeed; }
 	}
 	
 	currentScroll = scrollPercent;
@@ -230,6 +232,9 @@ window.addEventListener("scroll", (event) => {
 
 	checkScrollBounds();
 });
+
+let camOffset = 0;
+let atEnd = false;
 
 function updateObjects() {
 	if (moving && Math.abs(speed) < Math.abs(maxSpeed)) { speed += accel * Math.sign(speed)};
@@ -260,9 +265,101 @@ function updateObjects() {
 	if (trains[0].position.z >= startBounds && dir == false) { switchDirections(); }
 	if (trains[0].position.z <= endBounds && dir == true) { switchDirections(); }
 	
+	let prevSpeed = 0;
+
+	if (trains[0].position.z >=  -167 && atEnd == false) {
+		camOffset = Math.abs(speed) * 20;
+	} else if (trains[0].position.z >=  -167) {
+		if (camOffset < Math.abs(speed) * 20) {
+			camOffset += Math.abs(accel) * 4;
+		} else {
+			atEnd = false;
+		}
+	} else {
+		if (camOffset > 0) {
+			camOffset -= Math.abs(accel) * 4;
+			atEnd = true;
+		}
+	}
+	
 	if (followCam == 1) {
 		camera.lookAt(trains[0].position);
-		camera.position.set( trains[0].position.x + 16, trains[0].position.y + 14, trains[0].position.z + 0);
+		if (!(prevSpeed != 0 && speed == 0)) {
+			camera.position.set(trains[0].position.x + 16 - camOffset, trains[0].position.y + 14 - camOffset / 2, trains[0].position.z);
+		}
+	}
+	prevSpeed = speed;
+}
+
+const navHome = document.getElementById("nav-home");
+const navAbout = document.getElementById("nav-about");
+const navLinks = document.getElementById("nav-link");
+const navSkills = document.getElementById("nav-skills");
+const navProjects = document.getElementById("nav-projects");
+
+const navX = document.getElementById("nav-x");
+const navO = document.getElementById("nav-o");
+const navC = document.getElementById("nav-c");
+const navS = document.getElementById("nav-s");
+const navT = document.getElementById("nav-t");
+
+function updateNavigation() {
+	let carPos = trains[0].position.z;
+
+	if (carPos >= -23) {
+		navHome.classList.add("nav-red");
+		navAbout.classList.remove("nav-orange");
+
+		navX.classList.add("nav-saturate");
+		navO.classList.remove("nav-saturate");	
+	} else if (carPos < -23 && carPos >= -59) {
+		navHome.classList.remove("nav-red");
+		navAbout.classList.add("nav-orange");
+		navLinks.classList.remove("nav-blue");
+		
+		navX.classList.remove("nav-saturate");
+		navO.classList.add("nav-saturate");
+		navC.classList.remove("nav-saturate");
+	} else if (carPos < -59 && carPos >= -101) {
+		navAbout.classList.remove("nav-orange");
+		navLinks.classList.add("nav-blue");
+		navSkills.classList.remove("nav-yellow");
+		
+		navO.classList.remove("nav-saturate");
+		navC.classList.add("nav-saturate");
+		navS.classList.remove("nav-saturate");
+	} else if (carPos < -101 && carPos >= -132) {
+		navLinks.classList.remove("nav-blue");
+		navSkills.classList.add("nav-yellow");
+		navProjects.classList.remove("nav-green");
+		
+		navC.classList.remove("nav-saturate");
+		navS.classList.add("nav-saturate");
+		navT.classList.remove("nav-saturate");
+	} else if (carPos < -132 && carPos >= -167) {
+		navSkills.classList.remove("nav-yellow");
+		navProjects.classList.add("nav-green");
+		
+		navS.classList.remove("nav-saturate");
+		navT.classList.add("nav-saturate");
+	} else if (carPos < -274) {
+		navX.classList.add("nav-saturate");
+		navO.classList.add("nav-saturate");
+		navC.classList.add("nav-saturate");
+		navS.classList.add("nav-saturate");
+		navT.classList.add("nav-saturate");
+	} else {
+		navHome.classList.remove("nav-red");
+		navAbout.classList.remove("nav-orange");
+		navLinks.classList.remove("nav-blue");
+		navSkills.classList.remove("nav-yellow");
+		navProjects.classList.remove("nav-green");
+		
+		navX.classList.remove("nav-saturate");
+		navO.classList.remove("nav-saturate");
+		navC.classList.remove("nav-saturate");
+		navS.classList.remove("nav-saturate");
+		navT.classList.remove("nav-saturate");
 	}
 }
 
@@ -281,9 +378,13 @@ function animate() {
 	if (deltaTime >= 1000 / targetFrameRate) {
 		stats.update();
 		updateObjects();
+		updateNavigation();
+		
 		scrollProgress.style.marginTop = 2 + (trains[0].position.z / (endBounds - startBounds)) * 77 + "vh";
+		
 		renderer.render(scene, camera);
 		renderer2.render(scene2, camera);
+		
 		lastTime = currentTime;
 	}
   requestAnimationFrame(animate);

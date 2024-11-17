@@ -2,27 +2,25 @@ let divNav = document.createElement("div");
 divNav.id = "navigation";
 document.body.appendChild(divNav);
 
+document.getElementById("navigation").hidden = true;
 document.getElementById("navigation").innerHTML = `
 	<style>
 		#nav {
 			position: fixed;
 			z-index: 2;
-			-background-color: rgba(55, 55, 55, 0.9);
+			-background-color: rgba(55, 55, 55, 0.2);
 			width: 100vw;
 			height: 50px;
 			padding-left: 30px;
 			padding-right: 30px;
-			-margin-left: 5vw;
-			margin-top: 2px;
-			border-radius: 20px;
+			padding-top: 2px;
 			color: #f2f2f2;;
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			-font-size: 24px;
 			font-size: 1.2vw;
-			-box-shadow: 0px 0px 5px #222222;
 			overflow: hidden;
+			backdrop-filter: blur(15px);
 			
 		}
 		
@@ -103,6 +101,46 @@ document.getElementById("navigation").innerHTML = `
 			background-color: #00E76E;
 		}
 		
+		.nav-red {
+			background-color: #FF0027;
+			color: #444444;
+			transition: 0.5s;
+		}
+		
+		.nav-orange {
+			background-color: #FF5500;
+			color: #444444;
+			transition: 0.5s;
+		}
+		
+		.nav-blue {
+			background-color: #004AE7;
+			color: #444444;
+			transition: 0.5s;
+		}
+		
+		.nav-yellow {
+			background-color: #FFFF00;
+			color: #444444;
+			transition: 0.5s;
+		}
+		
+		.nav-green {
+			background-color: #00E76E;
+			color: #444444;
+			transition: 0.5s;
+		}
+		
+		.nav-saturate {
+			filter: saturate(100%) !important;
+			ransition: 0.5s;
+		}
+		
+		#nav-other {
+			width: 100%;
+			margin-left: 20%;
+		}
+		
 		#nav-other {
 			width: 100%;
 			margin-left: 20%;
@@ -128,24 +166,16 @@ document.getElementById("navigation").innerHTML = `
 		
 		@media (width <= 1100px) {
 			#nav {
-			}
-			
-			#nav-links {
-				-transform: scale(0.3);
-			}
-			
-			#nav-icons {
-				-transform: scale(0.5);
-			}
+			}		
 		}
 	</style>
 	<div id="nav">
 		<div id="nav-icons">
-			<img src="images/x.webp" draggable="false" style="filter: saturate(100%);">
-			<img src="images/o.webp" draggable="false">
-			<img src="images/b.webp" draggable="false">
-			<img src="images/s.webp" draggable="false">
-			<img src="images/t.webp" draggable="false">
+			<img id="nav-x" src="images/x.webp" draggable="false">
+			<img id="nav-o" src="images/o.webp" draggable="false">
+			<img id="nav-c" src="images/b.webp" draggable="false">
+			<img id="nav-s" src="images/s.webp" draggable="false">
+			<img id="nav-t" src="images/t.webp" draggable="false">
 		</div>
 		<div id="nav-options">
 			<div id="nav-links">

@@ -1,5 +1,6 @@
 import { manager } from './main.js'
 
+document.body.style.overflowY = "hidden"; 
 let divProg = document.createElement("div");
 divProg.id = "progress";
 document.body.appendChild(divProg);
@@ -7,7 +8,7 @@ document.body.appendChild(divProg);
 document.getElementById("progress").innerHTML = `
 	<style>
 		#loading-bar {
-			position: absolute;
+			position: fixed;
 			z-index: 5;
 			width: 100vw;
 			height: 100vh;
@@ -79,8 +80,8 @@ document.getElementById("progress").innerHTML = `
 		}
 		
 		#loading-background {
-			position: absolute;
-			z-index: 1;
+			position: fixed;
+			z-index: 4;
 			width: 100vw;
 			height: 100vh;
 			background-color: #1a1a1a;
@@ -102,7 +103,9 @@ document.getElementById("progress").innerHTML = `
 manager.onLoad = function ( ) {
 	document.getElementById('loading-bar').style.animation = "loading0 1.5s reverse both";
 	document.getElementById('loading-background').style.animation = "loading0 1s 1.7s reverse both";
+	document.getElementById("navigation").hidden = false;
 	setTimeout(() => {
+		document.body.style.overflowY = "scroll"; 
 		document.getElementById("progress").remove();
-	}, 4000);
+	}, 3000);
 };
