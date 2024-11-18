@@ -61,7 +61,6 @@ document.getElementById("navigation").innerHTML = `
 			padding-left: 2%;
 			padding-right: 2%;
 			border-radius: 20px;
-			font-family: Pacifico;
 			cursor: pointer;
 			display: inline;
 		}
@@ -78,7 +77,6 @@ document.getElementById("navigation").innerHTML = `
 		
 		#nav-links {
 			height: 100%;
-			font-family: Pacifico;
 			display: flex;
 			align-items: center;
 			justify-content: space-evenly;

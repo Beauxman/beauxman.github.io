@@ -227,7 +227,7 @@
 		<content>
 			<div style="padding: 100px; font-size: 60px;">
 				<div style="color: #ffffff; font-size: 108px; text-shadow: 0px 0px 1px #000000;">Contact</div><br />
-				<form action="https://formsubmit.co/andrewasus@gmail.com" method="POST">
+				<form action="https://formsubmit.co/f8dc46bcb7ae246c764c7b0f1e227137" method="POST">
 					Name<br />
 					<input type="text" name="name"></input><br /><br />
 					Email<br />
