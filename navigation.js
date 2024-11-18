@@ -14,6 +14,7 @@ document.getElementById("navigation").innerHTML = `
 			padding-left: 30px;
 			padding-right: 30px;
 			padding-top: 2px;
+			padding-bottom: 2px;
 			color: #f2f2f2;;
 			display: flex;
 			align-items: center;
@@ -60,6 +61,7 @@ document.getElementById("navigation").innerHTML = `
 			padding-left: 2%;
 			padding-right: 2%;
 			border-radius: 20px;
+			font-family: Pacifico;
 			cursor: pointer;
 			display: inline;
 		}
@@ -76,6 +78,7 @@ document.getElementById("navigation").innerHTML = `
 		
 		#nav-links {
 			height: 100%;
+			font-family: Pacifico;
 			display: flex;
 			align-items: center;
 			justify-content: space-evenly;

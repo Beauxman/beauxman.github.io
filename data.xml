@@ -221,17 +221,26 @@
 		</style>
 	</entry>
     <entry>
-		<x>1</x>
+		<x>-0.5</x>
 		<y>0</y>
 		<z>-257</z>
 		<content>
-			<div style="box-shadow: 0px 0px 10px #ffffff; border-radius: 30px; padding: 50px;">
-				<a style="color: #ffffff; font-size: 96px; text-shadow: 0px 0px 1px #000000;" href="mailto:andrewasus@gmail.com">Contact</a>
+			<div style="padding: 100px; font-size: 60px;">
+				<div style="color: #ffffff; font-size: 108px; text-shadow: 0px 0px 1px #000000;">Contact</div><br />
+				<form action="https://formsubmit.co/andrewasus@gmail.com" method="POST">
+					Name<br />
+					<input type="text" name="name"></input><br /><br />
+					Email<br />
+					<input type="email" name="email" style="margin-bottom: 300px;"></input><br />
+					Message<br />
+					<textarea type="text" name="message" rows="2">&#160;</textarea><br /><br />
+					<button style="background: transparent; color: #ffffff; border-width: 0px; box-shadow: 0px 0px 5px #ffffff; border-radius: 30px; padding: 10px;" type="submit">Send</button>
+				</form> 
 			</div>
 		</content>
 		<style>
-			width: 1000px;
-			height: 1000px;
+			width: 1400px;
+			height: 1400px;
 			text-align: center;
 		</style>
 	</entry>
