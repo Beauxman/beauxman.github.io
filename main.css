@@ -18,6 +18,10 @@ a:hover {
 	color: #4da6ff;
 }
 
+h1 {
+	font-size: 0px;
+}
+
 #canvas {
 	color: #00000;
 	position:fixed;
