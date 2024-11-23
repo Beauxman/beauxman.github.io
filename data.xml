@@ -15,7 +15,7 @@
 			height: 1000px;
 			color: #ffffff;
 			font-size: 84px;
-			text-shadow: 2px 2px 3px #000000;
+			text-shadow: 2px 2px 1px #222222;
 		</style>
     </entry>
     <entry>
@@ -47,7 +47,7 @@
 			width: 350px; 
 			height: 175px;
 			border-style: solid; 
-			border-color: #ffffff; 
+			border-color: #ffffff;
 			border-width: 10px;
 			padding-top: 25px; 
 			text-align: center; 
