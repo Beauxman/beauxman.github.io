@@ -21,7 +21,7 @@ a:hover {
 #canvas {
 	color: #00000;
 	position:fixed;
-	filter: contrast(110%);
+	filter: contrast(130%);
 }
 
 #scroll {
