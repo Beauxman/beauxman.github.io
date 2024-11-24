@@ -76,7 +76,7 @@
 		<z>-39.8</z>
 		<content>
 			<article style="width: 800px; height: 600px; padding: 30px; box-shadow: 0px 0px 5px #000000; border-radius: 30px;">
-				<h1 style="font-size: 64px;">Hello! I'm Andrew,</h1>
+				<h1 style="font-size: 64px;">Hello! I'm Andrew</h1>
 				<br />
 				<div style="display: flex;">
 					<div style="width: 400px;">a <span style="color: #004AE7;">creative</span> web developer passionate about crafting <span style="color: #ff5500;">engaging</span> and <span style="color: #00E76E;">user-friendly</span> digital experiences. I love blending <span style="color: #FF0027">technical skill</span> with creativity to bring <span style="color: #ffff00;">ideas</span> to life.</div>
