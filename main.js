@@ -95,7 +95,7 @@ scene.fog = new THREE.Fog(0x003366, .01, 55);
 
 // Lighting
 
-const light = new THREE.AmbientLight(0x404040, 5.0);
+const light = new THREE.AmbientLight(0x404040, 20.0);
 scene.add(light);
 
 const spotlight = new THREE.SpotLight(0xffffff, 70000.0);
@@ -434,7 +434,7 @@ loader.load( 'scene.glb', function ( gltf ) {
 		trains[i].nextTrack = findStartTrack(trains[i]);
 	}
 	
-	if (window.innerWidth >= 768) { spotlight.castShadow = true; }
+	//if (window.innerWidth >= 768) { spotlight.castShadow = true; }
 	
 	scene.add( gltf.scene );
 	sceneObject.encoding = THREE.sRGBEncoding;
