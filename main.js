@@ -91,7 +91,7 @@ if (followCam == 0) { const controls = new OrbitControls(camera, renderer2.domEl
 
 // Fog
 
-scene.fog = new THREE.Fog(0x000000, .01, 55);
+scene.fog = new THREE.Fog(0x003366, .01, 55);
 
 // Lighting
 
