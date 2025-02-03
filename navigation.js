@@ -8,13 +8,16 @@ document.getElementById("navigation").innerHTML = `
 		#nav {
 			position: fixed;
 			z-index: 2;
-			-background-color: rgba(55, 55, 55, 0.2);
-			width: 100vw;
+			width: 90vw;
 			height: 50px;
+			margin-left: 5vw;
+			margin-top: 8px;
+			border-radius: 40px;
+			background-color: rgba(28, 28, 28, 0.5);
 			padding-left: 30px;
 			padding-right: 30px;
-			padding-top: 2px;
-			padding-bottom: 2px;
+			padding-top: 5px;
+			padding-bottom: 5px;
 			color: #f2f2f2;;
 			display: flex;
 			align-items: center;
@@ -29,12 +32,14 @@ document.getElementById("navigation").innerHTML = `
 			align-items: center;
 			padding-left: 0.5vw;
 			padding-right: 0.5vw;
+			margin-right: 1vw;
 		}
 		
 		#nav-icons > img {
-			width: 2vw;
-			height: 2vw;
+			width: 1.5vw;
+			height: 1.5vw;
 			filter: saturate(0%);
+			opacity: 0%;
 		}
 		
 		#nav-options {
@@ -182,8 +187,8 @@ document.getElementById("navigation").innerHTML = `
 			<div id="nav-links">
 				<span id="nav-home" class="nav-option">Home</span>
 				<span id="nav-about" class="nav-option">About</span>
-				<span id="nav-link" class="nav-option">Links</span>
-				<span id="nav-skills" class="nav-option">Skills</span>
+				<span id="nav-link" class="nav-option">Social</span>
+				<span id="nav-skills" class="nav-option">Experience</span>
 				<span id="nav-projects" class="nav-option">Projects</span>
 			</div>
 			<div id="nav-other">

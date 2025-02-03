@@ -37,7 +37,7 @@ scene2.scale.set(0.01, 0.01, 0.01);
 
 // CSS3D
 
-function createCSS3DObject(content, style, x, y, z) {
+function createCSS3DObject(content, style, x, y, z, rX) {
 	let div = document.createElement('div');
 	div.innerHTML = content;
 	div.style = style;
@@ -47,6 +47,9 @@ function createCSS3DObject(content, style, x, y, z) {
 	object.position.set(x, y, z);
 	object.position.set(object.position.x * 100, object.position.y * 100, object.position.z * 100);
 	object.rotateZ(1.5708);
+	if (rX !== undefined) {
+		object.rotateX(rX);
+	}
 	
 	return object;
 }
@@ -61,7 +64,8 @@ fetch("data.xml")
 										doc.getElementsByTagName("style")[i].innerHTML, 
 										doc.getElementsByTagName("x")[i].innerHTML, 
 										doc.getElementsByTagName("y")[i].innerHTML, 
-										doc.getElementsByTagName("z")[i].innerHTML));
+										doc.getElementsByTagName("z")[i].innerHTML,
+										doc.getElementsByTagName("rx")[i].innerHTML));
 	}
 });
   
@@ -100,8 +104,9 @@ scene.add(light);
 
 const spotlight = new THREE.SpotLight(0xffffff, 70000.0);
 spotlight.position.set(40, 80, 10);
-spotlight.shadow.mapSize.width = 2000;
-spotlight.shadow.mapSize.height = 2000;
+spotlight.shadow.mapSize.width = 2048;
+spotlight.shadow.mapSize.height = 2048;
+spotlight.shadow.radius = 4;
 scene.add(spotlight);
 
 const spotlight2 = new THREE.SpotLight(0xffffff, 60000.0);
@@ -363,6 +368,22 @@ function updateNavigation() {
 	}
 }
 
+function updateOverlay() {
+	let overlayElem  = document.querySelector(".overlay");
+	if (Math.abs(speed) > 0) {
+		overlay.style.opacity = 0.4; 
+	} else {
+		overlay.style.opacity = 0; 
+	}
+	
+	if (dir) {
+		overlay.style.transform = "rotate(" + (trains[0].rotation.y * (180 / Math.PI) + 180) + "deg)";
+	} else {
+		overlay.style.transform = "rotate(" + (trains[0].rotation.y * (180 / Math.PI) + 180) * -1 + "deg)";
+	}
+	
+}
+
 // Animation Loop
 
 let sceneObject;
@@ -379,6 +400,7 @@ function animate() {
 		stats.update();
 		updateObjects();
 		updateNavigation();
+		updateOverlay();
 		
 		scrollProgress.style.marginTop = 2 + (trains[0].position.z / (endBounds - startBounds)) * 77 + "vh";
 		
@@ -434,7 +456,7 @@ loader.load( 'scene.glb', function ( gltf ) {
 		trains[i].nextTrack = findStartTrack(trains[i]);
 	}
 	
-	//if (window.innerWidth >= 768) { spotlight.castShadow = true; }
+	if (window.innerWidth >= 768) { spotlight.castShadow = true; }
 	
 	scene.add( gltf.scene );
 	sceneObject.encoding = THREE.sRGBEncoding;

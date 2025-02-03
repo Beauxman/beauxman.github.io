@@ -6,6 +6,7 @@ body {
 	height: 5000px;
 	overflow-x: hidden;
 	margin: 0px;
+	font-weight: bold;
 }
 
 a {
@@ -54,6 +55,24 @@ a:hover {
     pointer-events: none; 
 }
 
+.wind {
+  width: 200px;
+  height: 1px;
+  background-color: #999999;
+  margin-top: 60px;
+  position: absolute;
+}
+
+#overlay {
+  opacity: 30%;
+  margin-top: -30vh;
+  margin-left: -10vw;
+  height: 210vh;
+  width: 110vw;
+  position: fixed;
+  pointer-events: none;
+}
+
 
 @keyframes dotanim {
   0% {opacity: 100%;}
@@ -69,4 +88,17 @@ a:hover {
   30% {transform: translate(0px, -7px);}
   40% {transform: translate(0px, 0px);}
   100% {transform: translate(0px, 0px);}
+}
+
+@keyframes introBackgrounds {
+  50% {background-size: 24px 24px;}
+}
+
+@keyframes breeze {
+  0% {
+    transform: translate(2000px);
+  }
+  100% {
+    transform: translate(-2000px);
+  }
 }

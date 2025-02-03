@@ -4,6 +4,7 @@
 		<x>6.7</x>
 		<y>0</y>
 		<z>-1</z>
+		<rx>0</rx>
 		<content>
 			<div>
 				Computer Programmer<br />
@@ -22,6 +23,7 @@
 		<x>4.1</x>
 		<y>0</y>
 		<z>-2.7</z>
+		<rx>0</rx>
 		<content>
 			<div style="height: 14px; width: 60px; background-color: #ffffff; box-shadow: 2px 2px 3px #000000; animation: dotanim 0.5s 0s infinite alternate;">
 			</div>
@@ -38,6 +40,7 @@
 		<x>4.2</x>
 		<y>0</y>
 		<z>-6.4</z>
+		<rx>0</rx>
 		<content>
 			<div class="start" syle="height: 175px; width: 350px; border-style: solid;">
 				<div style="animation: startanim 2s 0s infinite;">Home</div>
@@ -57,9 +60,103 @@
 		</style>
 	</entry>
     <entry>
+		<x>6</x>
+		<y>0</y>
+		<z>-17</z>
+		<rx>0</rx>
+		<content>
+			<div>
+				<div style="transform: rotate(64deg);">Life is a journey...</div>
+			</div>
+		</content>
+		<style>
+			width: 2000px; 
+			height: 500px;
+			color: #333333;
+			font-size: 84px;
+			text-align: center;
+		</style>
+   </entry>
+    <entry>
+		<x>15</x>
+		<y>5</y>
+		<z>-18.5</z>
+		<rx>1.2</rx>
+		<content>
+			<div>
+				<span>UI/UX <br></br>Design</span>
+			</div>
+		</content>
+		<style>
+			width: 500px; 
+			height: 2000px;
+			color: #ffffff;
+			font-size: 60px;
+			background-color: #222222;
+			text-align: center;
+			padding-top: 800px;
+			border: 2px solid white;
+			background-image: radial-gradient(white 1px, transparent 0);
+			background-size: 30px 30px;
+			background-position: center;
+			animation: introBackgrounds 5s infinite;
+		</style>
+   </entry>
+   <entry>
+		<x>15</x>
+		<y>5</y>
+		<z>-24.5</z>
+		<rx>1.2</rx>
+		<content>
+			<div>
+				<span>Fullstack Development</span>
+			</div>
+		</content>
+		<style>
+			width: 500px; 
+			height: 2000px;
+			color: #ffffff;
+			font-size: 60px;
+			background-color: #222222;
+			text-align: center;
+			padding-top: 800px;
+			border: 2px solid white;
+			background-image: radial-gradient(white 1px, transparent 0);
+			background-size: 30px 30px;
+			background-position: center;
+			animation: introBackgrounds 5s infinite;
+		</style>
+    </entry>
+   <entry>
+		<x>15</x>
+		<y>5</y>
+		<z>-30.5</z>
+		<rx>1.2</rx>
+		<content>
+			<div>
+				<span>Digital Marketing</span>
+			</div>
+		</content>
+		<style>
+			width: 500px; 
+			height: 2000px;
+			color: #ffffff;
+			font-size: 60px;
+			background-color: #222222;
+			text-align: center;
+			padding-top: 800px;
+			border: 2px solid white;
+			background-image: radial-gradient(white 1px, transparent 0);
+			background-size: 30px 30px;
+			background-position: center;
+			animation: introBackgrounds 5s infinite;
+		</style>
+    </entry>
+    <entry>
 		<x>0.2</x>
 		<y>0</y>
 		<z>-42</z>
+		<rx>0</rx>
 		<content>
 			<div style="width: 1000px;">
 				<span>About Me</span>
@@ -69,11 +166,12 @@
 			color: #000000; 
 			font-size: 144px;
 		</style>
-	</entry>
+   </entry>
    <entry>
 		<x>6.5</x>
 		<y>0</y>
 		<z>-39.8</z>
+		<rx>0</rx>
 		<content>
 			<article style="width: 800px; height: 600px; padding: 30px; box-shadow: 0px 0px 5px #000000; border-radius: 30px;">
 				<h1 style="font-size: 64px;">Hello! I'm Andrew</h1>
@@ -96,6 +194,7 @@
 		<x>6.5</x>
 		<y>0</y>
 		<z>-46.5</z>
+		<rx>0</rx>
 		<content>
 			<article style="background-color: #ffb380; background-color: #ff5500; border-radius: 30px; padding: 30px; width: 400px; height: 600px; box-shadow: 0px 0px 2px #222222;">
 				<img src="images/titans.png" draggable="false"></img><br />
@@ -113,9 +212,10 @@
 		<x>0.8</x>
 		<y>-4.8</y>
 		<z>-79</z>
+		<rx>0</rx>
 		<content>
 			<div style="width: 1000px;">
-				<span>Links</span>
+				<span>Social</span>
 			</div>
 		</content>
 		<style>
@@ -128,6 +228,7 @@
 		<x>3.5</x>
 		<y>-4.8</y>
 		<z>-76.2</z>
+		<rx>0</rx>
 		<content>
 			<div style="width: 850px; background-color: #002199; border-radius: 30px; padding: 50px; box-shadow: 0px 0px 10px #000066; transform: scale(0.9);">
 				<div style="margin-bottom: 20px;">
@@ -147,9 +248,10 @@
 		<x>8</x>
 		<y>0</y>
 		<z>-118.5</z>
+		<rx>0</rx>
 		<content>
 			<div style="width: 1000px;">
-				<span> My Skills</span>
+				<span>Experience</span>
 			</div>
 		</content>
 		<style>
@@ -162,6 +264,7 @@
 		<x>7</x>
 		<y>0</y>
 		<z>-128</z>
+		<rx>0</rx>
 		<content>
 				<div style="transform: scale(1.1); width: 1200px; opacity: 0.9;">
 					<article style="background-color: rgba(255, 255, 255, 0.9); border-radius: 30px; padding: 50px; width: 850px; box-shadow: 0px 0px 1px #000000;">
@@ -185,6 +288,7 @@
 		<x>0</x>
 		<y>0</y>
 		<z>-146</z>
+		<rx>0</rx>
 		<content>
 			<div>
 				<span>Projects</span>
@@ -199,6 +303,7 @@
 		<x>-2</x>
 		<y>0</y>
 		<z>-158</z>
+		<rx>0</rx>
 		<content>
 			<div style="display: flex; flex-direction: row; background-color: #262626; border-radius: 30px; padding: 30px; box-shadow: 0px 0px 5px #000000;">
 				<div style="width: 450px; height: 400px; margin-top: 50px;">
@@ -224,6 +329,7 @@
 		<x>-0.5</x>
 		<y>0</y>
 		<z>-257</z>
+		<rx>0</rx>
 		<content>
 			<div style="padding: 100px; font-size: 60px;">
 				<div style="color: #ffffff; font-size: 108px; text-shadow: 0px 0px 1px #000000;">Contact</div><br />
@@ -248,6 +354,7 @@
 		<x>12</x>
 		<y>0</y>
 		<z>-308</z>
+		<rx>0</rx>
 		<content>
 			<div style="background-color: #ffffff; box-shadow: 0px 0px 5px #222222; border-radius: 60px; padding: 30px; transform: scale(0.6);">
 				<div style="color: #000000; font-size: 96px; text-shadow: 0px 0px 1px #ffffff;">andrewbowman.dev</div>
