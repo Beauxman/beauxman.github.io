@@ -14,8 +14,8 @@ document.getElementById("navigation").innerHTML = `
 			margin-top: 8px;
 			border-radius: 40px;
 			background-color: rgba(28, 28, 28, 0.5);
-			padding-left: 30px;
-			padding-right: 30px;
+			padding-left: 20px;
+			padding-right: 20px;
 			padding-top: 5px;
 			padding-bottom: 5px;
 			color: #f2f2f2;;
@@ -144,11 +144,7 @@ document.getElementById("navigation").innerHTML = `
 		
 		#nav-other {
 			width: 100%;
-		}
-		
-		#nav-other {
-			width: 100%;
-			margin-left: 20%;
+			margin-left: 10vw;
 		}
 		
 		#nav-title {
