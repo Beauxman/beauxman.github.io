@@ -144,7 +144,6 @@ document.getElementById("navigation").innerHTML = `
 		
 		#nav-other {
 			width: 100%;
-			margin-left: 20%;
 		}
 		
 		#nav-other {
