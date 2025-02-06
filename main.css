@@ -3,20 +3,19 @@ body {
 	font-size: 24px;
 	color: #ffffff;
 	background-color: #222222;
-	height: 5000px;
+	height: 7000px;
 	overflow-x: hidden;
 	margin: 0px;
 	font-weight: bold;
 }
 
 a {
-	color: #0080ff;
-	text-shadow: 2px 2px 5px #0073e6;
+	color: #ff5500;
 	text-decoration: none;
 }
 
 a:hover {
-	color: #4da6ff;
+	color: #ffaa80;
 }
 
 #canvas {
@@ -53,6 +52,13 @@ a:hover {
     width: 100%;
     -backdrop-filter: blur(20px);
     pointer-events: none; 
+}
+
+#skill-icons > img{
+	background-color: rgba(0, 0, 170, 0.3); 
+	border-radius: 20px; 
+	padding: 16px; 
+	box-shadow: inset 0px 0px 10px #000066;
 }
 
 .wind {
@@ -101,4 +107,12 @@ a:hover {
   100% {
     transform: translate(-2000px);
   }
+}
+
+@keyframes floating {
+	0% {transform: translate(0px, 0px);}
+	20% {transform: translate(20px, 10px);}
+	50% {transform: translate(-14px, -2px);}
+	80% {transform: translate(-5px, -10px);}
+	100% {transform: translate(0px, 0px);}
 }

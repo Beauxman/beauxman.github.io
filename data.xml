@@ -12,8 +12,8 @@
 			</div>
 		</content>
 		<style>
-			width: 1200px;
-			height: 1000px;
+			width: 1200px; 
+			height: 1000px; 
 			color: #ffffff;
 			font-size: 84px;
 			text-shadow: 2px 2px 1px #222222;
@@ -42,16 +42,14 @@
 		<z>-6.4</z>
 		<rx>0</rx>
 		<content>
-			<div class="start" syle="height: 175px; width: 350px; border-style: solid;">
+			<div class="start" syle="height: 175px; width: 350px;">
 				<div style="animation: startanim 2s 0s infinite;">Home</div>
 			</div>
 		</content>
 		<style>
 			width: 350px; 
 			height: 175px;
-			border-style: solid; 
-			border-color: #ffffff;
-			border-width: 10px;
+			border: 10px solid #ffffff;
 			padding-top: 25px; 
 			text-align: center; 
 			color: #ffffff; 
@@ -60,101 +58,108 @@
 		</style>
 	</entry>
     <entry>
-		<x>6</x>
-		<y>0</y>
-		<z>-17</z>
-		<rx>0</rx>
-		<content>
-			<div>
-				<div style="transform: rotate(64deg);">Life is a journey...</div>
-			</div>
-		</content>
-		<style>
-			width: 2000px; 
-			height: 500px;
-			color: #333333;
-			font-size: 84px;
-			text-align: center;
-		</style>
-   </entry>
-    <entry>
-		<x>15</x>
-		<y>5</y>
-		<z>-18.5</z>
-		<rx>1.2</rx>
+		<x>0</x>
+		<y>0.8</y>
+		<z>-17.5</z>
+		<rx>0.9</rx>
 		<content>
 			<div>
 				<span>UI/UX <br></br>Design</span>
 			</div>
 		</content>
 		<style>
-			width: 500px; 
-			height: 2000px;
+			width: 300px; 
+			height: 200px;
 			color: #ffffff;
-			font-size: 60px;
-			background-color: #222222;
+			font-size: 36px;
+			background-color: #333333;
 			text-align: center;
-			padding-top: 800px;
+			padding-top: 40px;
 			border: 2px solid white;
 			background-image: radial-gradient(white 1px, transparent 0);
 			background-size: 30px 30px;
 			background-position: center;
-			animation: introBackgrounds 5s infinite;
-		</style>
-   </entry>
-   <entry>
-		<x>15</x>
-		<y>5</y>
-		<z>-24.5</z>
-		<rx>1.2</rx>
-		<content>
-			<div>
-				<span>Fullstack Development</span>
-			</div>
-		</content>
-		<style>
-			width: 500px; 
-			height: 2000px;
-			color: #ffffff;
-			font-size: 60px;
-			background-color: #222222;
-			text-align: center;
-			padding-top: 800px;
-			border: 2px solid white;
-			background-image: radial-gradient(white 1px, transparent 0);
-			background-size: 30px 30px;
-			background-position: center;
-			animation: introBackgrounds 5s infinite;
+			animation: introBackgrounds 3s infinite;
 		</style>
     </entry>
    <entry>
-		<x>15</x>
-		<y>5</y>
-		<z>-30.5</z>
-		<rx>1.2</rx>
+		<x>4</x>
+		<y>0.8</y>
+		<z>-18</z>
+		<rx>0.9</rx>
 		<content>
 			<div>
-				<span>Digital Marketing</span>
+				<span>Fullstack Web Development</span>
 			</div>
 		</content>
 		<style>
-			width: 500px; 
-			height: 2000px;
+			width: 300px; 
+			height: 200px;
 			color: #ffffff;
-			font-size: 60px;
+			font-size: 36px;
 			background-color: #222222;
 			text-align: center;
-			padding-top: 800px;
+			padding-top: 40px;
 			border: 2px solid white;
 			background-image: radial-gradient(white 1px, transparent 0);
 			background-size: 30px 30px;
 			background-position: center;
-			animation: introBackgrounds 5s infinite;
+			animation: introBackgrounds 3s infinite;
+		</style>
+   </entry>
+   <entry>
+		<x>8</x>
+		<y>0.8</y>
+		<z>-13</z>
+		<rx>0.9</rx>
+		<content>
+			<div>
+				<span>Data Science<br />&amp; Analytics</span>
+			</div>
+		</content>
+		<style>
+			width: 300px; 
+			height: 200px;
+			color: #ffffff;
+			font-size: 36px;
+			background-color: #222222;
+			text-align: center;
+			padding-top: 40px;
+			border: 2px solid white;
+			background-image: radial-gradient(white 1px, transparent 0);
+			background-size: 30px 30px;
+			background-position: center;
+			animation: introBackgrounds 3s infinite;
+		</style>
+    </entry>
+   <entry>
+		<x>11</x>
+		<y>0.8</y>
+		<z>-15</z>
+		<rx>0.9</rx>
+		<content>
+			<div>
+				<span>Digital<br />Marketing</span>
+			</div>
+		</content>
+		<style>
+			width: 300px; 
+			height: 200px;
+			color: #ffffff;
+			font-size: 36px;
+			background-color: #222222;
+			text-align: center;
+			padding-top: 40px;
+			border: 2px solid white;
+			background-image: radial-gradient(white 1px, transparent 0);
+			background-size: 30px 30px;
+			background-position: center;
+			animation: introBackgrounds 3s infinite;
 		</style>
     </entry>
     <entry>
 		<x>0.2</x>
-		<y>0</y>
+		<y>0.5</y>
 		<z>-42</z>
 		<rx>0</rx>
 		<content>
@@ -209,79 +214,107 @@
 		</style>
 	</entry>
     <entry>
-		<x>0.8</x>
-		<y>-4.8</y>
-		<z>-79</z>
+		<x>7</x>
+		<y>0</y>
+		<z>-59</z>
 		<rx>0</rx>
 		<content>
-			<div style="width: 1000px;">
-				<span>Social</span>
-			</div>
-		</content>
-		<style>
-			color: #000000; 
-			font-size: 144px; 
-			text-shadow: 0px 0px 5px #000066;
-		</style>
-	</entry>
-    <entry>
-		<x>3.5</x>
-		<y>-4.8</y>
-		<z>-76.2</z>
-		<rx>0</rx>
-		<content>
-			<div style="width: 850px; background-color: #002199; border-radius: 30px; padding: 50px; box-shadow: 0px 0px 10px #000066; transform: scale(0.9);">
-				<div style="margin-bottom: 20px;">
-					<span><a href="mailto:andrewasus@gmail.com">Email</a> | <a href="https://github.com/Beauxman">Github</a> | <a href="https://www.linkedin.com/in/andrew-bowman-45a4b7288/">LinkedIn</a></span>
+			<div style="width: 360px; background-color: rgba(0, 0, 0, 1); border-radius: 30px; padding: 50px; transform: scale(0.7);">
+				<div style="margin-bottom: 50px; display: flex; flex-direction: column; width: 100%; align-items: center; justify-content: center; gap: 50px;">
+					<a href="https://www.linkedin.com/in/andrew-bowman-45a4b7288/">LinkedIn</a>
+					<img src="images/linkedin.png" style="width: 100px; border-radius: 10px; filter: grayscale(1);" draggable="false"></img>
+					<a href="mailto:andrewasus@gmail.com">Email</a>
+					<img src="images/gmail.png" style="width: 100px; border-radius: 10px;filter: grayscale(1);" draggable="false"></img>
+					<a href="https://github.com/Beauxman">Github</a>
+					<img src="images/github.png" style="width: 100px; border-radius: 10px;filter: invert(1);" draggable="false"></img>
 				</div>
-				<img src="images/gmail.png" style="width: 140px; border-radius: 10px; margin-left: 20px;" draggable="false"></img>
-				<img src="images/github.png" style="width: 140px; border-radius: 10px; margin-left: 90px;" draggable="false"></img>
-				<img src="images/linkedin.png" style="width: 140px; border-radius: 10px; margin-left: 130px;" draggable="false"></img>
 			</div>
 		</content>
 		<style>
-			color: #000000; 
+			color: #0000b3;
 			font-size: 60px; 
 		</style>
 	</entry>
     <entry>
-		<x>8</x>
-		<y>0</y>
-		<z>-118.5</z>
+		<x>-1.9</x>
+		<y>-4.8</y>
+		<z>-72.6</z>
 		<rx>0</rx>
 		<content>
-			<div style="width: 1000px;">
-				<span>Experience</span>
+			<div style="background-color: rgba(0, 0, 170, 0.3); border-radius: 30px; padding: 20px; padding-left: 50px; padding-right: 50px; box-shadow: inset 0px 0px 10px #000066; animation: floating 12s 0.2s reverse infinite;">
+				<span style="color: #000066; text-shadow: 0px 0px 10px #000066;">Skills</span>
 			</div>
 		</content>
 		<style>
-			color: #ffff1a; 
+			color: #ffffff; 
 			font-size: 144px; 
-			text-shadow: 0px 0px 7px #000000;
+			text-shadow: 0px 0px 5px #000066;
 		</style>
 	</entry>
-    <entry>
-		<x>7</x>
-		<y>0</y>
-		<z>-128</z>
+	<entry>
+		<x>-7</x>
+		<y>-4.8</y>
+		<z>-88</z>
 		<rx>0</rx>
 		<content>
-				<div style="transform: scale(1.1); width: 1200px; opacity: 0.9;">
-					<article style="background-color: rgba(255, 255, 255, 0.9); border-radius: 30px; padding: 50px; width: 850px; box-shadow: 0px 0px 1px #000000;">
-						<img src="images/html5.png" style="width: 140px; border-radius: 10px;" draggable="false"></img>
-						<img src="images/js.png" style="width: 140px; border-radius: 10px;" draggable="false"></img>
-						<img src="images/react.svg" style="width: 140px; border-radius: 10px;" draggable="false"></img>
-						<img src="images/angular.svg" style="width: 140px; border-radius: 10px;" draggable="false"></img>
-						<img src="images/git.png" style="width: 140px;" draggable="false"></img>
-						<br />
-						<img src="images/nodejs.png" style="width: 260px; margin-top: 40px;" draggable="false"></img>
-						<img src="images/mysql.png" style="width: 140px; margin-top: 40px;" draggable="false"></img>
-						<img src="images/java.png" style="width: 120px; margin-top: 40px; margin-left: 20px;" draggable="false"></img>
-						<img src="images/c++.png" style="width: 140px; margin-top: 40px; margin-left: 20px;" draggable="false"></img>
+				<div style="transform: scale(1); width: 4000px; height: 2800px; opacity: 0.9;">
+					<article id="skill-icons" style="padding: 50px; height: 100%; width: 100%;">
+						<img src="images/ts.png" style="width: 140px; position: absolute; margin-left: 130px; margin-top: 2100px; animation: floating 8s infinite;" draggable="false"></img>
+						<img src="images/html5.png" style="width: 140px; position: absolute; margin-left: 160px; margin-top: 2300px; animation: floating 8s 1.4s infinite;" draggable="false"></img>
+						<img src="images/js.png" style="width: 140px; position: absolute; margin-left: 360px; margin-top: 2040px; animation: floating 6s 3.9s infinite;" draggable="false"></img>
+						<img src="images/react.svg" style="width: 140px; position: absolute; margin-left: 490px; margin-top: 2400px; animation: floating 7s 1.7s reverse infinite;" draggable="false"></img>
+						<img src="images/angular.svg" style="width: 140px; position: absolute; margin-left: 620px; margin-top: 2160px; animation: floating 7.5s 2.3s infinite;" draggable="false"></img>
+						<img src="images/css.png" style="width: 140px; position: absolute; margin-left: 720px; margin-top: 1920px; animation: floating 8.2s 0.9s reverse infinite;" draggable="false"></img>
+						<img src="images/c++.png" style="width: 140px; position: absolute; margin-left: 830px; margin-top: 2330px; animation: floating 7.6s 7.3s infinite;" draggable="false"></img>
+						<img src="images/git.png" style="width: 140px; position: absolute; margin-left: 980px; margin-top: 2100px; animation: floating 6.5s 5.2s infinite;" draggable="false"></img>
+						<img src="images/nodejs.png" style="width: 240px; position: absolute; margin-left: 1110px; margin-top: 1860px; animation: floating 10s 1.3s infinite;" draggable="false"></img>
+						<img src="images/py.png" style="width: 140px; padding-left: 20px; padding-top: 10px; position: absolute; margin-left: 1220px; margin-top: 1600px; animation: floating 6.5s 5.3s infinite;" draggable="false"></img>
+						<img src="images/mysql.png" style="width: 140px; position: absolute; margin-left: 1480px; margin-top: 1500px; animation: floating 8.3s 1.3s infinite;" draggable="false"></img>
+						<img src="images/java.png" style="width: 120px; position: absolute; margin-left: 580px; margin-top: 1420px; opacity: 70%; animation: floating 7.3s 0.6s reverse infinite;" draggable="false"></img>
 					</article>
 				</div>
 		</content>
 		<style>
+		</style>
+	</entry>
+    <entry>
+		<x>4</x>
+		<y>0</y>
+		<z>-127</z>
+		<rx>0</rx>
+		<content>
+			<div style="width: 1000px; ">
+				<div style="background: -webkit-linear-gradient(left, #ffff80, #ffffb3); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Experience</div>
+			</div>
+		</content>
+		<style>
+			color: #ffff1a; 
+			font-size: 144px;
+		</style>
+	</entry>
+    <entry>
+		<x>7.2</x>
+		<y>0</y>
+		<z>-128.2</z>
+		<rx>0</rx>
+		<content>
+			<div style="width: 1200px;">
+				<div style="color: #ffffb3;">
+					<div>Web Developer / Website Manager</div>
+					<div style="margin-left: 20px; font-size: 30px;"><i>Bimmerplug</i><div style="margin-left: 340px; margin-top: -44px; position: absolute;">2024 - Current</div></div>
+					<div style="width: 5px; height: 50px; background-color: #ffffb3; margin-left: 10px; color: rgba(0, 0, 0, 0); text-shadow: none; margin-top: 10px; margin-bottom: 10px; box-shadow: 0px 0px 2px #ffff66;">.</div>
+					<div>Fullstack Web Developer</div>
+					<div style="margin-left: 20px; font-size: 30px;"><i>Freelance</i><div style="margin-left: 340px; margin-top: -44px; position: absolute;">2023 - 2024</div></div>
+					<div style="width: 5px; height: 50px; background-color: #ffffb3; margin-left: 10px; color: rgba(0, 0, 0, 0); text-shadow: none; margin-top: 10px; margin-bottom: 10px; box-shadow: 0px 0px 2px #ffff66;">.</div>
+					<div>University Student</div>
+					<div style="margin-left: 20px; font-size: 30px;"><i>CSU, Fullerton</i><div style="margin-left: 340px; margin-top: -44px; position: absolute;">2021 - 2023</div></div>
+				</div>
+			</div>
+		</content>
+		<style>
+			color: #ffff1a; 
+			font-size: 36px;
+			text-shadow: 0px 0px 2px #ffff66;
 		</style>
 	</entry>
     <entry>
@@ -300,6 +333,52 @@
 		</style>
 	</entry>
     <entry>
+		<x>6.5</x>
+		<y>0</y>
+		<z>-149</z>
+		<rx>0</rx>
+		<content>
+			<div style="display: flex; flex-direction: row; background-color: #262626; border-radius: 30px; padding: 40px; box-shadow: 0px 0px 5px #000000; width: 1200px; height: 500px; ">
+				<div style="width: 450px; margin-top: 10px; margin-bottom: 10px;">
+				    <span style="font-size: 72px; color: #ffec80;">BMW F8X</span><br />
+					<p style="font-size: 28px;">Online storfront for performance car mods. Features over 100 products.</p>
+					<br />
+					<a style="color: #ffffff; font-size: 36px; text-align: center; padding: 20px; padding-right: 60px; padding-left: 60px; border: 3px solid #ffffff;" href="https://bimmerplug.com/pages/f8x-mods">Visit</a>
+				</div>
+				<div style="background-image: url('images/bp2.webp'); height: 420px; width: 400px; background-size: cover; box-shadow: 0px 0px 2px gold;"></div>
+				<div style="margin-left: 450px;">
+					<img src="images/bp3.jpg" style="width: 200px; box-shadow: 0px 0px 2px gold;" draggable="false"></img>
+				</div>
+			</div>
+		</content>
+		<style>
+			color: #ffffff;
+			font-size: 36px;
+		</style>
+	</entry>
+    <entry>
+		<x>6.5</x>
+		<y>0</y>
+		<z>-161.5</z>
+		<rx>0</rx>
+		<content>
+			<div style="display: flex; flex-direction: row; background-color: #262626; border-radius: 30px; padding: 40px; box-shadow: 0px 0px 5px #000000; width: 1200px; height: 500px; ">
+				<div style="width: 450px; margin-top: 10px; margin-bottom: 10px;">
+				    <span style="font-size: 72px; color: #66cc00;">LVisualizer</span><br />
+					<p style="font-size: 28px; margin-bottom: 50px;">Live previewer for customizable products. Capable of over 200,000 different combinations.</p>
+					<a style="color: #ffffff; font-size: 36px; text-align: center; padding: 20px; padding-right: 60px; padding-left: 60px; border: 3px solid #ffffff;" href="https://bimmerplug.com/products/full-custom-steering-wheel-bmw-2025-lci-style">Visit</a>
+				</div>
+				<div style="margin-left: 0px;">
+					<img src="images/zc1.webp" style="width: 700px; box-shadow: 0px 0px 2px #66cc00;" draggable="false"></img>
+				</div>
+			</div>
+		</content>
+		<style>
+			color: #ffffff;
+			font-size: 36px;
+		</style>
+	</entry>
+    <entry>
 		<x>-2</x>
 		<y>0</y>
 		<z>-158</z>
@@ -307,9 +386,10 @@
 		<content>
 			<div style="display: flex; flex-direction: row; background-color: #262626; border-radius: 30px; padding: 30px; box-shadow: 0px 0px 5px #000000;">
 				<div style="width: 450px; height: 400px; margin-top: 50px;">
-					<img src="images/r1bb1t.jpg" style="width: 140px; margin-right: 30px; margin-bottom: 30px; background-color: #ccfff5; border-radius: 50%;" draggable="false"></img><span style="font-size: 72px;">R1bb1t</span><br />
-					<p style="font-size: 28px;">An innovative social media platform designed for fast, real-time communication, and community interaction.</p>
-					Visit: <a style="color: #80ffbd; font-size: 36px; text-align: center;" href="https://r1bb1t.com">R1bb1t.com</a>
+					<img src="images/r1bb1t.jpg" style="width: 140px; margin-right: 30px; margin-bottom: 30px; background-color: #ccfff5; border-radius: 50%;" draggable="false"></img>
+					<span style="font-size: 72px; color: #00ffcc;">R1bb1t</span><br />
+					<p style="font-size: 28px; margin-bottom: 50px;">An innovative social media platform designed for fast, real-time communication, and community interaction.</p>
+					<a style="color: #ffffff; font-size: 36px; text-align: center; padding: 20px; padding-right: 60px; padding-left: 60px; border: 3px solid #ffffff;" href="https://r1bb1t.com">Visit</a>
 				</div>
 				<div style="margin-left: 60px;">
 					<img src="images/r1bb1t1.png" style="height: 250px; box-shadow: 0px 0px 4px #00e69d;" draggable="false"></img><br />
@@ -340,7 +420,7 @@
 					<input type="email" name="email" style="margin-bottom: 300px;"></input><br />
 					Message<br />
 					<textarea type="text" name="message" rows="2">&#160;</textarea><br /><br />
-					<button style="background: transparent; color: #ffffff; border-width: 0px; box-shadow: 0px 0px 5px #ffffff; border-radius: 30px; padding: 10px;" type="submit">Send</button>
+					<button style="background: transparent; color: #ffffff; border-width: 0px; box-shadow: 0px 0px 5px #ffffff; border-radius: 30px; padding: 16px; padding-left: 120px; padding-right: 120px;" type="submit">Send</button>
 				</form> 
 			</div>
 		</content>

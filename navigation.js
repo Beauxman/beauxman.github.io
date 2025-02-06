@@ -182,7 +182,7 @@ document.getElementById("navigation").innerHTML = `
 			<div id="nav-links">
 				<span id="nav-home" class="nav-option">Home</span>
 				<span id="nav-about" class="nav-option">About</span>
-				<span id="nav-link" class="nav-option">Social</span>
+				<span id="nav-link" class="nav-option">Skills</span>
 				<span id="nav-skills" class="nav-option">Experience</span>
 				<span id="nav-projects" class="nav-option">Projects</span>
 			</div>
@@ -200,6 +200,6 @@ $("#nav-home").on("click", function() { window.scrollTo(0, 0); });
 $("#nav-about").on("click", function() { window.scrollTo(0, scrollDiff / 7.2); });
 $("#nav-link").on("click", function() { window.scrollTo(0, scrollDiff / 4.05); });
 $("#nav-skills").on("click", function() { window.scrollTo(0, scrollDiff / 2.45); });
-$("#nav-projects").on("click", function() { window.scrollTo(0, scrollDiff / 2.03); });
+$("#nav-projects").on("click", function() { window.scrollTo(0, scrollDiff / 1.97); });
 $("#nav-contact").on("click", function() { window.scrollTo(0, scrollDiff / 1.19); });
 $("#nav-title").on("click", function() { window.scrollTo(0, scrollDiff); });

@@ -302,69 +302,33 @@ const navLinks = document.getElementById("nav-link");
 const navSkills = document.getElementById("nav-skills");
 const navProjects = document.getElementById("nav-projects");
 
-const navX = document.getElementById("nav-x");
-const navO = document.getElementById("nav-o");
-const navC = document.getElementById("nav-c");
-const navS = document.getElementById("nav-s");
-const navT = document.getElementById("nav-t");
-
 function updateNavigation() {
 	let carPos = trains[0].position.z;
 
 	if (carPos >= -23) {
 		navHome.classList.add("nav-red");
 		navAbout.classList.remove("nav-orange");
-
-		navX.classList.add("nav-saturate");
-		navO.classList.remove("nav-saturate");	
 	} else if (carPos < -23 && carPos >= -59) {
 		navHome.classList.remove("nav-red");
 		navAbout.classList.add("nav-orange");
 		navLinks.classList.remove("nav-blue");
-		
-		navX.classList.remove("nav-saturate");
-		navO.classList.add("nav-saturate");
-		navC.classList.remove("nav-saturate");
 	} else if (carPos < -59 && carPos >= -101) {
 		navAbout.classList.remove("nav-orange");
 		navLinks.classList.add("nav-blue");
 		navSkills.classList.remove("nav-yellow");
-		
-		navO.classList.remove("nav-saturate");
-		navC.classList.add("nav-saturate");
-		navS.classList.remove("nav-saturate");
 	} else if (carPos < -101 && carPos >= -132) {
 		navLinks.classList.remove("nav-blue");
 		navSkills.classList.add("nav-yellow");
 		navProjects.classList.remove("nav-green");
-		
-		navC.classList.remove("nav-saturate");
-		navS.classList.add("nav-saturate");
-		navT.classList.remove("nav-saturate");
 	} else if (carPos < -132 && carPos >= -167) {
 		navSkills.classList.remove("nav-yellow");
 		navProjects.classList.add("nav-green");
-		
-		navS.classList.remove("nav-saturate");
-		navT.classList.add("nav-saturate");
-	} else if (carPos < -274) {
-		navX.classList.add("nav-saturate");
-		navO.classList.add("nav-saturate");
-		navC.classList.add("nav-saturate");
-		navS.classList.add("nav-saturate");
-		navT.classList.add("nav-saturate");
 	} else {
 		navHome.classList.remove("nav-red");
 		navAbout.classList.remove("nav-orange");
 		navLinks.classList.remove("nav-blue");
 		navSkills.classList.remove("nav-yellow");
 		navProjects.classList.remove("nav-green");
-		
-		navX.classList.remove("nav-saturate");
-		navO.classList.remove("nav-saturate");
-		navC.classList.remove("nav-saturate");
-		navS.classList.remove("nav-saturate");
-		navT.classList.remove("nav-saturate");
 	}
 }
 
