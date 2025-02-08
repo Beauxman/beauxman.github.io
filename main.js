@@ -18,7 +18,7 @@ stats.showPanel(0)
 const renderer = new THREE.WebGLRenderer( { antialias: true } );
 renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.shadowMap.enabled = false;
+renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.domElement.style = "z-index: -1; position: absolute;";
 canvas.appendChild( renderer.domElement );
@@ -420,7 +420,7 @@ loader.load( 'scene.glb', function ( gltf ) {
 		trains[i].nextTrack = findStartTrack(trains[i]);
 	}
 	
-	//if (window.innerWidth >= 768) { spotlight.castShadow = true; }
+	if (window.innerWidth >= 768) { spotlight.castShadow = true; }
 	
 	scene.add( gltf.scene );
 	sceneObject.encoding = THREE.sRGBEncoding;
