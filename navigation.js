@@ -16,12 +16,7 @@ document.getElementById("navigation").innerHTML = `
 			background-color: rgba(28, 28, 28, 0.5);
 			padding-left: 20px;
 			padding-right: 20px;
-			padding-top: 5px;
-			padding-bottom: 5px;
 			color: #f2f2f2;;
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
 			font-size: 1.2vw;
 			overflow: hidden;
 			backdrop-filter: blur(15px);
@@ -43,17 +38,20 @@ document.getElementById("navigation").innerHTML = `
 		}
 		
 		#nav-options {
-			width: 80%;
+			width: 100%;
 			height: 100%;
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
+			padding-left: 12vw;
+			padding-right: 12vw;
+			
 		}
 		
 		.nav-option {
-			margin-right: 6%;
 			padding-left: 2%;
 			padding-right: 2%;
+			margin-right: 2vw;
 			height: 100%;
 			border-radius: 2px;
 			cursor: pointer;
@@ -143,8 +141,8 @@ document.getElementById("navigation").innerHTML = `
 		}
 		
 		#nav-other {
-			width: 100%;
-			margin-left: 10vw;
+			display: flex;
+			width: fit-content;
 		}
 		
 		#nav-title {
@@ -154,7 +152,7 @@ document.getElementById("navigation").innerHTML = `
 			padding: 5px;
 			padding-left: 5%;
 			padding-right: 5%;
-			margin-left: 4%;
+			margin-left: 3vw;
 			cursor: pointer;
 			display: inline;
 		}
@@ -165,19 +163,8 @@ document.getElementById("navigation").innerHTML = `
 			transition: 0.5s;
 		}
 		
-		@media (width <= 1100px) {
-			#nav {
-			}		
-		}
 	</style>
 	<div id="nav">
-		<div id="nav-icons">
-			<img id="nav-x" src="images/x.webp" draggable="false">
-			<img id="nav-o" src="images/o.webp" draggable="false">
-			<img id="nav-c" src="images/b.webp" draggable="false">
-			<img id="nav-s" src="images/s.webp" draggable="false">
-			<img id="nav-t" src="images/t.webp" draggable="false">
-		</div>
 		<div id="nav-options">
 			<div id="nav-links">
 				<span id="nav-home" class="nav-option">Home</span>
