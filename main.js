@@ -16,9 +16,9 @@ stats.showPanel(0)
 // Renderer
 
 const renderer = new THREE.WebGLRenderer( { antialias: true } );
-renderer.setPixelRatio( window.devicePixelRatio );
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.shadowMap.enabled = true;
+renderer.shadowMap.enabled = false;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.domElement.style = "z-index: -1; position: absolute;";
 canvas.appendChild( renderer.domElement );
@@ -37,6 +37,7 @@ scene2.scale.set(0.01, 0.01, 0.01);
 
 // CSS3D
 
+const css3dObjects = [];
 function createCSS3DObject(content, style, x, y, z, rX) {
 	let div = document.createElement('div');
 	div.innerHTML = content;
@@ -60,12 +61,14 @@ fetch("data.xml")
     const parser = new DOMParser();
     const doc = parser.parseFromString(text, "text/xml");
 	for (let i = 0; i < doc.getElementsByTagName("entry").length; i++) {
-		scene2.add(createCSS3DObject(doc.getElementsByTagName("content")[i].innerHTML, 
+		const cssObject = createCSS3DObject(doc.getElementsByTagName("content")[i].innerHTML, 
 										doc.getElementsByTagName("style")[i].innerHTML, 
 										doc.getElementsByTagName("x")[i].innerHTML, 
 										doc.getElementsByTagName("y")[i].innerHTML, 
 										doc.getElementsByTagName("z")[i].innerHTML,
-										doc.getElementsByTagName("rx")[i].innerHTML));
+										doc.getElementsByTagName("rx")[i].innerHTML);
+		scene2.add(cssObject);
+		css3dObjects.push(cssObject);
 	}
 });
   
@@ -104,9 +107,8 @@ scene.add(light);
 
 const spotlight = new THREE.SpotLight(0xffffff, 70000.0);
 spotlight.position.set(40, 80, 10);
-spotlight.shadow.mapSize.width = 2048;
-spotlight.shadow.mapSize.height = 2048;
-spotlight.shadow.radius = 4;
+spotlight.shadow.mapSize.width = 1024;
+spotlight.shadow.mapSize.height = 1024;
 scene.add(spotlight);
 
 const spotlight2 = new THREE.SpotLight(0xffffff, 60000.0);
@@ -169,7 +171,7 @@ function findStartTrack(train) {
 
 var speed = 0;
 const accel = 0.008;
-let maxSpeed = -0.12;
+let maxSpeed = -0.16;
 
 const startBounds = -1;
 const endBounds = -305;
@@ -208,11 +210,7 @@ window.scrollTo(0, 0);
 
 function checkScrollBounds() {
 	let scrollTo = ((endBounds - startBounds) * (currentScroll / 100));
-	if (dir && trains[0].position.z > scrollTo || !dir && trains[0].position.z < scrollTo) {
-		setTimeout(() => {
-			checkScrollBounds();
-		}, 100)
-	} else {
+	if (!(dir && trains[0].position.z > scrollTo || !dir && trains[0].position.z < scrollTo)) {
 		moving = false;
 	}
 }
@@ -348,6 +346,23 @@ function updateOverlay() {
 	
 }
 
+function updateCSS3DVisibility() {
+    const maxDistance = 70;
+    const cameraWorldPos = new THREE.Vector3();
+    camera.getWorldPosition(cameraWorldPos);
+	
+    css3dObjects.forEach(obj => {
+      const objWorldPos = new THREE.Vector3();
+	  obj.getWorldPosition(objWorldPos);
+	  const distance = cameraWorldPos.distanceTo(objWorldPos);
+
+        if (distance < maxDistance) {
+			obj.visible = true;
+        } else {
+		   obj.visible = false;
+        }
+    });
+}
 // Animation Loop
 
 let sceneObject;
@@ -364,7 +379,9 @@ function animate() {
 		stats.update();
 		updateObjects();
 		updateNavigation();
-		updateOverlay();
+		checkScrollBounds();
+		updateCSS3DVisibility();
+		//updateOverlay();
 		
 		scrollProgress.style.marginTop = 2 + (trains[0].position.z / (endBounds - startBounds)) * 77 + "vh";
 		
@@ -372,6 +389,7 @@ function animate() {
 		renderer2.render(scene2, camera);
 		
 		lastTime = currentTime;
+		
 	}
   requestAnimationFrame(animate);
 }
@@ -420,7 +438,7 @@ loader.load( 'scene.glb', function ( gltf ) {
 		trains[i].nextTrack = findStartTrack(trains[i]);
 	}
 	
-	if (window.innerWidth >= 768) { spotlight.castShadow = true; }
+	//if (window.innerWidth >= 768) { spotlight.castShadow = true; }
 	
 	scene.add( gltf.scene );
 	sceneObject.encoding = THREE.sRGBEncoding;

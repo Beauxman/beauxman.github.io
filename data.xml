@@ -6,10 +6,8 @@
 		<z>-1</z>
 		<rx>0</rx>
 		<content>
-			<div>
 				Computer Programmer<br />
 				Web Developer<br /><br />
-			</div>
 		</content>
 		<style>
 			width: 1200px; 
@@ -63,9 +61,7 @@
 		<z>-17.5</z>
 		<rx>0.9</rx>
 		<content>
-			<div>
-				<span>UI/UX <br></br>Design</span>
-			</div>
+			UI/UX <br></br>Design
 		</content>
 		<style>
 			width: 300px; 
@@ -79,7 +75,6 @@
 			background-image: radial-gradient(white 1px, transparent 0);
 			background-size: 30px 30px;
 			background-position: center;
-			animation: introBackgrounds 3s infinite;
 		</style>
     </entry>
    <entry>
@@ -88,9 +83,7 @@
 		<z>-18</z>
 		<rx>0.9</rx>
 		<content>
-			<div>
-				<span>Fullstack Web Development</span>
-			</div>
+			Fullstack Web Development
 		</content>
 		<style>
 			width: 300px; 
@@ -104,7 +97,6 @@
 			background-image: radial-gradient(white 1px, transparent 0);
 			background-size: 30px 30px;
 			background-position: center;
-			animation: introBackgrounds 3s infinite;
 		</style>
    </entry>
    <entry>
@@ -113,9 +105,7 @@
 		<z>-13</z>
 		<rx>0.9</rx>
 		<content>
-			<div>
-				<span>Data Science<br />&amp; Analytics</span>
-			</div>
+			Data Science<br />&amp; Analytics
 		</content>
 		<style>
 			width: 300px; 
@@ -129,7 +119,6 @@
 			background-image: radial-gradient(white 1px, transparent 0);
 			background-size: 30px 30px;
 			background-position: center;
-			animation: introBackgrounds 3s infinite;
 		</style>
     </entry>
    <entry>
@@ -138,9 +127,7 @@
 		<z>-15</z>
 		<rx>0.9</rx>
 		<content>
-			<div>
-				<span>Digital<br />Marketing</span>
-			</div>
+			Digital<br />Marketing
 		</content>
 		<style>
 			width: 300px; 
@@ -154,20 +141,18 @@
 			background-image: radial-gradient(white 1px, transparent 0);
 			background-size: 30px 30px;
 			background-position: center;
-			animation: introBackgrounds 3s infinite;
 		</style>
     </entry>
     <entry>
-		<x>0.2</x>
-		<y>0.5</y>
+		<x>0.4</x>
+		<y>0</y>
 		<z>-42</z>
 		<rx>0</rx>
 		<content>
-			<div style="width: 1000px;">
-				<span>About Me</span>
-			</div>
+			About Me
 		</content>
 		<style>
+			width: 1000px;
 			color: #000000; 
 			font-size: 144px;
 		</style>
@@ -252,25 +237,25 @@
 		</style>
 	</entry>
 	<entry>
-		<x>-7</x>
+		<x>-10.3</x>
 		<y>-4.8</y>
-		<z>-88</z>
+		<z>-68.5</z>
 		<rx>0</rx>
 		<content>
-				<div style="transform: scale(1); width: 4000px; height: 2800px; opacity: 0.9;">
+				<div style="width: 100%; max-width: 800px; height: 10px;">
 					<article id="skill-icons" style="padding: 50px; height: 100%; width: 100%;">
-						<img src="images/ts.png" style="width: 140px; position: absolute; margin-left: 130px; margin-top: 2100px; animation: floating 8s infinite;" draggable="false"></img>
-						<img src="images/html5.png" style="width: 140px; position: absolute; margin-left: 160px; margin-top: 2300px; animation: floating 8s 1.4s infinite;" draggable="false"></img>
-						<img src="images/js.png" style="width: 140px; position: absolute; margin-left: 360px; margin-top: 2040px; animation: floating 6s 3.9s infinite;" draggable="false"></img>
-						<img src="images/react.svg" style="width: 140px; position: absolute; margin-left: 490px; margin-top: 2400px; animation: floating 7s 1.7s reverse infinite;" draggable="false"></img>
-						<img src="images/angular.svg" style="width: 140px; position: absolute; margin-left: 620px; margin-top: 2160px; animation: floating 7.5s 2.3s infinite;" draggable="false"></img>
-						<img src="images/css.png" style="width: 140px; position: absolute; margin-left: 720px; margin-top: 1920px; animation: floating 8.2s 0.9s reverse infinite;" draggable="false"></img>
-						<img src="images/c++.png" style="width: 140px; position: absolute; margin-left: 830px; margin-top: 2330px; animation: floating 7.6s 7.3s infinite;" draggable="false"></img>
-						<img src="images/git.png" style="width: 140px; position: absolute; margin-left: 980px; margin-top: 2100px; animation: floating 6.5s 5.2s infinite;" draggable="false"></img>
-						<img src="images/nodejs.png" style="width: 240px; position: absolute; margin-left: 1110px; margin-top: 1860px; animation: floating 10s 1.3s infinite;" draggable="false"></img>
-						<img src="images/py.png" style="width: 140px; padding-left: 20px; padding-top: 10px; position: absolute; margin-left: 1220px; margin-top: 1600px; animation: floating 6.5s 5.3s infinite;" draggable="false"></img>
-						<img src="images/mysql.png" style="width: 140px; position: absolute; margin-left: 1480px; margin-top: 1500px; animation: floating 8.3s 1.3s infinite;" draggable="false"></img>
-						<img src="images/java.png" style="width: 120px; position: absolute; margin-left: 580px; margin-top: 1420px; opacity: 70%; animation: floating 7.3s 0.6s reverse infinite;" draggable="false"></img>
+						<img src="images/ts.png" style="width: 140px; position: absolute; margin-left: 130px; margin-top: 1100px; animation: floating 8s infinite;" draggable="false"/>
+						<img src="images/html5.png" style="width: 140px; position: absolute; margin-left: 160px; margin-top: 1300px; animation: floating 8s 1.4s infinite;" draggable="false"/>
+						<img src="images/js.png" style="width: 140px; position: absolute; margin-left: 360px; margin-top: 1040px; animation: floating 6s 3.9s infinite;" draggable="false"/>
+						<img src="images/react.svg" style="width: 140px; position: absolute; margin-left: 490px; margin-top: 1400px; animation: floating 7s 1.7s reverse infinite;" draggable="false"/>
+						<img src="images/angular.svg" style="width: 140px; position: absolute; margin-left: 620px; margin-top: 1160px; animation: floating 7.5s 2.3s infinite;" draggable="false"/>
+						<img src="images/css.png" style="width: 140px; position: absolute; margin-left: 720px; margin-top: 920px; animation: floating 8.2s 0.9s reverse infinite;" draggable="false"/>
+						<img src="images/c++.png" style="width: 140px; position: absolute; margin-left: 830px; margin-top: 1330px; animation: floating 7.6s 7.3s infinite;" draggable="false"/>
+						<img src="images/git.png" style="width: 140px; position: absolute; margin-left: 980px; margin-top: 1100px; animation: floating 6.5s 5.2s infinite;" draggable="false"/>
+						<img src="images/nodejs.png" style="width: 240px; position: absolute; margin-left: 1110px; margin-top: 860px; animation: floating 10s 1.3s infinite;" draggable="false"/>
+						<img src="images/py.png" style="width: 140px; padding-left: 20px; padding-top: 10px; position: absolute; margin-left: 1220px; margin-top: 600px; animation: floating 6.5s 5.3s infinite;" draggable="false"/>
+						<img src="images/mysql.png" style="width: 140px; position: absolute; margin-left: 1480px; margin-top: 500px; animation: floating 8.3s 1.3s infinite;" draggable="false"/>
+						<img src="images/java.png" style="width: 120px; position: absolute; margin-left: 580px; margin-top: 420px; opacity: 70%; animation: floating 7.3s 0.6s reverse infinite;" draggable="false"/>
 					</article>
 				</div>
 		</content>
@@ -283,11 +268,10 @@
 		<z>-127</z>
 		<rx>0</rx>
 		<content>
-			<div style="width: 1000px; ">
-				<div style="background: -webkit-linear-gradient(left, #ffff80, #ffffb3); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Experience</div>
-			</div>
+			<div style="background: -webkit-linear-gradient(left, #ffff80, #ffffb3); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Experience</div>
 		</content>
 		<style>
+			width: 1000px; 
 			color: #ffff1a; 
 			font-size: 144px;
 		</style>
@@ -298,21 +282,18 @@
 		<z>-128.2</z>
 		<rx>0</rx>
 		<content>
-			<div style="width: 1200px;">
-				<div style="color: #ffffb3;">
-					<div>Web Developer / Website Manager</div>
-					<div style="margin-left: 20px; font-size: 30px;"><i>Bimmerplug</i><div style="margin-left: 340px; margin-top: -44px; position: absolute;">2024 - Current</div></div>
-					<div style="width: 5px; height: 50px; background-color: #ffffb3; margin-left: 10px; color: rgba(0, 0, 0, 0); text-shadow: none; margin-top: 10px; margin-bottom: 10px; box-shadow: 0px 0px 2px #ffff66;">.</div>
-					<div>Fullstack Web Developer</div>
-					<div style="margin-left: 20px; font-size: 30px;"><i>Freelance</i><div style="margin-left: 340px; margin-top: -44px; position: absolute;">2023 - 2024</div></div>
-					<div style="width: 5px; height: 50px; background-color: #ffffb3; margin-left: 10px; color: rgba(0, 0, 0, 0); text-shadow: none; margin-top: 10px; margin-bottom: 10px; box-shadow: 0px 0px 2px #ffff66;">.</div>
-					<div>University Student</div>
-					<div style="margin-left: 20px; font-size: 30px;"><i>CSU, Fullerton</i><div style="margin-left: 340px; margin-top: -44px; position: absolute;">2021 - 2023</div></div>
-				</div>
-			</div>
+			<div>Web Developer / Website Manager</div>
+			<div style="margin-left: 20px; font-size: 30px;"><i>Bimmerplug</i><div style="margin-left: 340px; margin-top: -44px; position: absolute;">2024 - Current</div></div>
+			<div style="width: 5px; height: 50px; background-color: #ffffb3; margin-left: 10px; color: rgba(0, 0, 0, 0); text-shadow: none; margin-top: 10px; margin-bottom: 10px; box-shadow: 0px 0px 2px #ffff66;">.</div>
+			<div>Fullstack Web Developer</div>
+			<div style="margin-left: 20px; font-size: 30px;"><i>Freelance</i><div style="margin-left: 340px; margin-top: -44px; position: absolute;">2023 - 2024</div></div>
+			<div style="width: 5px; height: 50px; background-color: #ffffb3; margin-left: 10px; color: rgba(0, 0, 0, 0); text-shadow: none; margin-top: 10px; margin-bottom: 10px; box-shadow: 0px 0px 2px #ffff66;">.</div>
+			<div>University Student</div>
+			<div style="margin-left: 20px; font-size: 30px;"><i>CSU, Fullerton</i><div style="margin-left: 340px; margin-top: -44px; position: absolute;">2021 - 2023</div></div>
 		</content>
 		<style>
-			color: #ffff1a; 
+			width: 1200px;
+			color: #ffffb3; 
 			font-size: 36px;
 			text-shadow: 0px 0px 2px #ffff66;
 		</style>

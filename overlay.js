@@ -1,4 +1,5 @@
-let min = 150, max = 200;
+//let min = 150, max = 200;
+let min = 15, max = 20;
 const count = Math.floor(Math.random() * (max - min + 1)) + min;
 for (let i = 0; i < count; i++) {
   const div = document.createElement('div');
