@@ -168,7 +168,7 @@
 				<div style="display: flex;">
 					<div style="width: 400px;">A <span style="color: #004AE7;">creative</span> web developer passionate about crafting <span style="color: #ff5500;">engaging</span> and <span style="color: #00E76E;">user-friendly</span> digital experiences. I love blending <span style="color: #FF0027">technical skill</span> with creativity to bring <span style="color: #ffff00;">ideas</span> to life.</div>
 					<div>
-						<img src="images/andrew.webp" style="width: 200px; height: 200px; margin-left: 60px; opacity: 90%; border-radius: 50%; box-shadow: 0px 0px 2px #000000;" draggable="false"></img><br />
+						<img src="images/andrew.webp" style="width: 200px; height: 200px; margin-left: 60px; opacity: 90%; border-radius: 50%; box-shadow: 0px 0px 2px #000000;" draggable="false" loading="lazy"></img><br />
 						<p style="margin-left: 30px;">From<br />Huntington Beach, CA.</p>
 					</div>
 				</div>
@@ -186,7 +186,7 @@
 		<rx>0</rx>
 		<content>
 			<article style="background-color: #ffb380; background-color: #ff5500; border-radius: 30px; padding: 30px; width: 400px; height: 600px; box-shadow: 0px 0px 2px #222222;">
-				<img src="images/titans.webp" draggable="false"></img><br />
+				<img src="images/titans.webp" draggable="false" loading="lazy"></img><br />
 				<span style="color: #003066; text-shadow: 2px 2px 3px #ffffff;">California State University, Fullerton</span><br /><br />
 				<span style="font-size: 32px; font-family: Pacifico; color: #ffffff; text-shadow: 2px 2px 3px #e64d00;">Bachelor of Science:<br /> Computer Science</span><br /><br />
 			</article>
@@ -206,11 +206,11 @@
 			<div style="width: 360px; background-color: rgba(0, 0, 0, 1); border-radius: 30px; padding: 50px; transform: scale(0.7);">
 				<div style="margin-bottom: 50px; display: flex; flex-direction: column; width: 100%; align-items: center; justify-content: center; gap: 50px;">
 					<a href="https://www.linkedin.com/in/andrew-bowman-45a4b7288/">LinkedIn</a>
-					<img src="images/linkedin.webp" style="width: 100px; border-radius: 10px; filter: grayscale(1);" draggable="false"></img>
+					<img src="images/linkedin.webp" style="width: 100px; border-radius: 10px; filter: grayscale(1);" draggable="false" loading="lazy"></img>
 					<a href="mailto:andrewasus@gmail.com">Email</a>
-					<img src="images/gmail.webp" style="width: 100px; border-radius: 10px;filter: grayscale(1);" draggable="false"></img>
+					<img src="images/gmail.webp" style="width: 100px; border-radius: 10px;filter: grayscale(1);" draggable="false" loading="lazy"></img>
 					<a href="https://github.com/Beauxman">Github</a>
-					<img src="images/github.webp" style="width: 100px; border-radius: 10px;filter: invert(1);" draggable="false"></img>
+					<img src="images/github.webp" style="width: 100px; border-radius: 10px;filter: invert(1);" draggable="false" loading="lazy"></img>
 				</div>
 			</div>
 		</content>
@@ -243,18 +243,18 @@
 		<content>
 				<div style="width: 100%; max-width: 800px; height: 10px;">
 					<article id="skill-icons" style="padding: 50px; height: 100%; width: 100%;">
-						<img src="images/ts.webp" style="width: 140px; position: absolute; margin-left: 130px; margin-top: 1100px; animation: floating 8s infinite;" draggable="false"/>
-						<img src="images/html5.webp" style="width: 140px; position: absolute; margin-left: 160px; margin-top: 1300px; animation: floating 8s 1.4s infinite;" draggable="false"/>
-						<img src="images/js.webp" style="width: 140px; position: absolute; margin-left: 360px; margin-top: 1040px; animation: floating 6s 3.9s infinite;" draggable="false"/>
-						<img src="images/react.svg" style="width: 140px; position: absolute; margin-left: 490px; margin-top: 1400px; animation: floating 7s 1.7s reverse infinite;" draggable="false"/>
-						<img src="images/angular.svg" style="width: 140px; position: absolute; margin-left: 620px; margin-top: 1160px; animation: floating 7.5s 2.3s infinite;" draggable="false"/>
-						<img src="images/css.webp" style="width: 140px; position: absolute; margin-left: 720px; margin-top: 920px; animation: floating 8.2s 0.9s reverse infinite;" draggable="false"/>
-						<img src="images/c++.webp" style="width: 140px; position: absolute; margin-left: 830px; margin-top: 1330px; animation: floating 7.6s 7.3s infinite;" draggable="false"/>
-						<img src="images/git.webp" style="width: 140px; position: absolute; margin-left: 980px; margin-top: 1100px; animation: floating 6.5s 5.2s infinite;" draggable="false"/>
-						<img src="images/nodejs.webp" style="width: 240px; position: absolute; margin-left: 1110px; margin-top: 860px; animation: floating 10s 1.3s infinite;" draggable="false"/>
-						<img src="images/py.webp" style="width: 140px; padding-left: 20px; padding-top: 10px; position: absolute; margin-left: 1220px; margin-top: 600px; animation: floating 6.5s 5.3s infinite;" draggable="false"/>
-						<img src="images/mysql.webp" style="width: 140px; position: absolute; margin-left: 1480px; margin-top: 500px; animation: floating 8.3s 1.3s infinite;" draggable="false"/>
-						<img src="images/java.webp" style="width: 120px; position: absolute; margin-left: 580px; margin-top: 420px; opacity: 70%; animation: floating 7.3s 0.6s reverse infinite;" draggable="false"/>
+						<img src="images/ts.webp" style="width: 140px; position: absolute; margin-left: 130px; margin-top: 1100px;" draggable="false" loading="lazy"/>
+						<img src="images/html5.webp" style="width: 140px; position: absolute; margin-left: 160px; margin-top: 1300px;" draggable="false" loading="lazy"/>
+						<img src="images/js.webp" style="width: 140px; position: absolute; margin-left: 360px; margin-top: 1040px;" draggable="false"  loading="lazy"/>
+						<img src="images/react.svg" style="width: 140px; position: absolute; margin-left: 490px; margin-top: 1400px;" draggable="false" loading="lazy"/>
+						<img src="images/angular.svg" style="width: 140px; position: absolute; margin-left: 620px; margin-top: 1160px;" draggable="false" loading="lazy"/>
+						<img src="images/css.webp" style="width: 140px; position: absolute; margin-left: 720px; margin-top: 920px;" draggable="false" loading="lazy"/>
+						<img src="images/c++.webp" style="width: 140px; position: absolute; margin-left: 830px; margin-top: 1330px;" draggable="false" loading="lazy"/>
+						<img src="images/git.webp" style="width: 140px; position: absolute; margin-left: 980px; margin-top: 1100px;" draggable="false" loading="lazy"/>
+						<img src="images/nodejs.webp" style="width: 240px; position: absolute; margin-left: 1110px; margin-top: 860px;" draggable="false" loading="lazy"/>
+						<img src="images/py.webp" style="width: 140px; padding-left: 20px; padding-top: 10px; position: absolute; margin-left: 1220px; margin-top: 600px;" draggable="false" loading="lazy"/>
+						<img src="images/mysql.webp" style="width: 140px; position: absolute; margin-left: 1480px; margin-top: 500px;" draggable="false" loading="lazy"/>
+						<img src="images/java.webp" style="width: 120px; position: absolute; margin-left: 580px; margin-top: 420px; opacity: 70%;" draggable="false" loading="lazy"/>
 					</article>
 				</div>
 		</content>
@@ -327,7 +327,7 @@
 				</div>
 				<div style="background-image: url('images/bp2.webp'); height: 420px; width: 400px; background-size: cover; box-shadow: 0px 0px 2px gold;"></div>
 				<div style="margin-left: 450px;">
-					<img src="images/bp3.webp" style="width: 200px; box-shadow: 0px 0px 2px gold;" draggable="false"></img>
+					<img src="images/bp3.webp" style="width: 200px; box-shadow: 0px 0px 2px gold;" draggable="false" loading="lazy"></img>
 				</div>
 			</div>
 		</content>
@@ -349,7 +349,7 @@
 					<a style="color: #ffffff; font-size: 36px; text-align: center; padding: 20px; padding-right: 60px; padding-left: 60px; border: 3px solid #ffffff;" href="https://bimmerplug.com/products/full-custom-steering-wheel-bmw-2025-lci-style">Visit</a>
 				</div>
 				<div style="margin-left: 0px;">
-					<img src="images/zc1.webp" style="width: 700px; box-shadow: 0px 0px 2px #66cc00;" draggable="false"></img>
+					<img src="images/zc1.webp" style="width: 700px; box-shadow: 0px 0px 2px #66cc00;" draggable="false" loading="lazy"></img>
 				</div>
 			</div>
 		</content>
@@ -366,17 +366,17 @@
 		<content>
 			<div style="display: flex; flex-direction: row; background-color: #262626; border-radius: 30px; padding: 30px; box-shadow: 0px 0px 5px #000000;">
 				<div style="width: 450px; height: 400px; margin-top: 50px;">
-					<img src="images/r1bb1t.webp" style="width: 140px; margin-right: 30px; margin-bottom: 30px; background-color: #ccfff5; border-radius: 50%;" draggable="false"></img>
+					<img src="images/r1bb1t.webp" style="width: 140px; margin-right: 30px; margin-bottom: 30px; background-color: #ccfff5; border-radius: 50%;" draggable="false" loading="lazy"></img>
 					<span style="font-size: 72px; color: #00ffcc;">R1bb1t</span><br />
 					<p style="font-size: 28px; margin-bottom: 50px;">An innovative social media platform designed for fast, real-time communication, and community interaction.</p>
 					<a style="color: #ffffff; font-size: 36px; text-align: center; padding: 20px; padding-right: 60px; padding-left: 60px; border: 3px solid #ffffff;" href="https://r1bb1t.com">Visit</a>
 				</div>
 				<div style="margin-left: 60px;">
-					<img src="images/r1bb1t1.webp" style="height: 250px; box-shadow: 0px 0px 4px #00e69d;" draggable="false"></img><br />
-					<img src="images/r1bb1t3.webp" style="height: 250px; margin-top: 30px; box-shadow: 0px 0px 4px #00e69d;" draggable="false"></img>
+					<img src="images/r1bb1t1.webp" style="height: 250px; box-shadow: 0px 0px 4px #00e69d;" draggable="false" loading="lazy"></img><br />
+					<img src="images/r1bb1t3.webp" style="height: 250px; margin-top: 30px; box-shadow: 0px 0px 4px #00e69d;" draggable="false" loading="lazy"></img>
 				</div>
 				<div style="margin-left: 60px;">
-					<img src="images/r1bb1t2.webp" style="height: 530px; box-shadow: 0px 0px 2px #00e69d;" draggable="false"></img><br />
+					<img src="images/r1bb1t2.webp" style="height: 530px; box-shadow: 0px 0px 2px #00e69d;" draggable="false" loading="lazy"></img><br />
 				</div>
 			</div>
 		</content>
