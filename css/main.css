@@ -43,15 +43,11 @@ a:hover {
   }
 }
 
-#filter2 {
-	position: absolute;
-	z-index: 2;
-    height: 100vh;
-    -webkit-mask: radial-gradient(60vw, #0000 10%, #000);
-            mask: radial-gradient(60vw, #0000 10%, #000);
-    width: 100%;
-    -backdrop-filter: blur(20px);
-    pointer-events: none; 
+#search {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    overflow: hidden;
 }
 
 #skill-icons > img{

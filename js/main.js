@@ -402,7 +402,7 @@ export { manager };
 
 const loader = new GLTFLoader( manager );
 
-loader.load( 'scene.glb', function ( gltf ) {
+loader.load( 'models/scene.glb', function ( gltf ) {
     sceneObject = gltf.scene;
 	sceneObject.traverse( function( child ) {
 		if (child.name.includes("Plane") || child.name.includes("Biome")) {
