@@ -1,0 +1,114 @@
+body {
+	font-family: Sora, Arial;
+	font-size: 24px;
+	color: #ffffff;
+	background-color: #222222;
+	height: 7000px;
+	overflow-x: hidden;
+	margin: 0px;
+	font-weight: bold;
+}
+
+a {
+	color: #ff5500;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #ffaa80;
+}
+
+#canvas {
+	color: #00000;
+	position:fixed;
+	filter: contrast(130%);
+}
+
+#scroll {
+	position: fixed;
+	z-index: 3;
+	width: 0.5vw;
+	min-width: 5px;
+	height: 8vw;
+	border-radius: 5px;
+	margin-top: 2vh;
+	margin-left: 98vw;
+	background-color: #ffffff;
+	box-shadow: 0px 0px 5px #222222;
+}
+
+@media (width <= 1100px) {
+  #scroll {
+	margin-left: 95vw;
+  }
+}
+
+#search {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+}
+
+#skill-icons > img{
+	background-color: rgba(0, 0, 170, 0.3); 
+	border-radius: 20px; 
+	padding: 16px; 
+	box-shadow: inset 0px 0px 10px #000066;
+}
+
+.wind {
+  width: 200px;
+  height: 1px;
+  background-color: #999999;
+  margin-top: 60px;
+  position: absolute;
+}
+
+#overlay {
+  opacity: 30%;
+  margin-top: -30vh;
+  margin-left: -10vw;
+  height: 210vh;
+  width: 110vw;
+  position: fixed;
+  pointer-events: none;
+}
+
+
+@keyframes dotanim {
+  0% {opacity: 100%;}
+  50% {opacity: 100%;}
+  51% {opacity: 0%;}
+  100% {opacity: 0%;}
+}
+
+@keyframes startanim {
+  0% {transform: translate(0px, 0px);}
+  10% {transform: translate(0px, -14px);}
+  20% {transform: translate(0px, 0px);}
+  30% {transform: translate(0px, -7px);}
+  40% {transform: translate(0px, 0px);}
+  100% {transform: translate(0px, 0px);}
+}
+
+@keyframes introBackgrounds {
+  50% {background-size: 24px 24px;}
+}
+
+@keyframes breeze {
+  0% {
+    transform: translate(2000px);
+  }
+  100% {
+    transform: translate(-2000px);
+  }
+}
+
+/*@keyframes floating {
+	0% {transform: translate(0px, 0px);}
+	20% {transform: translate(20px, 10px);}
+	50% {transform: translate(-14px, -2px);}
+	80% {transform: translate(-5px, -10px);}
+	100% {transform: translate(0px, 0px);}
+}*/
