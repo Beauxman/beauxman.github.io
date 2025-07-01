@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8" />
+  <title>Blackjack</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+	  -background-image: linear-gradient(90deg, rgb(50.588% 99.608% 91.373%) 0%, rgb(50.594% 99.601% 91.374%) 6.25%, rgb(50.678% 99.498% 91.389%) 12.5%, rgb(51.042% 99.049% 91.458%) 18.75%, rgb(52.022% 97.843% 91.642%) 25%, rgb(54.089% 95.299% 92.031%) 31.25%, rgb(57.847% 90.674% 92.737%) 37.5%, rgb(64.036% 83.057% 93.901%) 43.75%, rgb(73.529% 71.373% 95.686%) 50%, rgb(83.023% 59.688% 97.471%) 56.25%, rgb(89.212% 52.071% 98.635%) 62.5%, rgb(92.97% 47.446% 99.342%) 68.75%, rgb(95.037% 44.902% 99.73%) 75%, rgb(96.017% 43.696% 99.915%) 81.25%, rgb(96.381% 43.248% 99.983%) 87.5%, rgb(96.465% 43.144% 99.999%) 93.75%, rgb(96.471% 43.137% 100%) 100% );
+	  background-size: calc(200px + 200vw);
+	  background: #121212;
+	  color: #f8f8f8;
+      display: flex;
+      justify-content: center;
+	  align-items: center;
+      height: 100vh;
+      overflow: hidden;
+	  animation: rotate 7s ease-in-out infinite;
+    }
+	
+	@media only screen and (max-width: 600px) {
+		body {
+			margin-top: 20px;
+			align-items: start;
+		}
+	}
+
+    .game-container {
+      -background: #1111;
+	  -backdrop-filter: blur(400px);
+	  -border: 1px solid #fff;
+      padding: 0px;
+      border-radius: 10px;
+      text-align: center;
+      width: 300px;
+    }
+	
+	@keyframes rotate {
+		0% {
+			background-position: -50vw 0px;
+		}
+		50% {
+			background-position: -70vw 0px;
+		}
+		100% {
+			background-position: -50vw 0px;
+		}
+	}
+
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      color: maroon;
+    }
+	
+	h2 {
+		margin: 14px;
+	}
+
+    .slot {
+      margin-bottom: 20px;
+	  border-radius: 14px;
+	  width: 100%;
+	  backdrop-filter: blur(400px);
+	  border: 1px solid #fff;
+	  background: #1111;
+    }
+	
+	#dealer {
+		-background: maroon;
+	}
+
+	#player {
+		-background: dodgerblue;
+	}
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .card {
+      width: calc(40px + 1vw);
+      aspect-ratio: 3 / 4;
+	  backdrop-filter: blur(400px);
+	  border: 1px solid #fff;
+      background: #fffd;
+      color: #000;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -font-size: 1.5rem;
+	  font-size: calc(12px + 0.6vw);
+      font-weight: bold;
+      transition: transform 0.3s ease;
+	  box-shadow: 0px 0px 2px #000;
+      animation: pop 0.3s ease;
+    }
+
+    .card.red {
+      color: #d32f2f;
+    }
+
+    @keyframes pop {
+      0% {
+        transform: scale(0.2) rotate(-20deg);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+	
+	#dealer-score, #player-score {
+		-font-size: 0.8rem;
+	}
+	
+	.points {
+		margin-bottom: 10px;
+	}
+
+    .controls button {
+      margin: 8px 5px;
+      padding: 12px 20px;
+      background: #ffff80dd;
+	  min-width: 100px;
+      color: #111;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+	  backdrop-filter: blur(400px);
+    }
+
+    .controls button:hover {
+	  transition: all 0.3s ease;
+      transform: scale(1.05);
+    }
+	
+	#reset-btn {
+		background: #800d;
+		color: #fff;
+	}
+
+    #result {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container">
+    <!--<h1>Blackjack</h1>-->
+	
+    <div class="slot" id="dealer">
+      <h2>Dealer</h2>
+      <div class="cards" id="dealer-cards"></div>
+      <p id="dealer-score">0</p>
+    </div>
+
+    <div class="slot" id="player">
+      <h2>Player</h2>
+      <div class="cards" id="player-cards"></div>
+      <p id="player-score">0</p>
+    </div>
+
+	<div class="points">Credits: <span id="score"></span></div>
+    <div class="controls">
+      <button id="hit-btn">Hit</button>
+      <button id="stand-btn">Stand</button>
+	</div>
+	<div class="controls">
+      <button id="reset-btn">Reset</button>
+    </div>
+
+    <h2 id="result"></h2>
+  </div>
+
+  <script>
+    const suits = ['♠', '♥', '♦', '♣'];
+    const values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+
+    let deck = [];
+    let playerCards = [];
+    let dealerCards = [];
+	let score = 10;
+	document.getElementById('score').textContent = score;
+
+    const playerScoreEl = document.getElementById('player-score');
+    const dealerScoreEl = document.getElementById('dealer-score');
+    const playerCardsEl = document.getElementById('player-cards');
+    const dealerCardsEl = document.getElementById('dealer-cards');
+    const resultEl = document.getElementById('result');
+
+    document.getElementById('hit-btn').addEventListener('click', playerHit);
+    document.getElementById('stand-btn').addEventListener('click', dealerPlay);
+    document.getElementById('reset-btn').addEventListener('click', initGame);
+
+    function createDeck() {
+      deck = [];
+      for (let suit of suits) {
+        for (let value of values) {
+          deck.push({ value, suit });
+        }
+      }
+      deck = deck.sort(() => Math.random() - 0.5);
+    }
+
+    function getCardValue(card) {
+      if (['J', 'Q', 'K'].includes(card.value)) return 10;
+      if (card.value === 'A') return 11;
+      return parseInt(card.value);
+    }
+
+    function calculateScore(cards) {
+      let score = cards.reduce((acc, card) => acc + getCardValue(card), 0);
+      let aces = cards.filter(c => c.value === 'A').length;
+      while (score > 21 && aces > 0) {
+        score -= 10;
+        aces--;
+      }
+      return score;
+    }
+
+    function drawCard(to) {
+      const card = deck.pop();
+      to.push(card);
+      return card;
+    }
+
+    function renderCards(cards, element) {
+      element.innerHTML = '';
+      cards.forEach(card => {
+        const div = document.createElement('div');
+        div.className = 'card';
+        if (card.suit === '♥' || card.suit === '♦') div.classList.add('red');
+        div.innerText = card.value + card.suit;
+        element.appendChild(div);
+      });
+    }
+
+    function updateScores() {
+      const playerScore = calculateScore(playerCards);
+      const dealerScore = calculateScore(dealerCards);
+      playerScoreEl.textContent = `${playerScore}`;
+      dealerScoreEl.textContent = `${dealerScore}`;
+      return { playerScore, dealerScore };
+    }
+
+    function playerHit() {
+      drawCard(playerCards);
+      renderCards(playerCards, playerCardsEl);
+      const { playerScore } = updateScores();
+      if (playerScore > 21) endGame();
+    }
+
+    function dealerPlay() {
+      while (calculateScore(dealerCards) < 17) {
+        drawCard(dealerCards);
+      }
+      renderCards(dealerCards, dealerCardsEl);
+      updateScores();
+      endGame();
+    }
+
+    function endGame() {
+      document.getElementById('hit-btn').style.display = "none";
+      document.getElementById('stand-btn').style.display = "none";
+	  document.getElementById('reset-btn').style.display = "inline";
+	  
+	  document.getElementById('reset-btn').style.opacity = 1;
+	  document.getElementById('reset-btn').disabled = false;
+
+      const { playerScore, dealerScore } = updateScores();
+
+      if (playerScore > 21) {
+        resultEl.textContent = 'Player Busts! Dealer Wins!';
+		score -= 1;
+      } else if (dealerScore > 21 || playerScore > dealerScore) {
+        resultEl.textContent = 'Player Wins!';
+		score += 1;
+      } else if (dealerScore > playerScore) {
+        resultEl.textContent = 'Dealer Wins!';
+		score -= 1;
+      } else {
+        resultEl.textContent = 'Push!';
+      }
+	  document.getElementById('score').textContent = score;
+    }
+
+    function initGame() {
+      createDeck();
+      playerCards = [];
+      dealerCards = [];
+      drawCard(playerCards);
+      drawCard(playerCards);
+      drawCard(dealerCards);
+      drawCard(dealerCards);
+      renderCards(playerCards, playerCardsEl);
+      renderCards(dealerCards, dealerCardsEl);
+      updateScores();
+      resultEl.textContent = '';
+      document.getElementById('hit-btn').style.display = "inline";
+      document.getElementById('stand-btn').style.display = "inline";
+	  document.getElementById('reset-btn').style.display = "none";
+    }
+
+    initGame();
+  </script>
+</body>
+</html>
