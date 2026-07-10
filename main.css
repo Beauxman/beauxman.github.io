@@ -453,7 +453,7 @@ a:focus-visible,
 
 .category-wrapper {
   position: absolute;
-  z-index: 3;
+  z-index: 9;
   width: 100%;
   height: 80dvh;
   margin-top: calc(100dvh - 58px);
