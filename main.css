@@ -734,7 +734,7 @@ a:focus-visible,
 }
 
 @media (max-width: 480px) {
-  .nav-brand { display: none; }
+  .nav-apps-btn { display: none; }
   .nav-links { gap: 14px; }
   .nav-links a { font-size: 11px; letter-spacing: 1px; }
 }
