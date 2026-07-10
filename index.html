@@ -59,6 +59,19 @@
                         <a href="#" data-panel-trigger="about">About</a>
                         <a href="#" data-panel-trigger="experience">Experience</a>
                         <a href="#" data-panel-trigger="contact">Contact</a>
+                        <button type="button" class="nav-apps-btn" aria-label="Apps" data-panel-trigger="apps">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                                <circle cx="5" cy="5" r="2"></circle>
+                                <circle cx="12" cy="5" r="2"></circle>
+                                <circle cx="19" cy="5" r="2"></circle>
+                                <circle cx="5" cy="12" r="2"></circle>
+                                <circle cx="12" cy="12" r="2"></circle>
+                                <circle cx="19" cy="12" r="2"></circle>
+                                <circle cx="5" cy="19" r="2"></circle>
+                                <circle cx="12" cy="19" r="2"></circle>
+                                <circle cx="19" cy="19" r="2"></circle>
+                            </svg>
+                        </button>
                     </div>
                 </nav>
             </div>
@@ -239,6 +252,68 @@
                     </div>
                 </div>
             </div>
+            <div class="panel-container" data-panel="apps">
+                <div class="panel">
+                    <div class="panel-header">
+                        <button type="button" class="panel-exit" aria-label="Close"></button>
+                        <span class="panel-title">Apps</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="apps-grid">
+                            <button type="button" class="app-tile" aria-label="Calculator" data-panel-trigger="calculator">
+                                <span class="app-tile-icon app-tile-icon-calculator">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+                                        <line x1="8" y1="6" x2="16" y2="6"></line>
+                                        <line x1="7" y1="11" x2="7" y2="11.01"></line>
+                                        <line x1="12" y1="11" x2="12" y2="11.01"></line>
+                                        <line x1="17" y1="11" x2="17" y2="11.01"></line>
+                                        <line x1="7" y1="15" x2="7" y2="15.01"></line>
+                                        <line x1="12" y1="15" x2="12" y2="15.01"></line>
+                                        <line x1="17" y1="15" x2="17" y2="15.01"></line>
+                                        <line x1="7" y1="19" x2="7" y2="19.01"></line>
+                                        <line x1="12" y1="19" x2="12" y2="19.01"></line>
+                                        <line x1="17" y1="19" x2="17" y2="19.01"></line>
+                                    </svg>
+                                </span>
+                                <span class="app-tile-label">Calculator</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-container" data-panel="calculator">
+                <div class="panel panel-calculator">
+                    <div class="panel-header">
+                        <button type="button" class="panel-exit" aria-label="Close"></button>
+                        <span class="panel-title">Calculator</span>
+                    </div>
+                    <div class="panel-body">
+                        <div id="calc-display"></div>
+                        <div id="calc-buttons">
+                            <div class="calc-btn" id="calc-7">7</div>
+                            <div class="calc-btn" id="calc-8">8</div>
+                            <div class="calc-btn" id="calc-9">9</div>
+                            <div class="calc-btn calc-btn-op" id="calc-minus">-</div>
+                            <div class="calc-btn" id="calc-4">4</div>
+                            <div class="calc-btn" id="calc-5">5</div>
+                            <div class="calc-btn" id="calc-6">6</div>
+                            <div class="calc-btn calc-btn-op" id="calc-plus">+</div>
+                            <div class="calc-btn" id="calc-1">1</div>
+                            <div class="calc-btn" id="calc-2">2</div>
+                            <div class="calc-btn" id="calc-3">3</div>
+                            <div class="calc-btn calc-btn-op" id="calc-times">*</div>
+                            <div class="calc-btn" id="calc-0">0</div>
+                            <div class="calc-btn" id="calc-dot">.</div>
+                            <div class="calc-btn calc-btn-equals" id="calc-equals">=</div>
+                            <div class="calc-btn calc-btn-op" id="calc-divide">/</div>
+                            <div class="calc-btn calc-btn-util" id="calc-clear">AC</div>
+                            <div class="calc-btn calc-btn-util" id="calc-back">Back</div>
+                            <div class="calc-btn calc-btn-util" id="calc-sign">+/-</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="cursor-glass"></div>
     </body>
@@ -256,7 +331,7 @@
         // Elements that actually define a CSS :hover effect elsewhere in main.css —
         // keep this in sync if new hover styles are added.
         const hoverTargets = '.nav, .nav-links a, .header-icons, .header-icons a,' +
-            '.category-wrapper, .category-item-link, .contact-submit, .panel-exit, .selector-content';
+            '.category-wrapper, .category-item-link, .contact-submit, .panel-exit, .selector-content, .app-tile, .calc-btn';
 
         document.addEventListener('mousemove', e => {
         mouseX = e.clientX;
@@ -503,4 +578,5 @@
 
         wrapper.addEventListener('mouseleave', () => wrapper.classList.remove('force-collapsed'));
     </script>
+    <script src="calculator.js"></script>
 </html>
