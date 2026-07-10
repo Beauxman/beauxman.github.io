@@ -90,7 +90,7 @@
             </div>
             <div class="category-wrapper" id="work">
                 <div class="category-scroll-shadow"></div>
-                <div class="category-scroll">
+                <div class="category-scroll no-drag">
                     <div class="category-notch"></div>
                     <h2 class="category-eyebrow">PROJECTS</h2>
                     <div class="category-container">
@@ -412,7 +412,7 @@
             header.addEventListener('pointercancel', endDrag);
         });
 
-        // ----- Contact form: no backend is wired up yet, so this just confirms the UI works -----
+        // ----- Contact form -----
         const contactForm = document.querySelector('.contact-form');
         if (contactForm) {
             contactForm.addEventListener('submit', e => {
@@ -465,5 +465,42 @@
                 el.style.filter = `hue-rotate(${hueRotation}deg)`;
             });
         });
+
+        // Slide Scroll Click
+        const slider = document.querySelector('.category-scroll');
+        let isDown = false;
+        let startX, scrollLeft;
+
+        // Track mouse events to calculate drag distance
+        slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+        });
+
+        slider.addEventListener('mouseleave', () => isDown = false);
+        slider.addEventListener('mouseup', () => isDown = false);
+
+        slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2; // Drag speed
+        slider.scrollLeft = scrollLeft - walk; // Update position
+        });
+
+        // Category Close on Notch Click
+        const wrapper = document.querySelector('.category-wrapper');
+        const notch = document.querySelector('.category-notch');
+
+        notch.addEventListener('click', () => {
+            if (wrapper.classList.contains('force-collapsed')) {
+                wrapper.classList.remove('force-collapsed');
+            } else if (wrapper.matches(':hover')) {
+                wrapper.classList.add('force-collapsed');
+            }
+        });
+
+        wrapper.addEventListener('mouseleave', () => wrapper.classList.remove('force-collapsed'));
     </script>
 </html>

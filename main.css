@@ -41,6 +41,15 @@ a {
 
 * { cursor: none; }
 
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+  }
+}
+
 .no-drag {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -140,6 +149,7 @@ a:focus-visible,
   z-index: -2;
   width: 100vw;
   height: 100dvh;
+  min-height: 600px;
   filter: blur(clamp(60px, 5vw, 100px));
   overflow: hidden;
   display: flex;
@@ -161,6 +171,7 @@ a:focus-visible,
   z-index: -1;
   width: 100vw;
   height: 100dvh;
+  min-height: 600px;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   
   mix-blend-mode: overlay;
@@ -181,6 +192,7 @@ a:focus-visible,
   z-index: 0; /* must sit above the blobs to blur them */
   width: 100vw;
   height: 100dvh;
+  min-height: 600px;
   pointer-events: none;
 
   backdrop-filter: blur(12px);
@@ -238,11 +250,45 @@ a:focus-visible,
   transition: filter 0.4s ease;
 }
 
+@keyframes fade-in-up {
+  from { opacity: 0; }
+  to   { }
+}
+
+@keyframes fade-in-up-dim {
+  from { opacity: 0; }
+  to   { }
+}
+
+.feature-container,
+.nav,
+.header-content h1,
+.header-content h2,
+.header-about,
+.header-icons,
+.category-wrapper {
+  animation: fade-in-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+.selector-content {
+  animation: fade-in-up-dim 0.9s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+.feature-container  { animation-delay: 0.15s; }
+.nav                { animation-delay: 0.25s; }
+.header-content h1  { animation-delay: 0.45s; }
+.header-content h2  { animation-delay: 0.65s; }
+.header-about       { animation-delay: 0.85s; }
+.header-icons       { animation-delay: 1.05s; }
+.selector-content   { animation-delay: 1.25s; }
+.category-wrapper   { animation-delay: 1.4s; }
+
 .main-container {
   position: absolute;
   z-index: 0;
   width: 100vw;
   height: 100dvh;
+  min-height: 600px;
   overflow: hidden;
 }
 
@@ -257,7 +303,7 @@ a:focus-visible,
 
 .nav {
   pointer-events: auto;
-  margin-top: 60px;
+  margin-top: min(10dvh, 60px);
   height: 70px;
   width: 600px;
   max-width: calc(100vw - 32px);
@@ -305,7 +351,7 @@ a:focus-visible,
 .header-container {
   position: absolute;
   width: 100vw;
-  height: 100dvh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -460,9 +506,46 @@ a:focus-visible,
   transition: 0.4s;
 }
 
+@media (max-height: 600px) {
+  .category-wrapper {
+    margin-top: calc(600px - 58px);
+    height: 500px;
+  }
+}
+
 .category-wrapper:hover {
   height: 80dvh;
   margin-top: 20dvh;
+}
+
+@media (max-height: 600px) {
+  .category-wrapper:hover {
+    margin-top: calc(300px);
+  }
+}
+
+.category-wrapper.force-collapsed:hover {
+  height: 80dvh;
+  margin-top: calc(100dvh - 58px);
+}
+
+@media (max-height: 600px) {
+  .category-wrapper.force-collapsed:hover {
+    margin-top: calc(600px - 58px);
+  }
+}
+
+.category-wrapper.force-collapsed:hover .category-eyebrow {
+  opacity: 0.4;
+}
+
+.category-wrapper.force-collapsed:hover .category-notch {
+  background: #fff3;
+  box-shadow: inset 0px 0px 7px #0002;
+}
+
+.category-wrapper.force-collapsed:hover .category-item {
+  margin-top: 18px;
 }
 
 .category-scroll,
@@ -473,6 +556,13 @@ a:focus-visible,
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+}
+
+.category-scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .category-scroll-shadow {
@@ -541,6 +631,7 @@ a:focus-visible,
   border-radius: 20px;
   backdrop-filter: blur(30px);
   box-shadow: inset 0px 0px 7px #0001;
+  overflow-y: auto;
 
   display: flex;
   flex-direction: column;
@@ -632,7 +723,7 @@ a:focus-visible,
   position: absolute;
   z-index: 5;
   width: 100vw;
-  height: 100dvh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
